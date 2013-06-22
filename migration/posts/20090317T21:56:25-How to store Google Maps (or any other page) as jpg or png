@@ -1,0 +1,26 @@
+I'm using my old Palm TX to navigate during my travels. I don't have GPS, but I usually get some maps from the web, store them as jpg and view on Palm as a picture. 
+
+I had problems to get big maps from Google to jpg, because all screen snapshot programs can only get actual "screen" (usually just 1440x900). 
+
+My palm and other devices can handle much bigger images and it's possible to scroll them. My laptop screen resolution was quite limiting... :-(
+
+<hr />
+
+I found solution in KDE:
+<ol>
+
+	<li>Install Firefox add-on called <a href="https://addons.mozilla.org/en-US/firefox/addon/3408">Abduction!</a>. It will allow you to save pages or part of the page as image (File -> Save Page As Image...) </li>
+
+	<li>Run Firefox and chose your place in the map.</li>
+
+	<li>Press ALT + F3 -> Advanced -> Special Windows Settings... </li>
+
+[caption id="attachment_80" align="aligncenter" width="307" caption="Advanced Windows Settings - KDE"]<a href="http://linux.xvx.cz/wp-uploads/advanced_settings.png"><img src="http://linux.xvx.cz/wp-uploads/advanced_settings.png" alt="Advanced Windows Settings - KDE" title="Advanced Settings" width="307" height="178" class="size-full wp-image-80" /></a>[/caption]
+
+	<li>Select Geometry tab and modify "Size" parameters:</li>
+
+[caption id="attachment_82" align="aligncenter" width="649" caption="Edit Window Specific Settings Kwin"]<a href="http://linux.xvx.cz/wp-uploads/edit_window-specific_settings-kwin.png"><img src="http://linux.xvx.cz/wp-uploads/edit_window-specific_settings-kwin.png" alt="Edit Window Specific Settings Kwin" title="Edit Window Specific Settings Kwin" width="649" height="165" class="size-full wp-image-82" /></a>[/caption]
+</ol>
+
+Then your Firefox should be much bigger (above screen borders) and you should be able to save "one big" page as image...
+

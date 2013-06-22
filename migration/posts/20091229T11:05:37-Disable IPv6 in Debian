@@ -1,0 +1,19 @@
+I have problem with Java Webstart applications, which are using IPv6 by default. Because I'm not using IPv6 at all I decide to disable this protocol completely.
+
+There are many pages how to disable ipv6 under Debian, but most of them was not working for me.
+
+The most easiest work well: 
+
+Modify <strong><em>/etc/default/grub</em></strong>:
+
+<pre><code class="bash">GRUB_CMDLINE_LINUX_DEFAULT="ipv6.disable=1"
+</code></pre>
+
+Don't forget to run <em><strong>update-grub</strong></em> after change (and reboot).
+
+Then if you run 
+
+<pre><code class="bash">$ ip a
+</code></pre>
+
+you should not see any IPv6 addresses...

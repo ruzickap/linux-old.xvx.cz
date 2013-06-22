@@ -1,0 +1,169 @@
+I decide to create <a href="http://en.wikipedia.org/wiki/Hotspot_%28Wi-Fi%29">hotspot</a> from my server to allow other connect to Internet for free. I used "<a href="http://en.wikipedia.org/wiki/Captive_portal">Captive portal</a>" solution based on these applications:
+<ul>
+	<li><a href="http://coova.org/CoovaChilli">CoovaChilli</a></li>
+	<li><a href="http://freeradius.org/">FreeRadius</a></li>
+	<li><a href="http://www.mysql.com/">MySQL</a></li>
+	<li><a href="http://daloradius.com/">daloRADIUS</a></li>
+</ul>
+When somebody wants to connect to Internet using my wifi, the first page he can see is the register/login page (whatever page he wants to visit).
+After registration/login he is able to connect to Internet.
+
+So let's see how I did it.
+
+<!--more-->
+
+Let's have one server with two network interfaces - first (eth0) goes to Internet, the second one (eth1) is the wifi for "unknown" clients.
+<center>
+<embed width="600" height="140" src="/wp-uploads/hotspot.svg"/>
+</center>
+
+Install basic software:
+
+<pre><code class="bash">aptitude install mysql-server phpmyadmin freeradius freeradius-utils freeradius-mysql apache2 php-pear php-db
+a2enmod ssl
+a2ensite default-ssl
+service apache2 restart
+cd /tmp && wget 'http://downloads.sourceforge.net/project/daloradius/daloradius/daloradius-0.9-8/daloradius-0.9-8.tar.gz'
+tar xvzf daloradius-0.9-8.tar.gz
+mv /tmp/daloradius-0.9-8 /var/www/daloradius
+chown -R www-data:www-data /var/www/daloradius
+cp -r /var/www/daloradius/contrib/chilli/portal2/* /var/www/
+rm /var/www/index.html
+</code></pre>
+
+Because my machine is 64 bit I need to build CoovaChilli package myself:
+
+<pre><code class="bash">aptitude --assume-yes install dpkg-dev debhelper libssl-dev
+cd /tmp
+wget -c http://ap.coova.org/chilli/coova-chilli-1.2.2.tar.gz
+tar xzf coova-chilli*.tar.gz
+cd coova-chilli*
+dpkg-buildpackage -rfakeroot
+</code></pre>
+
+Install CoovaChilli:
+
+<pre><code class="bash">cd ..
+dpkg -i coova-chilli_*_amd64.deb
+</code></pre>
+
+<h3>Configure FreeRadius</h3>
+
+Change <em>/etc/freeradius/clients.conf</em>:
+<pre><code class="bash">client 127.0.0.1 {
+ secret     = mysecret
+}
+</code></pre>
+
+Change <em>/etc/freeradius/sql.conf</em>:
+
+<pre><code class="bash">        server = "localhost"
+        login = "root"
+        password = "xxxx"
+</code></pre>
+
+Uncomment in <em>/etc/freeradius/sites-available/default</em>:
+
+<pre><code class="bash">authorize {
+          sql
+}
+
+accounting {
+         sql
+}
+</code></pre>
+
+Uncomment in <em>/etc/freeradius/radiusd.conf</em>:
+
+<pre><code class="bash">       $INCLUDE sql.conf
+</code></pre>
+
+<h3>Configure MySQL database for FreeRadius</h3>
+
+<pre><code class="bash">mysql -u root --password=xxxx
+mysql> CREATE DATABASE radius;
+mysql> exit
+
+mysql -u root --password=xxxx radius < /var/www/daloradius/contrib/db/fr2-mysql-daloradius-and-freeradius.sql
+</code></pre>
+
+<h3>daloRADIUS configuration</h3>
+
+Modify this file <em>/var/www/daloradius/library/daloradius.conf.php</em>
+
+</code></pre><pre><code class="php">$configValues['CONFIG_DB_PASS'] = 'xxxx';
+$configValues['CONFIG_MAINT_TEST_USER_RADIUSSECRET'] = 'mysecret';
+$configValues['CONFIG_DB_TBL_RADUSERGROUP'] = 'radusergroup';
+</code></pre>
+
+You also need to modify following configuration files to setup sign in web pages <em>/var/www/signup-*/library/daloradius.conf.php</em>:
+<pre><code class="php">$configValues['CONFIG_DB_PASS'] = 'xxxx';
+$configValues['CONFIG_DB_NAME'] = 'radius';
+$configValues['CONFIG_DB_TBL_RADUSERGROUP'] = 'radusergroup';
+$configValues['CONFIG_SIGNUP_SUCCESS_MSG_LOGIN_LINK'] = "Click <b>here</b>".
+                                        " to return to the Login page and start your surfing";
+</code></pre>
+
+Chnage lines in <em>/var/www/signup*/index.php</em> to (changed 'User-Password' -> 'Cleartext-Password' and '==' -> ':='):
+<pre><code class="php">  $sql = "INSERT INTO ".$configValues['CONFIG_DB_TBL_RADCHECK']." (id, Username, Attribute, op, Value) ".
+                                        " VALUES (0, '$username', 'Cleartext-Password', ':=', '$password')";
+</code></pre>
+
+Another file need to be modified to communicate with CoovaChilli is <em>/var/www/hotspotlogin/hotspotlogin.php</em> 
+<pre><code class="php">$uamsecret = "uamsecret";
+</code></pre>
+
+Now you should be able to reach daloRADIUS installation on http://127.0.0.1/daloradius/
+
+<pre><code class="text">username: administrator
+password: radius
+</code></pre>
+
+<h3>Routing</h3>
+
+We should not forget to enable packet forwarding and setup NAT:
+
+<pre><code class="bash">iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+echo 1 > /proc/sys/net/ipv4/ip_forward
+sed --in-place=.old 's/^#\(net.ipv4.ip_forward=1\)/\1/' /etc/sysctl.conf
+sysctl -p
+</code></pre>
+
+<h3>CoovaChilli configuration</h3>
+
+Let's start with <em>/etc/chilli/defaults</em>:
+
+<pre><code class="bash">HS_NETWORK=192.168.10.0
+HS_UAMLISTEN=192.168.10.1
+
+HS_RADSECRET=mysecret
+HS_UAMSECRET=uamsecret
+HS_UAMFORMAT=https://\$HS_UAMLISTEN/hotspotlogin/hotspotlogin.php
+HS_UAMHOMEPAGE=https://\$HS_UAMLISTEN
+</code></pre>
+
+Then don't forget to enable CoovaChilli to start in <em>/etc/default/chilli</em>
+<pre><code class="bash">START_CHILLI=1
+</code></pre>
+
+Maybe you need to execute chilli and radius server with some debug options to see "errors" during client connection:
+<pre><code class="bash">chilli --fg --debug
+freeradius -X
+</code></pre>
+
+Few links we created:
+
+<ul>
+	<li>http://192.168.10.1/signup-free/ - sign up page (if you don't have username/password)</li>
+	<li>http://192.168.10.1:3990/prelogin - use for login to your portal</li>
+        <li>http://192.168.10.1/daloradius/ - daloradius admin page</li>
+        <li>http://192.168.10.1/phpmyadmin/ - phpmyadmin page (useful for sql database)</li>
+</ul>
+
+This how-to describe simple configuration of CoovaChilli so there are many things to configure. I didn't mentioned anything about security - so it's up to you to tweak it yourself.
+
+You can find additional info on this web page:
+
+<a href="https://help.ubuntu.com/community/WifiDocs/CoovaChilli">https://help.ubuntu.com/community/WifiDocs/CoovaChilli</a>
+
+Engoy... ;-)

@@ -1,0 +1,16 @@
+I found nice page <a href="http://www.hd-trailers.net/">http://www.hd-trailers.net/</a> accessing HD trailers from <a href="http://movies.yahoo.com/feature/hdtrailers.html">Yahoo</a> or <a href="http://www.apple.com/trailers/#section=justhd">Apple</a> through downloadable <a href="http://en.wikipedia.org/wiki/.mov">mov</a> files. It's quite useful to have mov files instead of using flash player especially if you have slower Internet connection.
+
+Here is short <a href="http://www.gnu.org/software/wget/">wget</a> command which download mov files from Apple site into directories:
+
+<pre><code class="bash">#!/bin/bash
+
+#480, 720, 1080
+RESOLUTION=480
+
+wget --recursive --level=2  --accept *${RESOLUTION}p.mov \
+--span-hosts --domains=movies.apple.com,www.hd-trailers.net \
+--no-host-directories --cut-dirs=2 --exclude-directories=/blog \
+http://www.hd-trailers.net/
+</code></pre>
+
+Enjoy ;-)

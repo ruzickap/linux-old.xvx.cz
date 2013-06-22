@@ -1,0 +1,38 @@
+Sometimes you need to run <a href="http://www.nvidia.com/">Nvidia</a> proprietary drivers in various linux distributions.
+I was able to run it on standard <a href="http://www.redhat.com">RHEL</a> 6.0 installed as "Desktop" with the following commands:
+
+<!--more-->
+
+Update the system and install the necessary packages
+
+<pre><code class="bash">yum update
+yum install gcc kernel-devel
+reboot
+</code></pre> 
+
+
+Blacklist the <a href="http://nouveau.freedesktop.org">nouveau</a> driver
+
+<pre><code class="bash">sed -i '/root=/s|$| rdblacklist=nouveau vga=791|' /boot/grub/grub.conf
+echo "blacklist nouveau" >> /etc/modprobe.d/blacklist.conf
+</code></pre> 
+
+Change the initrd image:
+
+<pre><code class="bash">mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname  -r)-nouveau.img
+dracut /boot/initramfs-$(uname -r).img $(uname -r)
+</code></pre> 
+
+Remove the nouveau driver and reboot:
+<pre><code class="bash">yum remove xorg-x11-drv-nouveau
+reboot
+</code></pre> 
+ 
+Stop the X server and run the Nvidia installation process from command line
+
+<pre><code class="bash">init 3
+chmod +x NVIDIA-Linux-x86-260.19.29.run
+ ./NVIDIA-Linux-x86-260.19.29.run
+</code></pre> 
+
+Enjoy :-)

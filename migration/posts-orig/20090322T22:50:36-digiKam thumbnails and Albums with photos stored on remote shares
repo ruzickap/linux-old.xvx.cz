@@ -1,0 +1,24 @@
+My photo collection is stored on the server and accessed by cifs protocol to my notebooks. I'm using <a href="http://www.digikam.org/">digiKam</a> to browse my collection in KDE.
+
+This software is storing all thumbnails in ~/.thumbnails/ according <a href="http://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html">http://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html</a> and create <a href="http://www.sqlite.org/">sqlite</a> database where it stores all information about photos.
+
+<ul>
+	<li>The advantage is, that these thumbnails can be also used by other KDE viewers (like <a href="http://gwenview.sourceforge.net/">Gwenview</a>).</li>
+
+
+	<li>The disadvantage can be that other viewers can generate new thumbnails which are no longer useful an the size of that directory can grow...</li>
+</ul>
+
+I decided to write script which can delete all useless thumbnails and keep only the ones used by digiKam. The reason is simple - I don't want remove all thumbnails and regenerate them again only from digiKam, because I have more than 35k photos so it take a long time... 
+
+Here is my digiKam collection configuration:
+
+<img src="http://linux.xvx.cz/wp-uploads/digikam-configure.png" alt="digiKam Configuration" title="digiKam Configuration" width="803" height="367" class="alignnone size-medium wp-image-117" />
+
+This script deletes all thumbnails of the photos in [cc lang="bash"]$HOME/.thumbnails/large/[/cc] which are <strong>not</strong> on network shares :
+
+(It preserves all the thumbnails of photos stored on network share, which take ages to create because of network or which are not changing, and delete all locally ones)
+
+<a href='http://websvn.xvx.cz/wsvn/projects/trunk/scripts/thumbnails_delete/thumbnails_delete.pl'>thumbnails_delete.pl</a>
+
+Maybe you can find it helpful...

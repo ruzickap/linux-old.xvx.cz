@@ -1,0 +1,82 @@
+Since I bought my HTC Desire I want to put on it <a href="http://www.cyanogenmod.com/">CyanogenMod</a>. This ROM is quite popular, but only version 6.0 released last week supports <a href="http://wiki.cyanogenmod.com/index.php?title=HTC_Desire">HTC Desire</a>.
+
+I'm going to put there few notes how I did "post installation" changes like removing some programs, ssh key config, OpenVPN setup and few more.
+
+<!--more-->
+
+I don't want to describe here how to install this ROM to the HTC Desire, because there is nice how-to on their pages: <a href="http://wiki.cyanogenmod.com/index.php?title=Full_Update_Guide_-_HTC_Desire">http://wiki.cyanogenmod.com/index.php?title=Full_Update_Guide_-_HTC_Desire</a>
+
+Just one remark - If you suffer with signal lost please look at this page: <a href="http://forum.cyanogenmod.com/topic/5437-signal-drops-after-rc2-final/">http://forum.cyanogenmod.com/topic/5437-signal-drops-after-rc2-final/</a>
+
+Put ssh keys to the phone and start dropbear (SSH server):
+(taken from <a href="http://wiki.cyanogenmod.com/index.php?title=Howto:_Connect_to_Device_with_SSH">http://wiki.cyanogenmod.com/index.php?title=Howto:_Connect_to_Device_with_SSH</a>)
+
+Copy your ssh public key from your linux box to the phone:
+<pre><code class="bash">adb push /home/ruzickap/.ssh/id_rsa.pub /sdcard/authorized_keys
+</code></pre>
+
+Prepare dropbear on the phone:
+<pre><code class="bash">adb shell
+
+mkdir -p /data/dropbear/.ssh/
+
+dropbearkey -t rsa -f /data/dropbear/dropbear_rsa_host_key
+dropbearkey -t dss -f /data/dropbear/dropbear_dss_host_key
+
+cp /sdcard/authorized_keys /data/dropbear/.ssh/
+
+chmod 755 /data/dropbear /data/dropbear/.ssh
+chmod 644 /data/dropbear/dropbear*host_key /data/dropbear/.ssh/authorized_keys
+
+echo "export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/system/sbin:/system/bin:/system/xbin:/system/xbin/bb:/data/local/bin" >>/data/dropbear/.profile
+
+dropbear
+</code></pre>
+
+Remove some useless applications:
+(check this page <a href="http://wiki.cyanogenmod.com/index.php?title=Barebones">http://wiki.cyanogenmod.com/index.php?title=Barebones</a> to see what can be removed)
+
+Reboot to "ClockworkMod recovery" using these steps: <a href="http://android.modaco.com/content/htc-desire-desire-modaco-com/310794/fake-flash-by-koush-launching-recovery-on-your-device-without-a-pc/">http://android.modaco.com/content/htc-desire-desire-modaco-com/310794/fake-flash-by-koush-launching-recovery-on-your-device-without-a-pc/</a>
+
+Mount /system partition:
+
+<pre><code class="bash">adb shell
+mount -o nodev,noatime,nodiratime -t yaffs2 /dev/block/mtdblock3 /system
+mount /data
+</code></pre>
+
+Backup directories under /data:
+
+<pre><code class="bash">BACKUP_DESTINATION="/sdcard/mybackup"
+cd /data
+mkdir -p $BACKUP_DESTINATION/data/ && \
+cp -R `ls /data | egrep -v "dalvik-cache|lost\+found"` $BACKUP_DESTINATION/data/
+</code></pre>
+
+Move applications to sdcard:
+
+<pre><code class="bash">for APK in ApplicationsProvider.apk CarHomeGoogle.apk CarHomeLauncher.apk com.amazon.mp3.apk Development.apk Email.apk Facebook.apk GenieWidget.apk googlevoice.apk Maps.apk PicoTts.apk Protips.apk RomManager.apk SetupWizard.apk SpeechRecorder.apk Stk.apk Street.apk Talk.apk TtsService.apk Twitter.apk VoiceDialer.apk YouTube.apk; do
+echo "*** $APK"
+mkdir $BACKUP_DESTINATION/$APK && \
+mv /system/app/$APK $BACKUP_DESTINATION/$APK/ && \
+mv /data/data/`awk -F \" '/'$APK'/ { print $2 }' /data/system/packages.xml` $BACKUP_DESTINATION/$APK/
+#/system/bin/pm uninstall `awk -F \" '/'package.apk'/ { print $2 }' /data/system/packages.xml`
+done
+</code></pre>
+
+Remove unused audio files:
+<pre><code class="bash">for AUDIO in `find /system/media/audio -type f|egrep -v "ui|Alarm_Buzzer.ogg|SpaceSeed.ogg|Doink.ogg|SpaceSeed.ogg|CrayonRock.ogg"`; do
+for AUDIO in `find /system/media/audio -type f|egrep -v "ui|pixiedust.ogg"`; do
+    echo "*** Removing $AUDIO"
+    rm $AUDIO
+done
+</code></pre>
+
+Unmount all used filesystems:
+<pre><code class="bash">cd /
+umount /data /sdcard /system
+</code></pre>
+
+It's all for now... I'm sure I will do more sooner or later, but it's just a few notes for now.
+
+Enjoy :-)

@@ -1,0 +1,21 @@
+It's happened to me one time, that I want to trim margins from PDF document. 
+
+It was a manual for Panasonic G1 camera: <a href="http://ftp.xvx.cz/pub/docs/my/panasonic_g1.pdf">http://ftp.xvx.cz/pub/docs/my/panasonic_g1.pdf</a>
+
+You can see huge margins there, because it was officially written for A5 paper and they create manual for A4. 
+
+See the picture:
+
+<img src="http://linux.xvx.cz/wp-uploads/dmc-g1.png" alt="One page from Czech Panasonic DMC-G1 manual" title="One page from Czech Panasonic DMC-G1 manual" class="alignnone size-medium wp-image-117" />
+
+I used <a href="http://www.ctan.org/tex-archive/support/pdfcrop/">pdfcrop</a> script from Heiko Oberdiek, which can easily trim margins.
+
+[cc lang="bash"]pdfcrop.pl --margins 10 panasonic_g1.pdf panasonic_g1-2.pdf[/cc]
+
+Here is the result:
+
+<img src="http://linux.xvx.cz/wp-uploads/dmc-g1_2.png" alt="Trimmed page from Czech Panasonic DMC-G1 manual" title="Trimmed page from Czech Panasonic DMC-G1 manual" class="alignnone size-medium wp-image-117" />
+
+I hope this can be useful for somebody who needs this... 
+KDE pdf viewer Okular, has the function "Trim Margins", which works very well, but you can not save the PDF...
+

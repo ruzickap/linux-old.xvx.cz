@@ -1,0 +1,29 @@
+I installed <a href="http://boinc.berkeley.edu/">BOINC</a> to my server to help world with scientific problems. It's really easy to install it through from repositories of various distributions, but it's not so easy to configure it.
+
+Usually you can use <a href="http://en.wikipedia.org/wiki/Boinc">BOINC manager</a> to configure BOINC. Unfortunately it is graphical application and it uses <strong>port 31416</strong> to connect to local/remote BOINC installations.
+
+For obvious reasons you don't wan to install GUI applications on servers and you also don't want to enable ports on firewall.
+
+That's time for <a href="http://boinc.berkeley.edu/wiki/Boinccmd_tool">boinc_cmd</a> and here are few tips how to use it.
+
+<ul>
+<li>Set <strong><em>http proxy</em></strong> 10.226.56.40:3128:</li>
+
+<pre><code class="bash">boinc_cmd --passwd my_password --set_proxy_settings 10.226.56.40 3128 "" "" "" "" "" "" ""</code></pre>
+
+<li>Count all the time:</li>
+
+<pre><code class="bash">boinc_cmd --passwd my_password --set_run_mode always</code></pre>
+
+<li>Don't get more work:</li>
+
+<pre><code class="bash">boinc_cmd --passwd my_password --project http://abcathome.com/ nomorework</code></pre>
+
+<li>Attach to the project:</li>
+
+<pre><code class="bash">boinc_cmd --passwd my_password --project_attach http://abcathome.com/  project_id</code></pre>
+
+<li>Update project preferencies:</li>
+
+<pre><code class="bash">boinc_cmd --passwd my_password --project http://abcathome.com/ update</code></pre>
+</ul>

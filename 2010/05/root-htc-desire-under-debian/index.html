@@ -1,0 +1,775 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<title>Root HTC Desire under Debian | Petr's blog about Linux</title>
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all posts" href="../../../feed/index.html" />
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all comments" href="../../../comments/feed/index.html" />
+	<link rel="pingback" href="../../../xmlrpc.php" />
+
+	<!-- style START -->
+	<link rel="stylesheet" href="../../../wp-content/themes/elegant-box/style.css" type="text/css" media="screen" />
+		<!--[if IE]>
+		<link rel="stylesheet" href="http://linux.xvx.cz/wp-content/themes/elegant-box/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+
+	<!-- default style -->
+			<link rel="stylesheet" href="../../../wp-content/themes/elegant-box/styles/blue/default.css" type="text/css" media="screen" title="blue" />
+		<link rel="stylesheet" href="../../../wp-content/themes/elegant-box/styles/blue/global.css" type="text/css" media="screen" />
+	
+	<!-- others styles -->
+	<!-- style END -->
+
+	<!-- javascript START -->
+		<script type="text/javascript" src="../../../wp-content/themes/elegant-box/js/base.js"></script>
+	<script type="text/javascript" src="../../../wp-content/themes/elegant-box/js/menu.js"></script>
+	<!-- javascript END -->
+
+		
+			<script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.5 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-6594742-3']);
+							_gaq.push(['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+			<link rel="alternate" type="application/rss+xml" title="Petr&#039;s blog about Linux &raquo; Root HTC Desire under Debian Comments Feed" href="feed/index.html" />
+<link rel='stylesheet' id='gdsr_style_main-css'  href='http://linux.xvx.cz/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1347955026&#038;s=a10i10m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower%23lsgarrows&#038;o=off&#038;ver=1.9.20' type='text/css' media='all' />
+<link rel='stylesheet' id='NextGEN-css'  href='../../../wp-content/plugins/nextgen-gallery/css/nggallery.css?ver=1.0.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='shutter-css'  href='../../../wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.css?ver=1.3.4' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp-polls-css'  href='../../../wp-content/themes/elegant-box/polls-css.css?ver=2.63' type='text/css' media='all' />
+<link rel='stylesheet' id='codecolorer-css'  href='../../../wp-content/plugins/codecolorer/codecolorer.css?ver=0.9.9' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp_dlmp_styles-css'  href='../../../wp-content/plugins/download-monitor/page-addon/styles.css?ver=3.5.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://linux.xvx.cz/wp-includes/js/jquery/jquery.js?ver=1.8.3'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/gd-star-rating/js/gdsr.js?ver=1.9.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var shutterSettings = {"msgLoading":"L O A D I N G","msgClose":"Click to Close","imageCount":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.js?ver=1.3.3'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/nextgen-gallery/js/jquery.cycle.all.min.js?ver=2.9995'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/nextgen-gallery/js/ngg.slideshow.min.js?ver=1.06'></script>
+<script type='text/javascript' src='http://linux.xvx.cz/wp-includes/js/comment-reply.min.js?ver=3.5.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://linux.xvx.cz/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='PXE server using Dnsmasq and SystemRescueCd with minimal effort' href='../../04/pxe-server-using-dnsmasq-and-systemrescuecd-with-minimal-effort/trackback/index.html' />
+<link rel='next' title='My basic setup of CyanogenMod-6.0 on HTC Desire' href='../../09/my-basic-setup-of-cyanogenmod-6-0-on-htc-desire/index.html' />
+<meta name="generator" content="WordPress 3.5.1" />
+<link rel='shortlink' href='http://wp.me/pqpDz-9c' />
+
+<!-- All in One SEO Pack 1.6.15 by Michael Torbert of Semper Fi Web Design[343,416] -->
+<meta name="description" content="Root HTC Desire under Debian" />
+<meta name="keywords" content="android, debian, goldcard, htc desire, root" />
+<link rel="canonical" href="index.html" />
+<!-- /all in one seo pack -->
+	<style type='text/css'>
+	.download-info .download-button {
+		background-image: url(../../../wp-content/plugins/download-monitor/page-addon/downloadbutton.gif);
+	}
+	.download-info .more-button {
+		background-image: url(../../../wp-content/plugins/download-monitor/page-addon/morebutton.gif);
+	}
+	</style>
+<link rel="shortcut icon" href="http://www.xvx.cz/favicon.ico" /><script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "31f6af320f";
+var gdsr_cnst_ajax = "http://linux.xvx.cz/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script>
+<!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]-->
+<!-- <meta name="NextGEN" version="1.9.6" /> -->
+<style type="text/css">
+.wp-polls .pollbar {
+	margin: 1px;
+	font-size: 6px;
+	line-height: 8px;
+	height: 8px;
+	background-image: url('../../../wp-content/plugins/wp-polls/images/default/pollbg.gif');
+	border: 1px solid #c8c8c8;
+}
+</style>
+
+<!-- Start Of Script Generated By WP-PostViews -->
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery.ajax({type:'GET',url:'http://linux.xvx.cz/wp-admin/admin-ajax.php',data:'postviews_id=570&action=postviews',cache:false});/* ]]> */
+</script>
+<!-- End Of Script Generated By WP-PostViews -->
+
+<!-- Protected by WP-SpamFree v2.1.1.2 :: JS BEGIN -->
+<script type="text/javascript" src="../../../wp-content/plugins/wp-spamfree/js/wpsf-js.php"></script> 
+<!-- Protected by WP-SpamFree v2.1.1.2 :: JS END -->
+
+<link id='MediaRSS' rel='alternate' type='application/rss+xml' title='NextGEN Gallery RSS Feed' href='../../../wp-content/plugins/nextgen-gallery/xml/media-rss.php' />
+<script type="text/javascript">
+//<![CDATA[
+	var screen_res = ""; 
+	function writeCookie(name,value,hours) {
+		var the_cookie = name+"="+escape(value)+"; expires=";
+		var expires = "";
+		hours=hours+0; //convert to number
+		if (hours > 0) { //0==expires on browser close
+			var cdate = new Date();
+			cdate.setTime(cdate.getTime()+(hours*60*60*1000));
+			expires = expires+cdate.toGMTString();
+		} 
+		document.cookie = the_cookie+expires+"; path=/; domain=";
+	}
+	screen_res = screen.width+" x "+screen.height;
+	if (screen_res==" x ") screen_res = window.screen.width+" x "+window.screen.height;
+	if (screen_res==" x ") screen_res = screen.availWidth+" x "+screen.availHeight;
+	if (screen_res!=" x ") { 
+		writeCookie("wassup_screen_res",screen_res,"48"); //keep 2 days
+	} else {
+		screen_res = "";
+	}
+//]]>
+</script>
+</head>
+
+
+<body>
+	<!-- header START -->
+	<div id="header">
+		<div class="inner">
+			<div class="content">
+				<div class="caption">
+					<h1 id="title"><a href="../../../index.html" title="My personal blog about Linux and other opensource applications.">Petr&#8217;s blog about Linux</a></h1>
+					<div id="tagline">My personal blog about Linux and other opensource applications.</div>
+				</div>
+
+				<!-- search box -->
+									<form action="../../../index.html" id="search_box" method="get">
+						<div id="searchbox">
+							<input type="text" id="searchtxt" class="textfield" name="s" value="" />
+						</div>
+					</form>
+				<script type="text/javascript">
+//<![CDATA[
+	var searchbox = document.getElementById("searchbox");
+	var searchtxt = document.getElementById("searchtxt");
+	var tiptext = "Type text to search here...";
+	if(searchtxt.value == "" || searchtxt.value == tiptext) {
+		searchtxt.className += " searchtip";
+		searchtxt.value = tiptext;
+	}
+	searchtxt.onfocus = function(e) {
+		if(searchtxt.value == tiptext) {
+			searchtxt.value = "";
+			searchtxt.className = searchtxt.className.replace(" searchtip", "");
+		}
+	}
+	searchtxt.onblur = function(e) {
+		if(searchtxt.value == "") {
+			searchtxt.className += " searchtip";
+			searchtxt.value = tiptext;
+		}
+	}
+//]]>
+</script>
+
+				<!-- navigation START -->
+				<ul id="navigation">
+
+					<li class="page_item"><a href="../../../index.html">Home</a></li>
+					<li class="page_item page-item-2"><a href="../../../about/index.html">About</a></li>
+					<li id="subscribe">
+						<a rel="external nofollow" title="Subscribe to this blog..." id="feed" href="../../../feed/index.html"><img src="../../../wp-content/themes/elegant-box/images/transparent.gif" alt="RSS feed" /></a>
+													<ul>
+								<li class="first"><a rel="external nofollow" title="Subscribe with Youdao" href="http://reader.youdao.com/b.do?url=http://linux.xvx.cz/feed/"> Youdao</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Xian Guo" href="http://www.xianguo.com/subscribe.php?url=http://linux.xvx.cz/feed/"> Xian Guo</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Zhua Xia" href="http://www.zhuaxia.com/add_channel.php?url=http://linux.xvx.cz/feed/"> Zhua Xia</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Google" href="http://fusion.google.com/add?feedurl=http://linux.xvx.cz/feed/"> Google</a></li>
+								<li><a rel="external nofollow" title="Subscribe with My Yahoo!" href="http://add.my.yahoo.com/rss?url=http://linux.xvx.cz/feed/"> My Yahoo!</a></li>
+								<li><a rel="external nofollow" title="Subscribe with newsgator" href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=http://linux.xvx.cz/feed/"> newsgator</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Bloglines" href="http://www.bloglines.com/sub/http://linux.xvx.cz/feed/"> Bloglines</a></li>
+								<li><a rel="external nofollow" title="Subscribe with iNezha" href="http://inezha.com/add?url=http://linux.xvx.cz/feed/"> iNezha</a></li>
+							</ul>
+											</li>
+
+				</ul>
+				<!-- navigation END -->
+
+			</div>
+		</div>
+	</div>
+	<!-- header END -->
+
+	<div id="container">
+		<div id="content">
+			<div id="main">
+
+		
+			<div class="post">
+				<div class="title">
+					<h2>Root HTC Desire under Debian</h2>
+					<div class="fixed"></div>
+				</div>
+
+				<div class="info">
+					
+					<span>May 4th, 2010</span>
+																<span> | Tags: <a href="../../../tag/android/index.html" rel="tag">Android</a>, <a href="../../../tag/debian/index.html" rel="tag">debian</a>, <a href="../../../tag/goldcard/index.html" rel="tag">goldcard</a>, <a href="../../../tag/htc-desire/index.html" rel="tag">HTC Desire</a>, <a href="../../../tag/root/index.html" rel="tag">root</a></span>
+					
+					<div class="fixed"></div>
+				</div>
+
+				<div class="content">
+					<p>Two weeks ago I bought <a href="http://www.htc.com/www/product/desire/overview.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.htc.com']);">HTC Desire</a> cell phone and I decided to get root on it. Rooting guide for this phone was published few days ago, but most of it it &#8220;windows only&#8221;. </p>
+<p>Here you can find the way how to get root on the <a href="http://www.htc.com/www/product/desire/overview.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.htc.com']);">HTC Desire</a> using Debian.</p>
+<p><span id="more-570"></span></p>
+<ul>
+<li>Download the zip file from <a href="http://android.modaco.com/content/htc-desire-desire-modaco-com/307365/04-may-r4-htc-desire-rooting-guide-now-for-windows-mac-linux/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://android.modaco.com']);">http://android.modaco.com/content/htc-desire-desire-modaco-com/307365/04-may-r4-htc-desire-rooting-guide-now-for-windows-mac-linux/</a> and unzip it:
+</li>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">mkdir</span> <span class="re5">-v</span> <span class="sy0">/</span>var<span class="sy0">/</span>tmp<span class="sy0">/</span>android<br />
+<span class="kw3">cd</span> <span class="sy0">/</span>var<span class="sy0">/</span>tmp<span class="sy0">/</span>android<br />
+<span class="kw2">wget</span> http:<span class="sy0">//</span>www.romraid.com<span class="sy0">/</span>paul<span class="sy0">/</span>bravo<span class="sy0">/</span>r4-desire-root.zip<br />
+<span class="kw2">unzip</span> r4-desire-root.zip</div></div>
+<p>If you are using 64 bit version of Debian, please install ia32-libs first, because <a href="http://developer.android.com/guide/developing/tools/adb.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://developer.android.com']);">adb</a> binary is 32 bit.</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">apt-get install</span> ia32-libs</div></div>
+<li>Enable USB debug mode in your phone by pressing <em>Settings -> Applications -> Development -> USB debugging</em> and get the CID number:</li>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">root<span class="sy0">@</span>czbrn0208:<span class="sy0">/</span>$ <span class="kw3">cd</span> <span class="sy0">/</span>var<span class="sy0">/</span>tmp<span class="sy0">/</span>android<br />
+root<span class="sy0">@</span>czbrn0208:<span class="sy0">/</span>var<span class="sy0">/</span>tmp<span class="sy0">/</span>android$ .<span class="sy0">/</span>adb-linux shell <span class="kw2">cat</span> <span class="sy0">/</span>sys<span class="sy0">/</span>class<span class="sy0">/</span>mmc_host<span class="sy0">/</span>mmc1<span class="sy0">/</span>mmc1:<span class="sy0">*/</span>cid<br />
+03534453553034478001bada0400a1f2</div></div>
+<li>Put the output string to the following page: </li>
+<p><a href="http://hexrev.soaa.me/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://hexrev.soaa.me']);">http://hexrev.soaa.me/</a></p>
+<li>You get another number (00a10004daba01804734305553445303) which you need to put to the following form together with your email address:</li>
+<p><a href="http://psas.revskills.de/?q=goldcard" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://psas.revskills.de']);">http://psas.revskills.de/?q=goldcard</a></p>
+<p>Then you should receive email with your GoldCard image (goldcard.img).</p>
+<li>Connect your phone to the computer in &#8220;<em>Disk drive</em>&#8221; mode and put this image to your microSD card.<br />
+(Backup your data from the card before running this command!)
+</li>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">root<span class="sy0">@</span>czbrn0208:<span class="sy0">/</span>var<span class="sy0">/</span>tmp$ <span class="kw2">dd</span> <span class="re2">if</span>=<span class="sy0">/</span>var<span class="sy0">/</span>tmp<span class="sy0">/</span>goldcard.img <span class="re2">of</span>=<span class="sy0">/</span>dev<span class="sy0">/</span>mmcblk1<br />
+<span class="nu0">0</span>+<span class="nu0">1</span> records <span class="kw1">in</span><br />
+<span class="nu0">0</span>+<span class="nu0">1</span> records out<br />
+<span class="nu0">384</span> bytes <span class="br0">&#40;</span><span class="nu0">384</span> B<span class="br0">&#41;</span> copied, <span class="nu0">0.00537284</span> s, <span class="nu0">71.5</span> kB<span class="sy0">/</span>s</div></div>
+<li>Turn off your HTC Desire and turn it back on by holding the &#8220;<em>back</em>&#8221; button. You should see &#8220;<em>FASTBOOT</em>&#8221; written on the screen in a red box. Connect your phone to the PC and run:
+</li>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;height:300px;"><div class="bash codecolorer">root<span class="sy0">@</span>czbrn0208:<span class="sy0">/</span>$ <span class="kw3">cd</span> <span class="sy0">/</span>var<span class="sy0">/</span>tmp<span class="sy0">/</span>android<br />
+root<span class="sy0">@</span>czbrn0208:<span class="sy0">/</span>var<span class="sy0">/</span>tmp<span class="sy0">/</span>android$ .<span class="sy0">/</span>step1-linux.sh &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+Desire Root Step <span class="nu0">1</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+<br />
+Erasing cache and rebooting <span class="kw1">in</span> RUU mode...<br />
+<br />
+erasing <span class="st_h">'cache'</span>... OKAY<br />
+... OKAY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+<br />
+About to start flash...<br />
+<span class="sy0">&lt;</span> waiting <span class="kw1">for</span> device <span class="sy0">&gt;</span> <br />
+sending <span class="st_h">'zip'</span> <span class="br0">&#40;</span><span class="nu0">137446</span> KB<span class="br0">&#41;</span>... OKAY<br />
+writing <span class="st_h">'zip'</span>... INFOadopting the signature contained <span class="kw1">in</span> this image...<br />
+INFOsignature checking... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFOzip header checking... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFOzip info parsing... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFOchecking model ID... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFOchecking custom ID... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFOchecking main version... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFOstart image<span class="br0">&#91;</span>hboot<span class="br0">&#93;</span> unzipping <span class="kw1">for</span> pre-update check... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFOstart image<span class="br0">&#91;</span>hboot<span class="br0">&#93;</span> flushing... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,hboot,<span class="nu0">0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,hboot,<span class="nu0">100</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFOstart image<span class="br0">&#91;</span>radio<span class="br0">&#93;</span> unzipping <span class="kw1">for</span> pre-update... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFOstart image<span class="br0">&#91;</span>radio<span class="br0">&#93;</span> flushing... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,radio,<span class="nu0">0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,radio,<span class="nu0">6</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,radio,<span class="nu0">14</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,radio,<span class="nu0">19</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,radio,<span class="nu0">27</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,radio,<span class="nu0">36</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,radio,<span class="nu0">44</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,radio,<span class="nu0">51</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,radio,<span class="nu0">59</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,radio,<span class="nu0">100</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+FAILED <span class="br0">&#40;</span>remote: <span class="nu0">90</span> hboot pre-update<span class="sy0">!</span> please flush image again immediately<span class="br0">&#41;</span><br />
+<span class="sy0">&lt;</span> waiting <span class="kw1">for</span> device <span class="sy0">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+sending <span class="st_h">'zip'</span> <span class="br0">&#40;</span><span class="nu0">137446</span> KB<span class="br0">&#41;</span>... OKAY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+writing <span class="st_h">'zip'</span>... INFOadopting the signature contained <span class="kw1">in</span> this image... &nbsp; &nbsp;<br />
+INFOsignature checking... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFOzip header checking... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFOzip info parsing... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFOchecking model ID... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFOchecking custom ID... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFOchecking main version... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFOstart image<span class="br0">&#91;</span>boot<span class="br0">&#93;</span> unzipping <span class="sy0">&amp;</span> flushing... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,boot,<span class="nu0">0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,boot,<span class="nu0">40</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,boot,<span class="nu0">85</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,boot,<span class="nu0">100</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,boot,<span class="nu0">0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,boot,<span class="nu0">45</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,boot,<span class="nu0">90</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,boot,<span class="nu0">100</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFOstart image<span class="br0">&#91;</span>rcdata<span class="br0">&#93;</span> unzipping <span class="sy0">&amp;</span> flushing... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,rcdata,<span class="nu0">0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,rcdata,<span class="nu0">0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,rcdata,<span class="nu0">100</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFOstart image<span class="br0">&#91;</span>recovery<span class="br0">&#93;</span> unzipping <span class="sy0">&amp;</span> flushing... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,recovery,<span class="nu0">0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,recovery,<span class="nu0">24</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,recovery,<span class="nu0">44</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,recovery,<span class="nu0">65</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,recovery,<span class="nu0">93</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,recovery,<span class="nu0">100</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,recovery,<span class="nu0">0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,recovery,<span class="nu0">22</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,recovery,<span class="nu0">44</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,recovery,<span class="nu0">67</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,recovery,<span class="nu0">89</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,recovery,<span class="nu0">100</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFOstart image<span class="br0">&#91;</span>sp1<span class="br0">&#93;</span> unzipping <span class="sy0">&amp;</span> flushing... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,sp1,<span class="nu0">0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,sp1,<span class="nu0">100</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,sp1,<span class="nu0">0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,sp1,<span class="nu0">100</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFOstart image<span class="br0">&#91;</span>system<span class="br0">&#93;</span> unzipping <span class="sy0">&amp;</span> flushing... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">3</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">7</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">12</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">16</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">20</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">25</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">29</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">33</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">37</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">41</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">45</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">50</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">54</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">58</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">62</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">66</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">66</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">66</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">68</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">70</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">72</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">74</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">76</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">78</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">80</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">83</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">85</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">87</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">89</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">91</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">93</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">96</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">98</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,system,<span class="nu0">100</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">66</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">68</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">70</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">72</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">74</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">76</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">78</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">80</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">83</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">85</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">87</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">89</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">91</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">94</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">96</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">98</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,system,<span class="nu0">100</span><br />
+INFOstart image<span class="br0">&#91;</span>userdata<span class="br0">&#93;</span> unzipping <span class="sy0">&amp;</span> flushing...<br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,userdata,<span class="nu0">0</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>UZ,userdata,<span class="nu0">100</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,userdata,<span class="nu0">0</span><br />
+INFO<span class="br0">&#91;</span>RUU<span class="br0">&#93;</span>WP,userdata,<span class="nu0">100</span><br />
+OKAY<br />
+<br />
+Rebooting to bootloader...<br />
+<br />
+rebooting into bootloader... OKAY<br />
+<br />
+Step <span class="nu0">1</span> <span class="kw3">complete</span> - now use the bootloader menu to enter recovery mode.<br />
+<br />
+To <span class="kw1">do</span> this, press the power button, <span class="kw3">wait</span> a few seconds, <span class="kw1">then</span> use the volume keys and power button to <span class="kw1">select</span> the RECOVERY option.</div></div>
+<li>Now navigate to &#8220;<em>BOOTLOADER</em>&#8221; using the volume keys and use power button to select. Then select &#8220;<em>RECOVERY</em>&#8221; and press power again.<br />
+Wait 10 seconds till white HTC screen disappear and run:
+</li>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;height:300px;"><div class="bash codecolorer">root<span class="sy0">@</span>czbrn0208:<span class="sy0">/</span>var<span class="sy0">/</span>tmp<span class="sy0">/</span>android$ <span class="kw1">time</span> .<span class="sy0">/</span>step2-linux.sh <br />
+Desire Root Step <span class="nu0">2</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+<br />
+Pushing required files to device...<br />
+<br />
+<span class="sy0">*</span> daemon not running. starting it now <span class="sy0">*</span><br />
+<span class="sy0">*</span> daemon started successfully <span class="sy0">*</span> &nbsp; &nbsp; &nbsp; &nbsp;<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>sdparted -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>sdparted<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>mkyaffs2image -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>mkyaffs2image<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>toolbox -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>toolbox &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>busybox -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>busybox &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>adbd -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>adbd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>flash_image -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>flash_image &nbsp; &nbsp;<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>fix_permissions -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>fix_permissions<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>um -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>um &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>parted -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>parted &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>wipe -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>wipe &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>log2sd -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>log2sd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>tune2fs -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>tune2fs &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>mke2fs -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>mke2fs &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>reboot -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>reboot &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>unyaffs -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>unyaffs &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>nandroid-mobile.sh -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>nandroid-mobile.sh<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>dump_image -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>dump_image<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>ums_toggle -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>ums_toggle<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>e2fsck -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>e2fsck<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>recovery -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>recovery<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>backuptool.sh -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>backuptool.sh<br />
+push: files<span class="sy0">/</span>sbin<span class="sy0">/</span>fs -<span class="sy0">&gt;</span> <span class="sy0">/</span>sbin<span class="sy0">/</span>fs<br />
+push: files<span class="sy0">/</span>etc<span class="sy0">/</span>mtab -<span class="sy0">&gt;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>mtab<br />
+push: files<span class="sy0">/</span>etc<span class="sy0">/</span>fstab -<span class="sy0">&gt;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>fstab<br />
+push: files<span class="sy0">/</span>system<span class="sy0">/</span>lib<span class="sy0">/</span>libc.so -<span class="sy0">&gt;</span> <span class="sy0">/</span>system<span class="sy0">/</span>lib<span class="sy0">/</span>libc.so<br />
+push: files<span class="sy0">/</span>system<span class="sy0">/</span>lib<span class="sy0">/</span>libcutils.so -<span class="sy0">&gt;</span> <span class="sy0">/</span>system<span class="sy0">/</span>lib<span class="sy0">/</span>libcutils.so<br />
+push: files<span class="sy0">/</span>system<span class="sy0">/</span>lib<span class="sy0">/</span>libm.so -<span class="sy0">&gt;</span> <span class="sy0">/</span>system<span class="sy0">/</span>lib<span class="sy0">/</span>libm.so<br />
+push: files<span class="sy0">/</span>system<span class="sy0">/</span>lib<span class="sy0">/</span>liblog.so -<span class="sy0">&gt;</span> <span class="sy0">/</span>system<span class="sy0">/</span>lib<span class="sy0">/</span>liblog.so<br />
+push: files<span class="sy0">/</span>system<span class="sy0">/</span>lib<span class="sy0">/</span>libstdc++.so -<span class="sy0">&gt;</span> <span class="sy0">/</span>system<span class="sy0">/</span>lib<span class="sy0">/</span>libstdc++.so<br />
+push: files<span class="sy0">/</span>system<span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">sh</span> -<span class="sy0">&gt;</span> <span class="sy0">/</span>system<span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">sh</span><br />
+push: files<span class="sy0">/</span>system<span class="sy0">/</span>bin<span class="sy0">/</span>linker -<span class="sy0">&gt;</span> <span class="sy0">/</span>system<span class="sy0">/</span>bin<span class="sy0">/</span>linker<br />
+<span class="nu0">31</span> files pushed. <span class="nu0">0</span> files skipped.<br />
+<span class="nu0">1944</span> KB<span class="sy0">/</span>s <span class="br0">&#40;</span><span class="nu0">3709881</span> bytes <span class="kw1">in</span> 1.863s<span class="br0">&#41;</span><br />
+<br />
+Pushing update <span class="kw2">file</span> to device sdcard - this may take a few minutes...<br />
+<br />
+<span class="nu0">1903</span> KB<span class="sy0">/</span>s <span class="br0">&#40;</span><span class="nu0">126444599</span> bytes <span class="kw1">in</span> 64.861s<span class="br0">&#41;</span><br />
+<br />
+Now wipe and apply rootedupdate.zip from the recovery image menu.<br />
+<br />
+<br />
+real &nbsp; &nbsp;1m9.999s<br />
+user &nbsp; &nbsp;0m0.012s<br />
+sys &nbsp; &nbsp; 0m0.088s</div></div>
+<li>Navigate to &#8220;<em>Wipe</em>&#8221; option using optical trackball and continue with &#8220;<em>Wipe Data/Factory Reset</em>&#8221; &#8211; this will erase all the data in the phone!<br />
+Then go back to the main recovery menu by pressing volume (-) button and select &#8220;<em>Flash zip from sdcard</em>&#8221; and choose &#8220;<em>rootedupdate.zip</em>&#8220;. </li>
+</ul>
+<p>Then your phone will be flashed and you can select &#8220;<em>Reboot system now</em>&#8221; to get back to the !rooted! phone.</p>
+<p>You can check your Software information to see the current version of the ROM (1.15.405.4) by selecting <em>Settings -> About phone -> Software information -> Software number</em>.</p>
+<p>Good luck <img src='http://linux.xvx.cz/wp-includes/images/smilies/icon_wink.gif' alt=';-)' class='wp-smiley' /> </p>
+<p>Useful links: </p>
+<p><a href="http://www.dkszone.net/root-htc-desire" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.dkszone.net']);">http://www.dkszone.net/root-htc-desire</a><br />
+<a href="http://android.modaco.com/content/htc-desire-desire-modaco-com/307365/04-may-r4-htc-desire-rooting-guide-now-for-windows-mac-linux/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://android.modaco.com']);">http://android.modaco.com/content/htc-desire-desire-modaco-com/307365/04-may-r4-htc-desire-rooting-guide-now-for-windows-mac-linux/</a></p>
+<div style="display: none">VN:F [1.9.20_1166]</div><div class="ratingblock "><div class="ratingheader "></div><div class="ratingstars "><div id="article_rater_570" class="ratepost gdsr-crystal gdsr-size-20"><div class="starsbar gdsr-size-20"><div class="gdouter gdheight"><div id="gdr_vote_a570" style="width: 200px;" class="gdinner gdheight"></div><div id="gdr_stars_a570" class="gdsr_rating_as"><a id="gdsrX570X10X0XaXarticle_rater_570Xarticle_loader_570X10X20" title="10 / 10" class="s10" rel="nofollow"></a><a id="gdsrX570X9X0XaXarticle_rater_570Xarticle_loader_570X10X20" title="9 / 10" class="s9" rel="nofollow"></a><a id="gdsrX570X8X0XaXarticle_rater_570Xarticle_loader_570X10X20" title="8 / 10" class="s8" rel="nofollow"></a><a id="gdsrX570X7X0XaXarticle_rater_570Xarticle_loader_570X10X20" title="7 / 10" class="s7" rel="nofollow"></a><a id="gdsrX570X6X0XaXarticle_rater_570Xarticle_loader_570X10X20" title="6 / 10" class="s6" rel="nofollow"></a><a id="gdsrX570X5X0XaXarticle_rater_570Xarticle_loader_570X10X20" title="5 / 10" class="s5" rel="nofollow"></a><a id="gdsrX570X4X0XaXarticle_rater_570Xarticle_loader_570X10X20" title="4 / 10" class="s4" rel="nofollow"></a><a id="gdsrX570X3X0XaXarticle_rater_570Xarticle_loader_570X10X20" title="3 / 10" class="s3" rel="nofollow"></a><a id="gdsrX570X2X0XaXarticle_rater_570Xarticle_loader_570X10X20" title="2 / 10" class="s2" rel="nofollow"></a><a id="gdsrX570X1X0XaXarticle_rater_570Xarticle_loader_570X10X20" title="1 / 10" class="s1" rel="nofollow"></a></div></div></div></div><div id="article_loader_570" style="display: none; width: 200px " class="ratingloaderarticle"><div class="loader arrows " style="height: 20px"><div class="loaderinner">please wait...</div></div></div></div><div class="ratingtext "><div id="gdr_text_a570">Rating: 10.0/<strong>10</strong> (1 vote cast)</div></div></div><span class="hreview-aggregate" style="display: none !important;"><span class="item"><span class="fn">Root HTC Desire under Debian</span></span>, <span class="rating"><span class="average">10.0</span> out of <span class="best">10</span> based on <span class="votes">1</span> rating <span class="summary"></span></span></span>					<div class="fixed"></div>
+				</div>
+
+				<div class="comments comments_single">
+					<a href="index.html#respond">Leave a comment</a>
+									</div>
+
+				<!-- related posts START -->
+								<!-- related posts END -->
+			</div>
+
+
+<script type="text/javascript" src="../../../wp-content/themes/elegant-box/js/comment.js"></script>
+
+	<!-- comments START -->
+	<ol class="commentlist">
+			<li class="comment " id="comment-198">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/3c6b7fe0133297e34f27843f149a84a9?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-198" href="https://mknowles.com.au" rel="external nofollow">
+											Mark Knowles											</a>
+									</div>
+				<div class="date">May 22nd, 2010 at 12:48</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-198', 'comment-198', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-198', 'comment-198', 'commentbody-198', 'comment');">Quote</a> | 
+								<a href="index.html#comment-198">#1</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-198"><p>Hi Petr,</p>
+<p>Worked like a charm.  I now have a rooted desire without the need for Windows <img src='http://linux.xvx.cz/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+<p>Thanks,<br />
+Mark</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-205">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/4d0e4f2ad6d9f55df762cd43085df3c9?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-205">
+											codeX											</span>
+									</div>
+				<div class="date">June 11th, 2010 at 01:24</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-205', 'comment-205', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-205', 'comment-205', 'commentbody-205', 'comment');">Quote</a> | 
+								<a href="index.html#comment-205">#2</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-205"><p>Thank you! Worked perfect with Fedora 13 64bit</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-209">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/bfa6c22245ae9505ae9c5367a0efb57c?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-209">
+											echo6											</span>
+									</div>
+				<div class="date">June 20th, 2010 at 14:55</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-209', 'comment-209', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-209', 'comment-209', 'commentbody-209', 'comment');">Quote</a> | 
+								<a href="index.html#comment-209">#3</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-209"><p>I downloaded the later r6-desire-root-alt.zip, I noted that there is no ./step2-linux.sh script, is this auto generated?</p>
+<p>Also, block device assigned to the micro sdcard may not be /dev/mmcblk1.</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment  admincomment" id="comment-210">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/5484c0fd9f98e2ffd9212b158931bf4b?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-210" href="http://www.xvx.cz" rel="external nofollow">
+											Petr Ruzicka											</a>
+									</div>
+				<div class="date">June 21st, 2010 at 09:31</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-210', 'comment-210', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-210', 'comment-210', 'commentbody-210', 'comment');">Quote</a> | 
+								<a href="index.html#comment-210">#4</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-210"><p>Hello.</p>
+<p>Looks you are right <img src='http://linux.xvx.cz/wp-includes/images/smilies/icon_sad.gif' alt=':-(' class='wp-smiley' /><br />
+This zip file is changing every 2-3 weeks depends how Paul is busy with creating new releases.<br />
+Please follow the notes on that page, it looks like this how-to become obsolete. </p>
+<p>Thanks PetrR</p>
+</div>
+		</div>
+
+</li>
+	</ol>
+	<!-- comments END -->
+
+	<!-- comments navi START -->
+		<!-- comments navi END -->
+
+	<!-- trackback START -->
+		<!-- trackback END -->
+
+
+	<div id="respond">
+	<form action="http://linux.xvx.cz/wp-comments-post.php" method="post" id="commentform">
+
+	<!-- comment info -->
+	<div id="comment_header">
+		<div id="comment_info">
+							
+				<div id="author_info">
+					<div class="row">
+						<input type="text" name="author" id="author" class="textfield" value="" size="24" tabindex="1" />
+						<label for="author" class="small">Name (required)</label>
+					</div>
+					<div class="row">
+						<input type="text" name="email" id="email" class="textfield" value="" size="24" tabindex="2" />
+						<label for="email" class="small">E-Mail (will not be published) (required)</label>
+					</div>
+					<div class="row">
+						<input type="text" name="url" id="url" class="textfield" value="" size="24" tabindex="3" />
+						<label for="url" class="small">Website</label>
+					</div>
+				</div>
+
+				
+					</div>
+	</div>
+
+	<!-- comment input -->
+	<textarea name="comment" id="comment" tabindex="4" rows="8" cols="50"></textarea>
+
+	<!-- comment submit and rss -->
+	<div id="submitbox">
+		<div id="comments_rss">
+			<a href="../../../comments/feed/index.html">
+				<span class="feed">Subscribe to comments feed</span>
+			</a>
+		</div>
+
+		<div class="act">
+							<a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display:none;">Cancel</a>						<input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit Comment" />
+		</div>
+		
+		<input type="hidden" name="comment_post_ID" value="570" />
+					<input type='hidden' name='comment_post_ID' value='570' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+				<div class="fixed"></div>
+	</div>
+
+		<script type='text/javascript'>
+	<!--
+	refJS = escape( document[ 'referrer' ] );
+	document.write("<input type='hidden' name='refJS' value='"+refJS+"'>");
+	// -->
+	</script>
+	<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="f198c6b9c9" /></p>	</form>
+	</div>
+
+	
+
+			
+
+	</div>
+
+	<!-- sidebar START -->
+<div id="sidebar">
+
+<!-- Style Switcher START -->
+<!-- Style Switcher END -->
+
+		<!-- showcase -->
+		
+		<ul id="widgets">
+
+<li class="widget widget_archive"><h3>Archives</h3>		<ul>
+			<li><a href='../../../2013/06/index.html' title='June 2013'>June 2013</a>&nbsp;(1)</li>
+	<li><a href='../../../2012/01/index.html' title='January 2012'>January 2012</a>&nbsp;(1)</li>
+	<li><a href='../../../2011/12/index.html' title='December 2011'>December 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../2011/02/index.html' title='February 2011'>February 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../2011/01/index.html' title='January 2011'>January 2011</a>&nbsp;(1)</li>
+	<li><a href='../../12/index.html' title='December 2010'>December 2010</a>&nbsp;(1)</li>
+	<li><a href='../../09/index.html' title='September 2010'>September 2010</a>&nbsp;(1)</li>
+	<li><a href='../index.html' title='May 2010'>May 2010</a>&nbsp;(1)</li>
+	<li><a href='../../04/index.html' title='April 2010'>April 2010</a>&nbsp;(1)</li>
+	<li><a href='../../03/index.html' title='March 2010'>March 2010</a>&nbsp;(5)</li>
+	<li><a href='../../../2009/12/index.html' title='December 2009'>December 2009</a>&nbsp;(1)</li>
+	<li><a href='../../../2009/08/index.html' title='August 2009'>August 2009</a>&nbsp;(1)</li>
+	<li><a href='../../../2009/06/index.html' title='June 2009'>June 2009</a>&nbsp;(3)</li>
+	<li><a href='../../../2009/03/index.html' title='March 2009'>March 2009</a>&nbsp;(3)</li>
+	<li><a href='../../../2009/02/index.html' title='February 2009'>February 2009</a>&nbsp;(1)</li>
+		</ul>
+</li><li class="widget widget_polls-widget"><h3>Polls</h3><div id="polls-2" class="wp-polls">
+	<form id="polls_form_2" class="wp-polls-form" action="index.html" method="post">
+		<p style="display: none;"><input type="hidden" id="poll_2_nonce" name="wp-polls-nonce" value="72cec8fd98" /></p>
+		<p style="display: none;"><input type="hidden" name="poll_id" value="2" /></p>
+		<p style="display: none;"><input type="hidden" id="poll_multiple_ans_2" name="poll_multiple_ans_2" value="3" /></p>
+		<p style="text-align: center;"><strong>Favourite distro</strong></p><div id="polls-2-ans" class="wp-polls-ans"><ul class="wp-polls-ul">
+		<li><input type="checkbox" id="poll-answer-6" name="poll_2" value="6" /> <label for="poll-answer-6">Debian, Ubuntu</label></li>
+		<li><input type="checkbox" id="poll-answer-7" name="poll_2" value="7" /> <label for="poll-answer-7">RedHat, Fedora, CentOS</label></li>
+		<li><input type="checkbox" id="poll-answer-8" name="poll_2" value="8" /> <label for="poll-answer-8">Gentoo, Sabayon</label></li>
+		<li><input type="checkbox" id="poll-answer-9" name="poll_2" value="9" /> <label for="poll-answer-9">Arch</label></li>
+		<li><input type="checkbox" id="poll-answer-10" name="poll_2" value="10" /> <label for="poll-answer-10">Slackware</label></li>
+		<li><input type="checkbox" id="poll-answer-11" name="poll_2" value="11" /> <label for="poll-answer-11">openSUSE</label></li>
+		<li><input type="checkbox" id="poll-answer-12" name="poll_2" value="12" /> <label for="poll-answer-12">Mandriva</label></li>
+		</ul><p style="text-align: center;"><input type="button" name="vote" value="   Vote   " class="Buttons" onclick="poll_vote(2);" onkeypress="poll_result(2);" /></p><p style="text-align: center;"><a href="index.html#ViewPollResults" onclick="poll_result(2); return false;" onkeypress="poll_result(2); return false;" title="View Results Of This Poll">View Results</a></p></div>
+	</form>
+</div>
+<div id="polls-2-loading" class="wp-polls-loading"><img src="../../../wp-content/plugins/wp-polls/images/loading.gif" width="16" height="16" alt="Loading ..." title="Loading ..." class="wp-polls-image" />&nbsp;Loading ...</div>
+</li><li class="widget wassup_widget"><h3>Visitors Online</h3><ul class='links'><li><strong style='padding:0 4px 0 4px;background:#ddd;color:#777'>03</strong> visitor(s) online</li><li style='font-size:6pt; color:#bbb;'>powered by <a style='color:#777;' href='http://www.wpwp.org' title='WassUp - Real Time Visitors Tracking'>WassUp</a></li></ul></li>		</ul>
+
+		<!-- showcase 2 -->
+		
+</div>
+<!-- sidebar END -->
+
+	<div class="fixed"></div>
+
+		<div id="bottom">
+			<div class="postnav">
+				<span class="alignleft">&laquo; <a href="../../04/pxe-server-using-dnsmasq-and-systemrescuecd-with-minimal-effort/trackback/index.html" rel="prev">PXE server using Dnsmasq and SystemRescueCd with minimal effort</a></span>
+				<span class="alignright"><a href="../../09/my-basic-setup-of-cyanogenmod-6-0-on-htc-desire/index.html" rel="next">My basic setup of CyanogenMod-6.0 on HTC Desire</a> &raquo;</span>
+				<div class="fixed"></div>
+			</div>
+
+			<div class="anchor">
+				<span><a href="index.html#" onclick="MGJS.goTop();return false;">TOP</a></span>
+			</div>
+			<div class="fixed"></div>
+			</div>
+		<div class="fixed"></div>
+	</div>
+</div>
+
+<!-- footer START -->
+<div id="footer">
+	<div class="inner">
+		<div class="content">
+			<p id="about">
+				Copyright &copy; 2009-2013 Petr&#8217;s blog about Linux | Powered by <a href="http://wordpress.org/">WordPress</a> | Theme by <a href="http://www.neoease.com/">NeoEase</a>			</p>
+
+			<ul id="admin">
+								<li><a href="../../../wp-login.php">Log in</a></li>
+			</ul>
+
+			<div class="fixed"></div>
+		</div>
+	</div>
+</div><!-- footer END -->
+<!--[if IE]>
+<script language=javascript>
+//<![CDATA[
+	if (screen_res=="") {
+		screen_res = screen.width + " x " + screen.height;
+	}
+	if (screen_res!=" x ") {
+		var cdate = new Date();
+		cdate.setTime(cdate.getTime()+(48*60*60*1000));
+		var cexpires = cdate.toGMTString();
+		//var the_cookie = "wassup_screen_res="+escape(screen_res)+"; expires="+cexpires;
+		document.cookie = "wassup_screen_res=" + escape(screen_res)+ "; path=/; domain=" + document.domain;
+
+	}
+//]]>
+</script>
+<![endif]--><!--
+<p class="small"> WassUp 1.8.3.1 timestamp: 2013-06-22 10:01:58AM UTC (11:01AM)<br />
+If above timestamp is not current time, this page is cached.</p> -->
+<script type='text/javascript' src='http://lite.piclens.com/current/piclens_optimized.js?ver=3.5.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var pollsL10n = {"ajax_url":"http:\/\/linux.xvx.cz\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"1","show_fading":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../wp-content/plugins/wp-polls/polls-js.js?ver=2.63'></script>
+<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201325.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'6295081',v:'ext',post:'570'});
+var load_cmc = function(){linktracker_init(6295081,570,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+
+</body>
+</html>

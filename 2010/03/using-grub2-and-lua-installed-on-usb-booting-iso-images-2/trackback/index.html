@@ -1,0 +1,813 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<title>Using Grub2 and LUA installed on USB booting ISO images | Petr's blog about Linux</title>
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all posts" href="../../../../feed/index.html" />
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all comments" href="../../../../comments/feed/index.html" />
+	<link rel="pingback" href="../../../../xmlrpc.php" />
+
+	<!-- style START -->
+	<link rel="stylesheet" href="../../../../wp-content/themes/elegant-box/style.css" type="text/css" media="screen" />
+		<!--[if IE]>
+		<link rel="stylesheet" href="http://linux.xvx.cz/wp-content/themes/elegant-box/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+
+	<!-- default style -->
+			<link rel="stylesheet" href="../../../../wp-content/themes/elegant-box/styles/blue/default.css" type="text/css" media="screen" title="blue" />
+		<link rel="stylesheet" href="../../../../wp-content/themes/elegant-box/styles/blue/global.css" type="text/css" media="screen" />
+	
+	<!-- others styles -->
+	<!-- style END -->
+
+	<!-- javascript START -->
+		<script type="text/javascript" src="../../../../wp-content/themes/elegant-box/js/base.js"></script>
+	<script type="text/javascript" src="../../../../wp-content/themes/elegant-box/js/menu.js"></script>
+	<!-- javascript END -->
+
+		
+			<script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.5 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-6594742-3']);
+							_gaq.push(['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+			<link rel="alternate" type="application/rss+xml" title="Petr&#039;s blog about Linux &raquo; Using Grub2 and LUA installed on USB booting ISO images Comments Feed" href="../feed/index.html" />
+<link rel='stylesheet' id='gdsr_style_main-css'  href='http://linux.xvx.cz/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1347955026&#038;s=a10i10m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower%23lsgarrows&#038;o=off&#038;ver=1.9.20' type='text/css' media='all' />
+<link rel='stylesheet' id='NextGEN-css'  href='../../../../wp-content/plugins/nextgen-gallery/css/nggallery.css?ver=1.0.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='shutter-css'  href='../../../../wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.css?ver=1.3.4' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp-polls-css'  href='../../../../wp-content/themes/elegant-box/polls-css.css?ver=2.63' type='text/css' media='all' />
+<link rel='stylesheet' id='codecolorer-css'  href='../../../../wp-content/plugins/codecolorer/codecolorer.css?ver=0.9.9' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp_dlmp_styles-css'  href='../../../../wp-content/plugins/download-monitor/page-addon/styles.css?ver=3.5.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://linux.xvx.cz/wp-includes/js/jquery/jquery.js?ver=1.8.3'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/gd-star-rating/js/gdsr.js?ver=1.9.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var shutterSettings = {"msgLoading":"L O A D I N G","msgClose":"Click to Close","imageCount":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../../wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.js?ver=1.3.3'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/nextgen-gallery/js/jquery.cycle.all.min.js?ver=2.9995'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/nextgen-gallery/js/ngg.slideshow.min.js?ver=1.06'></script>
+<script type='text/javascript' src='http://linux.xvx.cz/wp-includes/js/comment-reply.min.js?ver=3.5.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://linux.xvx.cz/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='RAID disk check in Linux' href='../../raid-disk-check-in-linux/trackback/index.html' />
+<link rel='next' title='Debian Wi-Fi hotspot using CoovaChilli, FreeRadius, MySQL and daloRADIUS' href='../../debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/trackback/index.html' />
+<meta name="generator" content="WordPress 3.5.1" />
+<link rel='shortlink' href='http://wp.me/pqpDz-3q' />
+
+<!-- All in One SEO Pack 1.6.15 by Michael Torbert of Semper Fi Web Design[343,443] -->
+<meta name="description" content="I got 16 GB USB flash from my brother, because he can't see me still using my old 64 MB. He decided to buy Imation Nano-Flash-Drive. Because of many of my" />
+<meta name="keywords" content="grub2, lua, usb flash, iso images" />
+<link rel="canonical" href="index.html" />
+<!-- /all in one seo pack -->
+	<style type='text/css'>
+	.download-info .download-button {
+		background-image: url(../../../../wp-content/plugins/download-monitor/page-addon/downloadbutton.gif);
+	}
+	.download-info .more-button {
+		background-image: url(../../../../wp-content/plugins/download-monitor/page-addon/morebutton.gif);
+	}
+	</style>
+<link rel="shortcut icon" href="http://www.xvx.cz/favicon.ico" /><script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "31f6af320f";
+var gdsr_cnst_ajax = "http://linux.xvx.cz/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script>
+<!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]-->
+<!-- <meta name="NextGEN" version="1.9.6" /> -->
+<style type="text/css">
+.wp-polls .pollbar {
+	margin: 1px;
+	font-size: 6px;
+	line-height: 8px;
+	height: 8px;
+	background-image: url('../../../../wp-content/plugins/wp-polls/images/default/pollbg.gif');
+	border: 1px solid #c8c8c8;
+}
+</style>
+
+<!-- Start Of Script Generated By WP-PostViews -->
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery.ajax({type:'GET',url:'http://linux.xvx.cz/wp-admin/admin-ajax.php',data:'postviews_id=212&action=postviews',cache:false});/* ]]> */
+</script>
+<!-- End Of Script Generated By WP-PostViews -->
+
+<!-- Protected by WP-SpamFree v2.1.1.2 :: JS BEGIN -->
+<script type="text/javascript" src="../../../../wp-content/plugins/wp-spamfree/js/wpsf-js.php"></script> 
+<!-- Protected by WP-SpamFree v2.1.1.2 :: JS END -->
+
+<link id='MediaRSS' rel='alternate' type='application/rss+xml' title='NextGEN Gallery RSS Feed' href='../../../../wp-content/plugins/nextgen-gallery/xml/media-rss.php' />
+<script type="text/javascript">
+//<![CDATA[
+	var screen_res = ""; 
+	function writeCookie(name,value,hours) {
+		var the_cookie = name+"="+escape(value)+"; expires=";
+		var expires = "";
+		hours=hours+0; //convert to number
+		if (hours > 0) { //0==expires on browser close
+			var cdate = new Date();
+			cdate.setTime(cdate.getTime()+(hours*60*60*1000));
+			expires = expires+cdate.toGMTString();
+		} 
+		document.cookie = the_cookie+expires+"; path=/; domain=";
+	}
+	screen_res = screen.width+" x "+screen.height;
+	if (screen_res==" x ") screen_res = window.screen.width+" x "+window.screen.height;
+	if (screen_res==" x ") screen_res = screen.availWidth+" x "+screen.availHeight;
+	if (screen_res!=" x ") { 
+		writeCookie("wassup_screen_res",screen_res,"48"); //keep 2 days
+	} else {
+		screen_res = "";
+	}
+//]]>
+</script>
+</head>
+
+
+<body>
+	<!-- header START -->
+	<div id="header">
+		<div class="inner">
+			<div class="content">
+				<div class="caption">
+					<h1 id="title"><a href="../../../../index.html" title="My personal blog about Linux and other opensource applications.">Petr&#8217;s blog about Linux</a></h1>
+					<div id="tagline">My personal blog about Linux and other opensource applications.</div>
+				</div>
+
+				<!-- search box -->
+									<form action="../../../../index.html" id="search_box" method="get">
+						<div id="searchbox">
+							<input type="text" id="searchtxt" class="textfield" name="s" value="" />
+						</div>
+					</form>
+				<script type="text/javascript">
+//<![CDATA[
+	var searchbox = document.getElementById("searchbox");
+	var searchtxt = document.getElementById("searchtxt");
+	var tiptext = "Type text to search here...";
+	if(searchtxt.value == "" || searchtxt.value == tiptext) {
+		searchtxt.className += " searchtip";
+		searchtxt.value = tiptext;
+	}
+	searchtxt.onfocus = function(e) {
+		if(searchtxt.value == tiptext) {
+			searchtxt.value = "";
+			searchtxt.className = searchtxt.className.replace(" searchtip", "");
+		}
+	}
+	searchtxt.onblur = function(e) {
+		if(searchtxt.value == "") {
+			searchtxt.className += " searchtip";
+			searchtxt.value = tiptext;
+		}
+	}
+//]]>
+</script>
+
+				<!-- navigation START -->
+				<ul id="navigation">
+
+					<li class="page_item"><a href="../../../../index.html">Home</a></li>
+					<li class="page_item page-item-2"><a href="../../../../about/index.html">About</a></li>
+					<li id="subscribe">
+						<a rel="external nofollow" title="Subscribe to this blog..." id="feed" href="../../../../feed/index.html"><img src="../../../../wp-content/themes/elegant-box/images/transparent.gif" alt="RSS feed" /></a>
+													<ul>
+								<li class="first"><a rel="external nofollow" title="Subscribe with Youdao" href="http://reader.youdao.com/b.do?url=http://linux.xvx.cz/feed/"> Youdao</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Xian Guo" href="http://www.xianguo.com/subscribe.php?url=http://linux.xvx.cz/feed/"> Xian Guo</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Zhua Xia" href="http://www.zhuaxia.com/add_channel.php?url=http://linux.xvx.cz/feed/"> Zhua Xia</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Google" href="http://fusion.google.com/add?feedurl=http://linux.xvx.cz/feed/"> Google</a></li>
+								<li><a rel="external nofollow" title="Subscribe with My Yahoo!" href="http://add.my.yahoo.com/rss?url=http://linux.xvx.cz/feed/"> My Yahoo!</a></li>
+								<li><a rel="external nofollow" title="Subscribe with newsgator" href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=http://linux.xvx.cz/feed/"> newsgator</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Bloglines" href="http://www.bloglines.com/sub/http://linux.xvx.cz/feed/"> Bloglines</a></li>
+								<li><a rel="external nofollow" title="Subscribe with iNezha" href="http://inezha.com/add?url=http://linux.xvx.cz/feed/"> iNezha</a></li>
+							</ul>
+											</li>
+
+				</ul>
+				<!-- navigation END -->
+
+			</div>
+		</div>
+	</div>
+	<!-- header END -->
+
+	<div id="container">
+		<div id="content">
+			<div id="main">
+
+		
+			<div class="post">
+				<div class="title">
+					<h2>Using Grub2 and LUA installed on USB booting ISO images</h2>
+					<div class="fixed"></div>
+				</div>
+
+				<div class="info">
+					
+					<span>March 23rd, 2010</span>
+																<span> | Tags: <a href="../../../../tag/grub2/index.html" rel="tag">grub2</a>, <a href="../../../../tag/iso-images/index.html" rel="tag">ISO images</a>, <a href="../../../../tag/lua/index.html" rel="tag">LUA</a>, <a href="../../../../tag/usb-flash/index.html" rel="tag">USB flash</a></span>
+					
+					<div class="fixed"></div>
+				</div>
+
+				<div class="content">
+					<p>I got 16 GB <a href="http://en.wikipedia.org/wiki/USB_flash_drive" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">USB flash</a> from my brother, because he can&#8217;t see me still using my old 64 MB. He decided to buy <a href="http://www.imation.com/en-us/Imation-Products/USB-Flash-Drives--Accessories/Nano-Flash-Drive/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.imation.com']);">Imation Nano-Flash-Drive</a>.</p>
+<p>Because of many of my friends and colleagues are using Win, I use <a href="http://en.wikipedia.org/wiki/NTFS" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">NTFS</a> on it. Old FAT is not &#8220;usable&#8221; in these days, because it can&#8217;t handle bigger files.</p>
+<p>From the first time I use USB disks I always want to have bootable disk/flash with live CDs &#8211; so here are few notes how to create USB flash drive able to boot stored live CDs:</p>
+<p><span id="more-212"></span></p>
+<p>Fist you need to compile <a href="http://www.gnu.org/software/grub/index.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.gnu.org']);">grub2</a> yourselves, because default grub2 installations in distributions does not have <a href="http://en.wikipedia.org/wiki/Lua_%28programming_language%29" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">LUA</a> support:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">aptitude</span> <span class="kw2">install</span> autogen <span class="kw2">automake</span> <span class="kw2">bison</span> <span class="kw2">flex</span> <span class="kw2">gettext</span> <span class="kw2">gcc</span> <span class="kw2">autoconf</span> ruby bzr libfreetype6-dev</div></div>
+<p>Debian way compilation and installation:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">aptitude</span> <span class="kw2">install</span> dpkg-dev fakeroot<br />
+<span class="kw2">apt-get <span class="kw3">source</span></span> grub2<br />
+<span class="kw2">apt-get build-dep</span> grub2<br />
+dpkg-source <span class="re5">-x</span> grub2_1.98-<span class="nu0">1</span>.dsc<br />
+<br />
+bzr branch http:<span class="sy0">//</span>bzr.savannah.gnu.org<span class="sy0">/</span>r<span class="sy0">/</span>grub-extras<span class="sy0">/</span>lua .<span class="sy0">/</span>grub2-<span class="nu0">1.98</span><span class="sy0">/</span>debian<span class="sy0">/</span>grub-extras<span class="sy0">/</span>lua<br />
+<br />
+<span class="kw3">cd</span> grub2-<span class="nu0">1.98</span><br />
+dpkg-buildpackage <span class="re5">-rfakeroot</span> <span class="re5">-b</span><br />
+<br />
+<span class="kw3">cd</span> ..<br />
+<span class="kw2">dpkg</span> <span class="re5">-r</span> grub-pc grub-common<br />
+<span class="kw2">dpkg</span> <span class="re5">-i</span> .<span class="sy0">/</span>grub-common_1.98-<span class="nu0">1</span>_amd64.deb .<span class="sy0">/</span>grub-pc_1.98-<span class="nu0">1</span>_amd64.deb</div></div>
+<p>Compilation and installation from source code (not necessary if you follow &#8220;Debian steps&#8221; above):</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">bzr branch http:<span class="sy0">//</span>bzr.savannah.gnu.org<span class="sy0">/</span>r<span class="sy0">/</span>grub<span class="sy0">/</span>trunk<span class="sy0">/</span>grub<br />
+<span class="kw2">mkdir</span> .<span class="sy0">/</span>grub<span class="sy0">/</span>grub-extras<br />
+bzr branch http:<span class="sy0">//</span>bzr.savannah.gnu.org<span class="sy0">/</span>r<span class="sy0">/</span>grub-extras<span class="sy0">/</span>lua .<span class="sy0">/</span>grub<span class="sy0">/</span>grub-extras<span class="sy0">/</span>lua<br />
+<span class="co0">#bzr branch http://bzr.savannah.gnu.org/r/grub-extras/gpxe ./grub/grub-extras/gpxe</span><br />
+<br />
+<span class="kw3">cd</span> grub<br />
+<span class="kw3">export</span> <span class="re2">GRUB_CONTRIB</span>=.<span class="sy0">/</span>grub-extras<span class="sy0">/</span><br />
+.<span class="sy0">/</span>autogen.sh<br />
+.<span class="sy0">/</span>configure <span class="re5">--prefix</span>=<span class="sy0">/</span>tmp<span class="sy0">/</span>grub<br />
+<span class="kw2">make</span><br />
+<span class="kw2">make</span> <span class="kw2">install</span></div></div>
+<p>Mount USB to some directory (in my case /mnt/sdb1) and install grub with Lua support on it:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">mount</span> <span class="sy0">/</span>dev<span class="sy0">/</span>sdb1 <span class="sy0">/</span>mnt<span class="sy0">/</span>sdb1<br />
+grub-install <span class="re5">--root-directory</span>=<span class="sy0">/</span>mnt<span class="sy0">/</span>sdb1 <span class="sy0">/</span>dev<span class="sy0">/</span>sdb</div></div>
+<p>To make grub nicer, I add wallper and fonts to it:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">wget</span> <span class="re5">--directory-prefix</span>=<span class="sy0">/</span>tmp<span class="sy0">/</span> http:<span class="sy0">//</span>unifoundry.com<span class="sy0">/</span>unifont-5.1.20080820.pcf.gz <br />
+grub-mkfont <span class="re5">--output</span>=<span class="sy0">/</span>mnt<span class="sy0">/</span>sdb1<span class="sy0">/</span>boot<span class="sy0">/</span>grub<span class="sy0">/</span>unifont.pf2 <span class="re5">--range</span>=0x0000-0x0241,0x2190-0x21FF,0x2500-0x259f <span class="sy0">/</span>tmp<span class="sy0">/</span>unifont-5.1.20080820.pcf.gz <span class="re5">-v</span> <span class="re5">-b</span><br />
+<span class="kw2">wget</span> http:<span class="sy0">//</span>ubuntulife.files.wordpress.com<span class="sy0">/</span><span class="nu0">2007</span><span class="sy0">/</span>05<span class="sy0">/</span>linux.jpg <span class="sy0">/</span>mnt<span class="sy0">/</span>sdb1<span class="sy0">/</span>boot<span class="sy0">/</span>grub<span class="sy0">/</span></div></div>
+<p>Last step is creating right configuration and downloading live iso images of various Linux distributions:</p>
+<p>Let&#8217;s download the ISOs first. It&#8217;s better to use most actual ones. These are working fine for me:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">mkdir</span> <span class="re5">-v</span> <span class="sy0">/</span>mnt<span class="sy0">/</span>sdb1<span class="sy0">/</span>isos<br />
+<span class="kw2">wget</span> <span class="re5">-c</span> <span class="re5">--directory-prefix</span>=<span class="sy0">/</span>mnt<span class="sy0">/</span>sdb1<span class="sy0">/</span>isos \<br />
+http:<span class="sy0">//</span>ftp.heanet.ie<span class="sy0">/</span>pub<span class="sy0">/</span>linuxmint.com<span class="sy0">/</span>testing<span class="sy0">/</span>LinuxMint-<span class="nu0">8</span>-x64-RC1.iso \<br />
+http:<span class="sy0">//</span>gd.tuwien.ac.at<span class="sy0">/</span>opsys<span class="sy0">/</span>linux<span class="sy0">/</span>grml<span class="sy0">/</span>grml64_2009.10.iso \<br />
+http:<span class="sy0">//</span>ftp.cc.uoc.gr<span class="sy0">/</span>mirrors<span class="sy0">/</span>linux<span class="sy0">/</span>slax<span class="sy0">/</span>SLAX-<span class="nu0">6</span>.x<span class="sy0">/</span>slax-6.1.2.iso \<br />
+http:<span class="sy0">//</span>downloads.sourceforge.net<span class="sy0">/</span>project<span class="sy0">/</span>systemrescuecd<span class="sy0">/</span>sysresccd-x86<span class="sy0">/</span>1.5.0<span class="sy0">/</span>systemrescuecd-x86-1.5.0.iso \<br />
+http:<span class="sy0">//</span>releases.ubuntu.com<span class="sy0">/</span>karmic<span class="sy0">/</span>ubuntu-<span class="nu0">9.10</span>-desktop-amd64.iso \<br />
+http:<span class="sy0">//</span>xpud.googlecode.com<span class="sy0">/</span>files<span class="sy0">/</span>xpud-0.9.2.iso</div></div>
+<p>The following code is taken from this web page <a href="http://ubuntuforums.org/showthread.php?t=1288604" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://ubuntuforums.org']);">http://ubuntuforums.org/showthread.php?t=1288604</a> wgere I added more live cds. I also change the main grup.cfg little bit and use 64 live CDs (amd64).</p>
+<p>Save following text as 3 files:</p>
+<ul>
+<li>/mnt/sdb1/boot/grub/grub.cfg</li>
+<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;height:300px;"><div class="text codecolorer">insmod vbeinfo<br />
+insmod font<br />
+<br />
+if loadfont /boot/grub/unifont.pf2 ; then<br />
+&nbsp; set gfxmode=&quot;1024x768x32,800x600x32,640x480x32,1024x768,800x600,640x480&quot;<br />
+# &nbsp;set gfxpayload=keep<br />
+&nbsp; insmod gfxterm<br />
+# &nbsp;insmod vbe<br />
+&nbsp; if terminal_output gfxterm; then true ; else<br />
+&nbsp; &nbsp; &nbsp;terminal gfxterm<br />
+&nbsp; fi<br />
+fi<br />
+<br />
+insmod jpeg<br />
+if background_image /boot/grub/linux.jpg ; then<br />
+&nbsp; set menu_color_normal=black/black<br />
+&nbsp; set color_highlight=red/blue<br />
+else<br />
+&nbsp; set menu_color_normal=cyan/blue<br />
+&nbsp; set menu_color_highlight=white/blue<br />
+fi<br />
+<br />
+set default=0<br />
+set timeout=10<br />
+<br />
+# Uncomment for a different ISO files search path<br />
+#set isofolder=&quot;/boot/isos&quot;<br />
+#export isofolder<br />
+<br />
+# Uncomment for a different live system language<br />
+#set isolangcode=&quot;us&quot;<br />
+#export isolangcode<br />
+<br />
+source /boot/grub/listisos.lua</div></div>
+<li>/mnt/sdb1/boot/grub/bootiso.lua</li>
+<div class="codecolorer-container lua default" style="overflow:auto;white-space:nowrap;height:300px;"><div class="lua codecolorer"><span class="sy0">#</span>!lua &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+<br />
+<span class="co1">-- Detects the live system type and boots it</span><br />
+<span class="kw1">function</span> boot_iso <span class="br0">&#40;</span>isofile<span class="sy0">,</span> langcode<span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; <br />
+&nbsp; <span class="co1">-- grml &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><br />
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>dir_exist <span class="br0">&#40;</span><span class="st0">&quot;(loop)/boot/grml64&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">then</span><br />
+&nbsp; &nbsp; boot_linux <span class="br0">&#40;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;(loop)/boot/grml64/linux26&quot;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;(loop)/boot/grml64/initrd.gz&quot;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;findiso=&quot;</span> <span class="sy0">..</span> isofile <span class="sy0">..</span> <span class="st0">&quot; apm=power-off quiet boot=live nomce&quot;</span><br />
+&nbsp; &nbsp; <span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; <span class="co1">-- Parted Magic &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><br />
+&nbsp; <span class="kw1">elseif</span> <span class="br0">&#40;</span>dir_exist <span class="br0">&#40;</span><span class="st0">&quot;(loop)/pmagic&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">then</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; boot_linux <span class="br0">&#40;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;(loop)/pmagic/bzImage&quot;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;(loop)/pmagic/initramfs&quot;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;iso_filename=&quot;</span> <span class="sy0">..</span> isofile <span class="sy0">..</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot; edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw&quot;</span> <span class="sy0">..</span> &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot; sleep=10 loglevel=0 keymap=&quot;</span> <span class="sy0">..</span> langcode &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; <span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; <span class="co1">-- Sidux &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><br />
+&nbsp; <span class="kw1">elseif</span> <span class="br0">&#40;</span>dir_exist <span class="br0">&#40;</span><span class="st0">&quot;(loop)/sidux&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">then</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; boot_linux <span class="br0">&#40;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; find_file <span class="br0">&#40;</span><span class="st0">&quot;(loop)/boot&quot;</span><span class="sy0">,</span> <span class="st0">&quot;vmlinuz%-.*%-sidux%-.*&quot;</span><span class="br0">&#41;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; find_file <span class="br0">&#40;</span><span class="st0">&quot;(loop)/boot&quot;</span><span class="sy0">,</span> <span class="st0">&quot;initrd%.img%-.*%-sidux%-.*&quot;</span><span class="br0">&#41;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;fromiso=&quot;</span> <span class="sy0">..</span> isofile <span class="sy0">..</span> <span class="st0">&quot; boot=fll quiet&quot;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; <span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; <span class="co1">-- Slax &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><br />
+&nbsp; <span class="kw1">elseif</span> <span class="br0">&#40;</span>dir_exist <span class="br0">&#40;</span><span class="st0">&quot;(loop)/slax&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">then</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; boot_linux <span class="br0">&#40;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;(loop)/boot/vmlinuz&quot;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;(loop)/boot/initrd.gz&quot;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;from=&quot;</span> <span class="sy0">..</span> isofile <span class="sy0">..</span> <span class="st0">&quot; ramdisk_size=6666 root=/dev/ram0 rw&quot;</span> &nbsp; <br />
+&nbsp; &nbsp; <span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; <span class="co1">-- SystemRescueCd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><br />
+&nbsp; <span class="kw1">elseif</span> <span class="br0">&#40;</span>grub<span class="sy0">.</span>file_exist <span class="br0">&#40;</span><span class="st0">&quot;(loop)/isolinux/rescue64&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">then</span> &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; boot_linux <span class="br0">&#40;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;(loop)/isolinux/rescue64&quot;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;(loop)/isolinux/initram.igz&quot;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;isoloop=&quot;</span> <span class="sy0">..</span> isofile <span class="sy0">..</span> <span class="st0">&quot; docache rootpass=xxxx setkmap=&quot;</span> <span class="sy0">..</span> langcode<br />
+&nbsp; &nbsp; <span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; <span class="co1">-- Tinycore &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><br />
+&nbsp; <span class="kw1">elseif</span> <span class="br0">&#40;</span>grub<span class="sy0">.</span>file_exist <span class="br0">&#40;</span><span class="st0">&quot;(loop)/boot/tinycore.gz&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">then</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; boot_linux <span class="br0">&#40;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;(loop)/boot/bzImage&quot;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;(loop)/boot/tinycore.gz&quot;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; <span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; <span class="co1">-- Ubuntu and Casper based Distros &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><br />
+&nbsp; <span class="kw1">elseif</span> <span class="br0">&#40;</span>dir_exist <span class="br0">&#40;</span><span class="st0">&quot;(loop)/casper&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">then</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; boot_linux <span class="br0">&#40;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;(loop)/casper/vmlinuz&quot;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; find_file <span class="br0">&#40;</span><span class="st0">&quot;(loop)/casper&quot;</span><span class="sy0">,</span> <span class="st0">&quot;initrd%..z&quot;</span><span class="br0">&#41;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;boot=casper iso-scan/filename=&quot;</span> <span class="sy0">..</span> isofile <span class="sy0">..</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot; quiet splash noprompt&quot;</span> <span class="sy0">..</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot; keyb=&quot;</span> <span class="sy0">..</span> langcode <span class="sy0">..</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot; debian-installer/language=&quot;</span> <span class="sy0">..</span> langcode <span class="sy0">..</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot; console-setup/layoutcode?=&quot;</span> <span class="sy0">..</span> langcode <span class="sy0">..</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot; --&quot;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; <span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; <span class="co1">-- Xpud &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><br />
+&nbsp; <span class="kw1">elseif</span> <span class="br0">&#40;</span>grub<span class="sy0">.</span>file_exist <span class="br0">&#40;</span><span class="st0">&quot;(loop)/boot/xpud&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">then</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; boot_linux <span class="br0">&#40;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;(loop)/boot/xpud&quot;</span><span class="sy0">,</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;(loop)/opt/media&quot;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; <span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; <span class="kw1">else</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; print_error <span class="br0">&#40;</span><span class="st0">&quot;Unsupported ISO type&quot;</span><span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; <span class="kw1">end</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+<span class="kw1">end</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+<br />
+<span class="co1">-- Help function to show an error</span><br />
+<span class="kw1">function</span> print_error <span class="br0">&#40;</span>msg<span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; <br />
+&nbsp; <span class="kw3">print</span> <span class="br0">&#40;</span><span class="st0">&quot;Error: &quot;</span> <span class="sy0">..</span> msg<span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; <br />
+&nbsp; grub<span class="sy0">.</span>run <span class="br0">&#40;</span><span class="st0">&quot;read&quot;</span><span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+<span class="kw1">end</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+<br />
+<span class="co1">-- Help function to search for a file</span><br />
+<span class="kw1">function</span> find_file <span class="br0">&#40;</span>folder<span class="sy0">,</span> match<span class="br0">&#41;</span> &nbsp; <br />
+&nbsp; <span class="kw1">local</span> filename &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+<br />
+&nbsp; <span class="kw1">local</span> <span class="kw1">function</span> enum_file <span class="br0">&#40;</span>name<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>filename <span class="sy0">==</span> <span class="kw4">nil</span><span class="br0">&#41;</span> <span class="kw1">then</span> &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; filename <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>match <span class="br0">&#40;</span>name<span class="sy0">,</span> match<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="kw1">end</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; <span class="kw1">end</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+<br />
+&nbsp; grub<span class="sy0">.</span>enum_file <span class="br0">&#40;</span>enum_file<span class="sy0">,</span> folder<span class="br0">&#41;</span><br />
+<br />
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>filename<span class="br0">&#41;</span> <span class="kw1">then</span><br />
+&nbsp; &nbsp; <span class="kw1">return</span> folder <span class="sy0">..</span> <span class="st0">&quot;/&quot;</span> <span class="sy0">..</span> filename<br />
+&nbsp; <span class="kw1">else</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="kw4">nil</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; <span class="kw1">end</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+<span class="kw1">end</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+<br />
+<span class="co1">-- Help function to check if a directory exist</span><br />
+<span class="kw1">function</span> dir_exist <span class="br0">&#40;</span>dir<span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; <span class="kw1">return</span> <span class="br0">&#40;</span>grub<span class="sy0">.</span>run<span class="br0">&#40;</span><span class="st0">&quot;test -d '&quot;</span> <span class="sy0">..</span> dir <span class="sy0">..</span> <span class="st0">&quot;'&quot;</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span><br />
+<span class="kw1">end</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+<br />
+<span class="co1">-- Boots a Linux live system</span><br />
+<span class="kw1">function</span> boot_linux <span class="br0">&#40;</span>linux<span class="sy0">,</span> initrd<span class="sy0">,</span> params<span class="br0">&#41;</span><br />
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>linux <span class="kw2">and</span> grub<span class="sy0">.</span>file_exist <span class="br0">&#40;</span>linux<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">then</span><br />
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>initrd <span class="kw2">and</span> grub<span class="sy0">.</span>file_exist <span class="br0">&#40;</span>initrd<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">then</span><br />
+&nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>params<span class="br0">&#41;</span> <span class="kw1">then</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; &nbsp; grub<span class="sy0">.</span>run <span class="br0">&#40;</span><span class="st0">&quot;linux &quot;</span> <span class="sy0">..</span> linux <span class="sy0">..</span> <span class="st0">&quot; &quot;</span> <span class="sy0">..</span> params<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; <span class="kw1">else</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; &nbsp; grub<span class="sy0">.</span>run <span class="br0">&#40;</span><span class="st0">&quot;linux &quot;</span> <span class="sy0">..</span> linux<span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; <span class="kw1">end</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; grub<span class="sy0">.</span>run <span class="br0">&#40;</span><span class="st0">&quot;initrd &quot;</span> <span class="sy0">..</span> initrd<span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; <span class="kw1">else</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; print_error <span class="br0">&#40;</span><span class="st0">&quot;Booting Linux failed: cannot find initrd file '&quot;</span> <span class="sy0">..</span> initrd <span class="sy0">..</span> <span class="st0">&quot;'&quot;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="kw1">end</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; <span class="kw1">else</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; print_error <span class="br0">&#40;</span><span class="st0">&quot;Booting Linux failed: cannot find linux file '&quot;</span> <span class="sy0">..</span> initrd <span class="sy0">..</span> <span class="st0">&quot;'&quot;</span><span class="br0">&#41;</span> &nbsp; <br />
+&nbsp; <span class="kw1">end</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+<span class="kw1">end</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+<br />
+<span class="co1">-- Mounts the iso file</span><br />
+<span class="kw1">function</span> mount_iso <span class="br0">&#40;</span>isofile<span class="br0">&#41;</span><br />
+&nbsp; <span class="kw1">local</span> result <span class="sy0">=</span> <span class="kw4">false</span> &nbsp; &nbsp; &nbsp;<br />
+<br />
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>isofile <span class="sy0">==</span> <span class="kw4">nil</span><span class="br0">&#41;</span> <span class="kw1">then</span><br />
+&nbsp; &nbsp; print_error <span class="br0">&#40;</span><span class="st0">&quot;variable 'isofile' is undefined&quot;</span><span class="br0">&#41;</span><br />
+&nbsp; <span class="kw1">elseif</span> <span class="br0">&#40;</span><span class="kw2">not</span> grub<span class="sy0">.</span>file_exist <span class="br0">&#40;</span>isofile<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">then</span><br />
+&nbsp; &nbsp; print_error <span class="br0">&#40;</span><span class="st0">&quot;Cannot find isofile '&quot;</span> <span class="sy0">..</span> isofile <span class="sy0">..</span> <span class="st0">&quot;'&quot;</span><span class="br0">&#41;</span><br />
+&nbsp; <span class="kw1">else</span><br />
+&nbsp; &nbsp; <span class="kw1">local</span> err_no<span class="sy0">,</span> err_msg <span class="sy0">=</span> grub<span class="sy0">.</span>run <span class="br0">&#40;</span><span class="st0">&quot;loopback loop &quot;</span> <span class="sy0">..</span> isofile<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>err_no <span class="sy0">~=</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="kw1">then</span><br />
+&nbsp; &nbsp; &nbsp; print_error <span class="br0">&#40;</span><span class="st0">&quot;Cannot load ISO: &quot;</span> <span class="sy0">..</span> err_msg<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="kw1">else</span><br />
+&nbsp; &nbsp; &nbsp; result <span class="sy0">=</span> <span class="kw4">true</span><br />
+&nbsp; &nbsp; <span class="kw1">end</span><br />
+&nbsp; <span class="kw1">end</span><br />
+<br />
+&nbsp; <span class="kw1">return</span> result<br />
+<span class="kw1">end</span><br />
+<br />
+<br />
+<span class="co1">-- Getting the environment parameters</span><br />
+isofile <span class="sy0">=</span> grub<span class="sy0">.</span><span class="kw3">getenv</span> <span class="br0">&#40;</span><span class="st0">&quot;isofile&quot;</span><span class="br0">&#41;</span><br />
+langcode <span class="sy0">=</span> grub<span class="sy0">.</span><span class="kw3">getenv</span> <span class="br0">&#40;</span><span class="st0">&quot;isolangcode&quot;</span><span class="br0">&#41;</span><br />
+<span class="kw1">if</span> <span class="br0">&#40;</span>langcode <span class="sy0">==</span> <span class="kw4">nil</span><span class="br0">&#41;</span> <span class="kw1">then</span><br />
+&nbsp; langcode <span class="sy0">=</span> <span class="st0">&quot;us&quot;</span><br />
+<span class="kw1">end</span><br />
+<br />
+<span class="co1">-- Mounting and booting the live system</span><br />
+<span class="kw1">if</span> <span class="br0">&#40;</span>mount_iso <span class="br0">&#40;</span>isofile<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">then</span><br />
+&nbsp; boot_iso <span class="br0">&#40;</span>isofile<span class="sy0">,</span> langcode<span class="br0">&#41;</span><br />
+<span class="kw1">end</span></div></div>
+<li>/mnt/sdb1/boot/grub/listisos.lua</li>
+<div class="codecolorer-container lua default" style="overflow:auto;white-space:nowrap;"><div class="lua codecolorer"><span class="sy0">#</span>!lua<br />
+<br />
+isofolder <span class="sy0">=</span> grub<span class="sy0">.</span><span class="kw3">getenv</span> <span class="br0">&#40;</span><span class="st0">&quot;isofolder&quot;</span><span class="br0">&#41;</span><br />
+<span class="kw1">if</span> <span class="br0">&#40;</span>isofolder <span class="sy0">==</span> <span class="kw4">nil</span><span class="br0">&#41;</span> <span class="kw1">then</span><br />
+&nbsp; isofolder <span class="sy0">=</span> <span class="st0">&quot;/isos&quot;</span><br />
+<span class="kw1">end</span><br />
+<br />
+<span class="kw1">function</span> enum_file <span class="br0">&#40;</span>name<span class="br0">&#41;</span><br />
+&nbsp; <span class="kw1">local</span> title <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>match <span class="br0">&#40;</span>name<span class="sy0">,</span> <span class="st0">&quot;(.*)%.[iI][sS][oO]&quot;</span><span class="br0">&#41;</span><br />
+<br />
+&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>title<span class="br0">&#41;</span> <span class="kw1">then</span><br />
+&nbsp; &nbsp; <span class="kw1">local</span> source <span class="sy0">=</span> <span class="st0">&quot;set isofile=&quot;</span> <span class="sy0">..</span> isofolder <span class="sy0">..</span> <span class="st0">&quot;/&quot;</span> <span class="sy0">..</span> name <span class="sy0">..</span><br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;<span class="es1">\n</span>source /boot/grub/bootiso.lua&quot;</span><br />
+<br />
+&nbsp; &nbsp; grub<span class="sy0">.</span>add_menu <span class="br0">&#40;</span>source<span class="sy0">,</span> title<span class="br0">&#41;</span><br />
+&nbsp; <span class="kw1">end</span><br />
+<span class="kw1">end</span><br />
+<br />
+grub<span class="sy0">.</span>enum_file <span class="br0">&#40;</span>enum_file<span class="sy0">,</span> isofolder<span class="br0">&#41;</span></div></div>
+</ul>
+<p><b>UPDATE</b><br />
+In the new grub versions I had to modify following lines (from &#8220;source&#8221; -> &#8220;lua&#8221; and one module name &#8220;vbeinfo&#8221; -> &#8220;vbe&#8221;) otherwise it was not running correctly. Please look at these lines and change it in the scripts above:</p>
+<div class="codecolorer-container lua default" style="overflow:auto;white-space:nowrap;"><div class="lua codecolorer">insmod vbe<br />
+<br />
+lua <span class="sy0">/</span>boot<span class="sy0">/</span>grub<span class="sy0">/</span>listisos<span class="sy0">.</span>lua<br />
+<br />
+&nbsp; &nbsp; &nbsp; <span class="st0">&quot;<span class="es1">\n</span>lua /boot/grub/bootiso.lua&quot;</span></div></div>
+<p>After unmounting your USB flash should be bootable and you should get menu similar to this one:</p>
+<p><a href="../../../../wp-uploads/grub_usb.jpeg" ><img src="../../../../wp-uploads/grub_usb-300x223.jpg" alt="" title="Splash screen from Grub" width="300" height="223" class="aligncenter size-medium wp-image-415" /></a></p>
+<p>Enjoy <img src='http://linux.xvx.cz/wp-includes/images/smilies/icon_smile.gif' alt=':-)' class='wp-smiley' /> </p>
+<div style="display: none">VN:F [1.9.20_1166]</div><div class="ratingblock "><div class="ratingheader "></div><div class="ratingstars "><div id="article_rater_212" class="ratepost gdsr-crystal gdsr-size-20"><div class="starsbar gdsr-size-20"><div class="gdouter gdheight"><div id="gdr_vote_a212" style="width: 200px;" class="gdinner gdheight"></div><div id="gdr_stars_a212" class="gdsr_rating_as"><a id="gdsrX212X10X0XaXarticle_rater_212Xarticle_loader_212X10X20" title="10 / 10" class="s10" rel="nofollow"></a><a id="gdsrX212X9X0XaXarticle_rater_212Xarticle_loader_212X10X20" title="9 / 10" class="s9" rel="nofollow"></a><a id="gdsrX212X8X0XaXarticle_rater_212Xarticle_loader_212X10X20" title="8 / 10" class="s8" rel="nofollow"></a><a id="gdsrX212X7X0XaXarticle_rater_212Xarticle_loader_212X10X20" title="7 / 10" class="s7" rel="nofollow"></a><a id="gdsrX212X6X0XaXarticle_rater_212Xarticle_loader_212X10X20" title="6 / 10" class="s6" rel="nofollow"></a><a id="gdsrX212X5X0XaXarticle_rater_212Xarticle_loader_212X10X20" title="5 / 10" class="s5" rel="nofollow"></a><a id="gdsrX212X4X0XaXarticle_rater_212Xarticle_loader_212X10X20" title="4 / 10" class="s4" rel="nofollow"></a><a id="gdsrX212X3X0XaXarticle_rater_212Xarticle_loader_212X10X20" title="3 / 10" class="s3" rel="nofollow"></a><a id="gdsrX212X2X0XaXarticle_rater_212Xarticle_loader_212X10X20" title="2 / 10" class="s2" rel="nofollow"></a><a id="gdsrX212X1X0XaXarticle_rater_212Xarticle_loader_212X10X20" title="1 / 10" class="s1" rel="nofollow"></a></div></div></div></div><div id="article_loader_212" style="display: none; width: 200px " class="ratingloaderarticle"><div class="loader arrows " style="height: 20px"><div class="loaderinner">please wait...</div></div></div></div><div class="ratingtext "><div id="gdr_text_a212">Rating: 10.0/<strong>10</strong> (2 votes cast)</div></div></div><span class="hreview-aggregate" style="display: none !important;"><span class="item"><span class="fn">Using Grub2 and LUA installed on USB booting ISO images</span></span>, <span class="rating"><span class="average">10.0</span> out of <span class="best">10</span> based on <span class="votes">2</span> ratings <span class="summary"></span></span></span>					<div class="fixed"></div>
+				</div>
+
+				<div class="comments comments_single">
+					<a href="index.html#respond">Leave a comment</a>
+											 | <a href="index.html" rel="trackback">Trackback</a>
+									</div>
+
+				<!-- related posts START -->
+								<!-- related posts END -->
+			</div>
+
+
+<script type="text/javascript" src="../../../../wp-content/themes/elegant-box/js/comment.js"></script>
+
+	<!-- comments START -->
+	<ol class="commentlist">
+			<li class="comment " id="comment-217">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/1069de04b36a0e0dd7a0f4fc6cc8e980?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-217">
+											Windsor											</span>
+									</div>
+				<div class="date">August 31st, 2010 at 16:51</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-217', 'comment-217', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-217', 'comment-217', 'commentbody-217', 'comment');">Quote</a> | 
+								<a href="index.html#comment-217">#1</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-217"><p>hi, i tried to follow the steps given but keep encountering errors at the make, i&#8217;v tried searching the net for like 2 days but dont even come close to find a solution let alone a similar problem. please see below and provide some help if possible.</p>
+<p>/bin/bash: line 9: -I: command not found<br />
+make[2]: *** [grub.info] Error 127<br />
+make[2]: Leaving directory `/home/windsor/grub/docs&#8217;<br />
+make[1]: *** [all-recursive] Error 1<br />
+make[1]: Leaving directory `/home/windsor/grub&#8217;<br />
+make: *** [all] Error 2</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment  admincomment" id="comment-218">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/5484c0fd9f98e2ffd9212b158931bf4b?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-218" href="http://www.xvx.cz" rel="external nofollow">
+											Petr Ruzicka											</a>
+									</div>
+				<div class="date">September 1st, 2010 at 16:03</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-218', 'comment-218', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-218', 'comment-218', 'commentbody-218', 'comment');">Quote</a> | 
+								<a href="index.html#comment-218">#2</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-218"><p>Hello.</p>
+<p>I tried the steps above with grub version 1.98+20100804-2 from debian testing and it&#8217;s working fine form me. I was able to compile it using the &#8220;debian way&#8221; mentioned above.<br />
+In the worst case you can install debian testing into virtual machine and follow the steps above.</p>
+<p>Good luck</p>
+<p>PetrR</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-219">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/4f57d25d11b8120a5aa502ee081f7a0f?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-219">
+											Tom Nussbaumer											</span>
+									</div>
+				<div class="date">September 11th, 2010 at 06:07</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-219', 'comment-219', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-219', 'comment-219', 'commentbody-219', 'comment');">Quote</a> | 
+								<a href="index.html#comment-219">#3</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-219"><p><a href="index.html#comment-217" rel="nofollow">@Windsor </a> </p>
+<p>Install package texinfo (and maybe texi2html?) and it should compile.</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-220">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/4f57d25d11b8120a5aa502ee081f7a0f?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-220">
+											Tom Nussbaumer											</span>
+									</div>
+				<div class="date">September 11th, 2010 at 06:10</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-220', 'comment-220', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-220', 'comment-220', 'commentbody-220', 'comment');">Quote</a> | 
+								<a href="index.html#comment-220">#4</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-220"><p><a href="index.html#comment-217" rel="nofollow">@Windsor </a> </p>
+<p>Install package texinfo (and maybe texi2html?) and it should compile.</p>
+<p>@Petr: Thanx! Your guide saved me quite some time <img src='http://linux.xvx.cz/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+</div>
+		</div>
+
+</li>
+	</ol>
+	<!-- comments END -->
+
+	<!-- comments navi START -->
+		<!-- comments navi END -->
+
+	<!-- trackback START -->
+		<!-- trackback END -->
+
+
+	<div id="respond">
+	<form action="http://linux.xvx.cz/wp-comments-post.php" method="post" id="commentform">
+
+	<!-- comment info -->
+	<div id="comment_header">
+		<div id="comment_info">
+							
+				<div id="author_info">
+					<div class="row">
+						<input type="text" name="author" id="author" class="textfield" value="" size="24" tabindex="1" />
+						<label for="author" class="small">Name (required)</label>
+					</div>
+					<div class="row">
+						<input type="text" name="email" id="email" class="textfield" value="" size="24" tabindex="2" />
+						<label for="email" class="small">E-Mail (will not be published) (required)</label>
+					</div>
+					<div class="row">
+						<input type="text" name="url" id="url" class="textfield" value="" size="24" tabindex="3" />
+						<label for="url" class="small">Website</label>
+					</div>
+				</div>
+
+				
+					</div>
+	</div>
+
+	<!-- comment input -->
+	<textarea name="comment" id="comment" tabindex="4" rows="8" cols="50"></textarea>
+
+	<!-- comment submit and rss -->
+	<div id="submitbox">
+		<div id="comments_rss">
+			<a href="../../../../comments/feed/index.html">
+				<span class="feed">Subscribe to comments feed</span>
+			</a>
+		</div>
+
+		<div class="act">
+							<a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display:none;">Cancel</a>						<input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit Comment" />
+		</div>
+		
+		<input type="hidden" name="comment_post_ID" value="212" />
+					<input type='hidden' name='comment_post_ID' value='212' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+				<div class="fixed"></div>
+	</div>
+
+		<script type='text/javascript'>
+	<!--
+	refJS = escape( document[ 'referrer' ] );
+	document.write("<input type='hidden' name='refJS' value='"+refJS+"'>");
+	// -->
+	</script>
+	<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="7f6106e240" /></p>	</form>
+	</div>
+
+	
+
+			
+
+	</div>
+
+	<!-- sidebar START -->
+<div id="sidebar">
+
+<!-- Style Switcher START -->
+<!-- Style Switcher END -->
+
+		<!-- showcase -->
+		
+		<ul id="widgets">
+
+<li class="widget widget_archive"><h3>Archives</h3>		<ul>
+			<li><a href='../../../../2013/06/index.html' title='June 2013'>June 2013</a>&nbsp;(1)</li>
+	<li><a href='../../../../2012/01/index.html' title='January 2012'>January 2012</a>&nbsp;(1)</li>
+	<li><a href='../../../../2011/12/index.html' title='December 2011'>December 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../../2011/02/index.html' title='February 2011'>February 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../../2011/01/index.html' title='January 2011'>January 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../12/index.html' title='December 2010'>December 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../09/index.html' title='September 2010'>September 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../05/index.html' title='May 2010'>May 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../04/index.html' title='April 2010'>April 2010</a>&nbsp;(1)</li>
+	<li><a href='../../index.html' title='March 2010'>March 2010</a>&nbsp;(5)</li>
+	<li><a href='../../../../2009/12/index.html' title='December 2009'>December 2009</a>&nbsp;(1)</li>
+	<li><a href='../../../../2009/08/index.html' title='August 2009'>August 2009</a>&nbsp;(1)</li>
+	<li><a href='../../../../2009/06/index.html' title='June 2009'>June 2009</a>&nbsp;(3)</li>
+	<li><a href='../../../../2009/03/index.html' title='March 2009'>March 2009</a>&nbsp;(3)</li>
+	<li><a href='../../../../2009/02/index.html' title='February 2009'>February 2009</a>&nbsp;(1)</li>
+		</ul>
+</li><li class="widget widget_polls-widget"><h3>Polls</h3><div id="polls-2" class="wp-polls">
+	<form id="polls_form_2" class="wp-polls-form" action="index.html" method="post">
+		<p style="display: none;"><input type="hidden" id="poll_2_nonce" name="wp-polls-nonce" value="72cec8fd98" /></p>
+		<p style="display: none;"><input type="hidden" name="poll_id" value="2" /></p>
+		<p style="display: none;"><input type="hidden" id="poll_multiple_ans_2" name="poll_multiple_ans_2" value="3" /></p>
+		<p style="text-align: center;"><strong>Favourite distro</strong></p><div id="polls-2-ans" class="wp-polls-ans"><ul class="wp-polls-ul">
+		<li><input type="checkbox" id="poll-answer-6" name="poll_2" value="6" /> <label for="poll-answer-6">Debian, Ubuntu</label></li>
+		<li><input type="checkbox" id="poll-answer-7" name="poll_2" value="7" /> <label for="poll-answer-7">RedHat, Fedora, CentOS</label></li>
+		<li><input type="checkbox" id="poll-answer-8" name="poll_2" value="8" /> <label for="poll-answer-8">Gentoo, Sabayon</label></li>
+		<li><input type="checkbox" id="poll-answer-9" name="poll_2" value="9" /> <label for="poll-answer-9">Arch</label></li>
+		<li><input type="checkbox" id="poll-answer-10" name="poll_2" value="10" /> <label for="poll-answer-10">Slackware</label></li>
+		<li><input type="checkbox" id="poll-answer-11" name="poll_2" value="11" /> <label for="poll-answer-11">openSUSE</label></li>
+		<li><input type="checkbox" id="poll-answer-12" name="poll_2" value="12" /> <label for="poll-answer-12">Mandriva</label></li>
+		</ul><p style="text-align: center;"><input type="button" name="vote" value="   Vote   " class="Buttons" onclick="poll_vote(2);" onkeypress="poll_result(2);" /></p><p style="text-align: center;"><a href="index.html#ViewPollResults" onclick="poll_result(2); return false;" onkeypress="poll_result(2); return false;" title="View Results Of This Poll">View Results</a></p></div>
+	</form>
+</div>
+<div id="polls-2-loading" class="wp-polls-loading"><img src="../../../../wp-content/plugins/wp-polls/images/loading.gif" width="16" height="16" alt="Loading ..." title="Loading ..." class="wp-polls-image" />&nbsp;Loading ...</div>
+</li><li class="widget wassup_widget"><h3>Visitors Online</h3><ul class='links'><li><strong style='padding:0 4px 0 4px;background:#ddd;color:#777'>05</strong> visitor(s) online</li><li style='font-size:6pt; color:#bbb;'>powered by <a style='color:#777;' href='http://www.wpwp.org' title='WassUp - Real Time Visitors Tracking'>WassUp</a></li></ul></li>		</ul>
+
+		<!-- showcase 2 -->
+		
+</div>
+<!-- sidebar END -->
+
+	<div class="fixed"></div>
+
+		<div id="bottom">
+			<div class="postnav">
+				<span class="alignleft">&laquo; <a href="../../raid-disk-check-in-linux/trackback/index.html" rel="prev">RAID disk check in Linux</a></span>
+				<span class="alignright"><a href="../../debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/trackback/index.html" rel="next">Debian Wi-Fi hotspot using CoovaChilli, FreeRadius, MySQL and daloRADIUS</a> &raquo;</span>
+				<div class="fixed"></div>
+			</div>
+
+			<div class="anchor">
+				<span><a href="index.html#" onclick="MGJS.goTop();return false;">TOP</a></span>
+			</div>
+			<div class="fixed"></div>
+			</div>
+		<div class="fixed"></div>
+	</div>
+</div>
+
+<!-- footer START -->
+<div id="footer">
+	<div class="inner">
+		<div class="content">
+			<p id="about">
+				Copyright &copy; 2009-2013 Petr&#8217;s blog about Linux | Powered by <a href="http://wordpress.org/">WordPress</a> | Theme by <a href="http://www.neoease.com/">NeoEase</a>			</p>
+
+			<ul id="admin">
+								<li><a href="../../../../wp-login.php">Log in</a></li>
+			</ul>
+
+			<div class="fixed"></div>
+		</div>
+	</div>
+</div><!-- footer END -->
+<!--[if IE]>
+<script language=javascript>
+//<![CDATA[
+	if (screen_res=="") {
+		screen_res = screen.width + " x " + screen.height;
+	}
+	if (screen_res!=" x ") {
+		var cdate = new Date();
+		cdate.setTime(cdate.getTime()+(48*60*60*1000));
+		var cexpires = cdate.toGMTString();
+		//var the_cookie = "wassup_screen_res="+escape(screen_res)+"; expires="+cexpires;
+		document.cookie = "wassup_screen_res=" + escape(screen_res)+ "; path=/; domain=" + document.domain;
+
+	}
+//]]>
+</script>
+<![endif]--><!--
+<p class="small"> WassUp 1.8.3.1 timestamp: 2013-06-22 10:03:32AM UTC (11:03AM)<br />
+If above timestamp is not current time, this page is cached.</p> -->
+<script type='text/javascript' src='http://lite.piclens.com/current/piclens_optimized.js?ver=3.5.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var pollsL10n = {"ajax_url":"http:\/\/linux.xvx.cz\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"1","show_fading":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../../wp-content/plugins/wp-polls/polls-js.js?ver=2.63'></script>
+<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201325.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'6295081',v:'ext',post:'212'});
+var load_cmc = function(){linktracker_init(6295081,212,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+
+</body>
+</html>

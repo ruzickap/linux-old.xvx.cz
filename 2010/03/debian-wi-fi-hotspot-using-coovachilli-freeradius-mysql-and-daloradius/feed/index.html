@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+		>
+<channel>
+	<title>Comments on: Debian Wi-Fi hotspot using CoovaChilli, FreeRadius, MySQL and daloRADIUS</title>
+	<atom:link href="http://linux.xvx.cz/2010/03/debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/feed/" rel="self" type="application/rss+xml" />
+	<link>http://linux.xvx.cz/2010/03/debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/</link>
+	<description>My personal blog about Linux and other opensource applications.</description>
+	<lastBuildDate>Sun, 25 Nov 2012 15:03:00 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.5.1</generator>
+	<item>
+		<title>By: Krystian</title>
+		<link>http://linux.xvx.cz/2010/03/debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/comment-page-1/#comment-396</link>
+		<dc:creator>Krystian</dc:creator>
+		<pubDate>Sun, 25 Nov 2012 15:03:00 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=264#comment-396</guid>
+		<description><![CDATA[hello!
+
+Can we make some MAC who that they will not have to log in and as soon as the connect will have immediate access?]]></description>
+		<content:encoded><![CDATA[<p>hello!</p>
+<p>Can we make some MAC who that they will not have to log in and as soon as the connect will have immediate access?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Andy B</title>
+		<link>http://linux.xvx.cz/2010/03/debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/comment-page-1/#comment-387</link>
+		<dc:creator>Andy B</dc:creator>
+		<pubDate>Sun, 26 Feb 2012 21:27:23 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=264#comment-387</guid>
+		<description><![CDATA[Hi, this is my first foray into a hotspot/radius though I&#039;m &quot;reasonable&quot; with linux (been a unix/linux admin for longer than I care to remember 8-).
+
+Having a problem with the radius server... daloradius is telling me that radius is disabled and the radius log file is showing: -
+
+Sun Feb 26 19:49:16 2012 : Info: Loaded virtual server inner-tunnel
+Sun Feb 26 19:49:16 2012 : Info: Loaded virtual server 
+Sun Feb 26 19:49:16 2012 : Info: Ready to process requests.
+Sun Feb 26 19:49:17 2012 : Info: Received HUP signal.
+Sun Feb 26 19:49:17 2012 : Info: HUP - Re-reading configuration files
+Sun Feb 26 19:49:17 2012 : Info: HUP - loading modules
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &quot;files&quot;
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &quot;suffix&quot;
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &quot;detail&quot;
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &quot;pap&quot;
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &quot;radutmp&quot;
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &quot;attr_filter.access_reject&quot;
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &quot;attr_filter.accounting_response&quot;
+Sun Feb 26 19:49:17 2012 : Info: Loaded virtual server inner-tunnel
+Sun Feb 26 19:49:17 2012 : Info: Loaded virtual server 
+Sun Feb 26 21:03:26 2012 : Info: Exiting normally.
+Sun Feb 26 21:04:50 2012 : Error: Failed to add duplicate client 127.0.0.1
+Sun Feb 26 21:04:50 2012 : Error: /etc/freeradius/clients.conf[235]: Failed to add client 127.0.0.1
+
+I can&#039;t for the life of me spot what&#039;s causing the errors - any ideas?
+
+Thanks!
+
+Andy B.]]></description>
+		<content:encoded><![CDATA[<p>Hi, this is my first foray into a hotspot/radius though I&#8217;m &#8220;reasonable&#8221; with linux (been a unix/linux admin for longer than I care to remember 8-).</p>
+<p>Having a problem with the radius server&#8230; daloradius is telling me that radius is disabled and the radius log file is showing: -</p>
+<p>Sun Feb 26 19:49:16 2012 : Info: Loaded virtual server inner-tunnel<br />
+Sun Feb 26 19:49:16 2012 : Info: Loaded virtual server<br />
+Sun Feb 26 19:49:16 2012 : Info: Ready to process requests.<br />
+Sun Feb 26 19:49:17 2012 : Info: Received HUP signal.<br />
+Sun Feb 26 19:49:17 2012 : Info: HUP &#8211; Re-reading configuration files<br />
+Sun Feb 26 19:49:17 2012 : Info: HUP &#8211; loading modules<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;files&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;suffix&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;detail&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;pap&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;radutmp&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;attr_filter.access_reject&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;attr_filter.accounting_response&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info: Loaded virtual server inner-tunnel<br />
+Sun Feb 26 19:49:17 2012 : Info: Loaded virtual server<br />
+Sun Feb 26 21:03:26 2012 : Info: Exiting normally.<br />
+Sun Feb 26 21:04:50 2012 : Error: Failed to add duplicate client 127.0.0.1<br />
+Sun Feb 26 21:04:50 2012 : Error: /etc/freeradius/clients.conf[235]: Failed to add client 127.0.0.1</p>
+<p>I can&#8217;t for the life of me spot what&#8217;s causing the errors &#8211; any ideas?</p>
+<p>Thanks!</p>
+<p>Andy B.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Kyle H</title>
+		<link>http://linux.xvx.cz/2010/03/debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/comment-page-1/#comment-351</link>
+		<dc:creator>Kyle H</dc:creator>
+		<pubDate>Tue, 27 Dec 2011 15:18:49 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=264#comment-351</guid>
+		<description><![CDATA[Hi, I&#039;ve gone through this walkthrough and I&#039;m unable to authenticate clients and what not through the system. Getting the server to pass traffic from one interface to the other was challenging, but I&#039;ve finally gotten data to be able to pass through the box and to the internet. Any help would be much appriciated. I know this appears to be a dead thread, but here is my email in case anyone wants to try and help me out.
+
+kyle_hoehn@hotmail.com]]></description>
+		<content:encoded><![CDATA[<p>Hi, I&#8217;ve gone through this walkthrough and I&#8217;m unable to authenticate clients and what not through the system. Getting the server to pass traffic from one interface to the other was challenging, but I&#8217;ve finally gotten data to be able to pass through the box and to the internet. Any help would be much appriciated. I know this appears to be a dead thread, but here is my email in case anyone wants to try and help me out.</p>
+<p><a href="mailto:kyle_hoehn@hotmail.com">kyle_hoehn@hotmail.com</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Paijo</title>
+		<link>http://linux.xvx.cz/2010/03/debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/comment-page-1/#comment-317</link>
+		<dc:creator>Paijo</dc:creator>
+		<pubDate>Mon, 19 Dec 2011 07:26:11 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=264#comment-317</guid>
+		<description><![CDATA[Install &quot;haserl&quot; for coovachilli]]></description>
+		<content:encoded><![CDATA[<p>Install &#8220;haserl&#8221; for coovachilli</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: edwin</title>
+		<link>http://linux.xvx.cz/2010/03/debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/comment-page-1/#comment-296</link>
+		<dc:creator>edwin</dc:creator>
+		<pubDate>Tue, 22 Nov 2011 18:03:21 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=264#comment-296</guid>
+		<description><![CDATA[&lt;blockquote cite=&quot;#commentbody-278&quot;&gt;
+&lt;strong&gt;&lt;a href=&quot;#comment-278&quot; rel=&quot;nofollow&quot;&gt;Joah Santos&lt;/a&gt; :&lt;/strong&gt;I have a client that is interested in setting up hotspots in 150 locations.
+It will be free access and the only thing that have found is the monthly payment services.
+I would like to set up my own system, Do you have the know how to do this and would you be available to work on this, if so please contact me.
+&lt;/blockquote&gt;
+edwinosantos@gmail.com]]></description>
+		<content:encoded><![CDATA[<blockquote cite="#commentbody-278"><p>
+<strong><a href="#comment-278" rel="nofollow">Joah Santos</a> :</strong>I have a client that is interested in setting up hotspots in 150 locations.<br />
+It will be free access and the only thing that have found is the monthly payment services.<br />
+I would like to set up my own system, Do you have the know how to do this and would you be available to work on this, if so please contact me.
+</p></blockquote>
+<p><a href="mailto:edwinosantos@gmail.com">edwinosantos@gmail.com</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: edwin</title>
+		<link>http://linux.xvx.cz/2010/03/debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/comment-page-1/#comment-295</link>
+		<dc:creator>edwin</dc:creator>
+		<pubDate>Sat, 19 Nov 2011 15:03:08 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=264#comment-295</guid>
+		<description><![CDATA[hey sure I do email me a edwinosantos@gmail.com hope its no too late&lt;a href=&quot;#comment-278&quot; rel=&quot;nofollow&quot;&gt;@Joah Santos &lt;/a&gt;]]></description>
+		<content:encoded><![CDATA[<p>hey sure I do email me a <a href="mailto:edwinosantos@gmail.com">edwinosantos@gmail.com</a> hope its no too late<a href="#comment-278" rel="nofollow">@Joah Santos </a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Alvin Arnardu</title>
+		<link>http://linux.xvx.cz/2010/03/debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/comment-page-1/#comment-293</link>
+		<dc:creator>Alvin Arnardu</dc:creator>
+		<pubDate>Thu, 10 Nov 2011 14:18:32 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=264#comment-293</guid>
+		<description><![CDATA[guys i just installed free rad using some of the above instrauctions thos is what i get , i am no also sure how the 192.168.10.1/.. pages are supposed to come up i mean do they just pop up or do i have to connect the AP..Im a newbee please explain:
+
+
+address: localhost! [Success]
+coova-chilli[18841]: options.c: 181: could not generate configuration (/usr/local/var/run/chilli.18841.cfg.bin), sleeping one second
+main-opt.c: 523: 0 (Debug) DHCP Listen: 10.1.0.1
+main-opt.c: 524: 0 (Debug) UAM Listen: 10.1.0.1
+garden.c: 143: 0 (Debug) Uamallowed www.coova.org
+garden.c: 124: 0 (Debug) Uamallowed IP address #0:128: proto=0 host=174.129.195.118 port=0
+garden.c: 143: 0 (Debug) Uamallowed 10.1.0.1
+garden.c: 124: 0 (Debug) Uamallowed IP address #1:128: proto=0 host=10.1.0.1 port=0
+garden.c: 143: 0 (Debug) Uamallowed 
+garden.c: 207: 0 (Debug) Invalid uamallowed domain or address: !
+garden.c: 143: 0 (Debug) Uamallowed www.coova.org
+garden.c: 96: 0 (Debug) Uamallowed already exists #0:128: proto=0 host=174.129.195.118 port=0]]></description>
+		<content:encoded><![CDATA[<p>guys i just installed free rad using some of the above instrauctions thos is what i get , i am no also sure how the 192.168.10.1/.. pages are supposed to come up i mean do they just pop up or do i have to connect the AP..Im a newbee please explain:</p>
+<p>address: localhost! [Success]<br />
+coova-chilli[18841]: options.c: 181: could not generate configuration (/usr/local/var/run/chilli.18841.cfg.bin), sleeping one second<br />
+main-opt.c: 523: 0 (Debug) DHCP Listen: 10.1.0.1<br />
+main-opt.c: 524: 0 (Debug) UAM Listen: 10.1.0.1<br />
+garden.c: 143: 0 (Debug) Uamallowed <a href="http://www.coova.org" rel="nofollow">http://www.coova.org</a><br />
+garden.c: 124: 0 (Debug) Uamallowed IP address #0:128: proto=0 host=174.129.195.118 port=0<br />
+garden.c: 143: 0 (Debug) Uamallowed 10.1.0.1<br />
+garden.c: 124: 0 (Debug) Uamallowed IP address #1:128: proto=0 host=10.1.0.1 port=0<br />
+garden.c: 143: 0 (Debug) Uamallowed<br />
+garden.c: 207: 0 (Debug) Invalid uamallowed domain or address: !<br />
+garden.c: 143: 0 (Debug) Uamallowed <a href="http://www.coova.org" rel="nofollow">http://www.coova.org</a><br />
+garden.c: 96: 0 (Debug) Uamallowed already exists #0:128: proto=0 host=174.129.195.118 port=0</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Joah Santos</title>
+		<link>http://linux.xvx.cz/2010/03/debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/comment-page-1/#comment-278</link>
+		<dc:creator>Joah Santos</dc:creator>
+		<pubDate>Thu, 05 May 2011 05:42:15 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=264#comment-278</guid>
+		<description><![CDATA[I have a client that is interested in setting up hotspots in 150 locations. 
+It will be free access and the only thing that have found is the monthly payment services.
+
+I would like to set up my own system, Do you have the know how to do this and would you be available to work on this, if so please contact me.]]></description>
+		<content:encoded><![CDATA[<p>I have a client that is interested in setting up hotspots in 150 locations.<br />
+It will be free access and the only thing that have found is the monthly payment services.</p>
+<p>I would like to set up my own system, Do you have the know how to do this and would you be available to work on this, if so please contact me.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: edwin</title>
+		<link>http://linux.xvx.cz/2010/03/debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/comment-page-1/#comment-268</link>
+		<dc:creator>edwin</dc:creator>
+		<pubDate>Tue, 22 Mar 2011 14:27:23 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=264#comment-268</guid>
+		<description><![CDATA[&lt;a href=&quot;#comment-267&quot; rel=&quot;nofollow&quot;&gt;@edwin &lt;/a&gt; 
+sorry apt-get upgrade]]></description>
+		<content:encoded><![CDATA[<p><a href="#comment-267" rel="nofollow">@edwin </a><br />
+sorry apt-get upgrade</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: edwin</title>
+		<link>http://linux.xvx.cz/2010/03/debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/comment-page-1/#comment-267</link>
+		<dc:creator>edwin</dc:creator>
+		<pubDate>Tue, 22 Mar 2011 14:23:22 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=264#comment-267</guid>
+		<description><![CDATA[&lt;a href=&quot;#comment-259&quot; rel=&quot;nofollow&quot;&gt;@Flo &lt;/a&gt; 
+you need to do this before it works
+sudo apt-get update
+then apt-get install upgrade
+take a walk comebvack like half an our then reboot and check it out]]></description>
+		<content:encoded><![CDATA[<p><a href="#comment-259" rel="nofollow">@Flo </a><br />
+you need to do this before it works<br />
+sudo apt-get update<br />
+then apt-get install upgrade<br />
+take a walk comebvack like half an our then reboot and check it out</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

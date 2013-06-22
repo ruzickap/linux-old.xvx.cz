@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+		>
+<channel>
+	<title>Comments on: SVN used for configuration management</title>
+	<atom:link href="http://linux.xvx.cz/2010/03/svn-used-for-configuration-management/feed/" rel="self" type="application/rss+xml" />
+	<link>http://linux.xvx.cz/2010/03/svn-used-for-configuration-management/</link>
+	<description>My personal blog about Linux and other opensource applications.</description>
+	<lastBuildDate>Sun, 25 Nov 2012 15:03:00 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.5.1</generator>
+	<item>
+		<title>By: Petr Ruzicka</title>
+		<link>http://linux.xvx.cz/2010/03/svn-used-for-configuration-management/comment-page-1/#comment-223</link>
+		<dc:creator>Petr Ruzicka</dc:creator>
+		<pubDate>Wed, 06 Oct 2010 10:07:58 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=225#comment-223</guid>
+		<description><![CDATA[Hello Dave.
+
+I&#039;m updating the configurations by script using cron every midnight. 
+
+In this article I just wanted to show what are the possibilities of having config files in SVN repository, because it&#039;s good idea (according me). You can easily track the changes on the machines. 
+
+I agree it can be handy to have machines grouped by OS type. I prefer to keep configs per hosts - because if something is not working well on the box I can see all it&#039;s changes.
+
+But it&#039;s just my preference.... 
+
+I&#039;m sure everybody can script these svn commits/updates and create it&#039;s own solution - here I describe the way how I did it...
+
+See you and good luck...
+
+PetrR]]></description>
+		<content:encoded><![CDATA[<p>Hello Dave.</p>
+<p>I&#8217;m updating the configurations by script using cron every midnight. </p>
+<p>In this article I just wanted to show what are the possibilities of having config files in SVN repository, because it&#8217;s good idea (according me). You can easily track the changes on the machines. </p>
+<p>I agree it can be handy to have machines grouped by OS type. I prefer to keep configs per hosts &#8211; because if something is not working well on the box I can see all it&#8217;s changes.</p>
+<p>But it&#8217;s just my preference&#8230;. </p>
+<p>I&#8217;m sure everybody can script these svn commits/updates and create it&#8217;s own solution &#8211; here I describe the way how I did it&#8230;</p>
+<p>See you and good luck&#8230;</p>
+<p>PetrR</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: dave</title>
+		<link>http://linux.xvx.cz/2010/03/svn-used-for-configuration-management/comment-page-1/#comment-222</link>
+		<dc:creator>dave</dc:creator>
+		<pubDate>Tue, 05 Oct 2010 14:20:58 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=225#comment-222</guid>
+		<description><![CDATA[Peter,
+
+This looks good, but how are you updating your configuration files on the servers? ln -s?
+
+We are kicking around this idea as well, but we are going a different route with it.
+
+Grouping all of our machines based on type. so we will have:
+/reporoot
+   /Linux
+   /Solaris
+   /AIX
+   /...
+
+I would much rather update three files, instead of 250.]]></description>
+		<content:encoded><![CDATA[<p>Peter,</p>
+<p>This looks good, but how are you updating your configuration files on the servers? ln -s?</p>
+<p>We are kicking around this idea as well, but we are going a different route with it.</p>
+<p>Grouping all of our machines based on type. so we will have:<br />
+/reporoot<br />
+   /Linux<br />
+   /Solaris<br />
+   /AIX<br />
+   /&#8230;</p>
+<p>I would much rather update three files, instead of 250.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Krzysztof Tomczyk</title>
+		<link>http://linux.xvx.cz/2010/03/svn-used-for-configuration-management/comment-page-1/#comment-201</link>
+		<dc:creator>Krzysztof Tomczyk</dc:creator>
+		<pubDate>Fri, 28 May 2010 13:31:02 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=225#comment-201</guid>
+		<description><![CDATA[Tak a look at this tool  http://sourceforge.net/projects/pmsvn]]></description>
+		<content:encoded><![CDATA[<p>Tak a look at this tool  <a href="http://sourceforge.net/projects/pmsvn" rel="nofollow">http://sourceforge.net/projects/pmsvn</a></p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<title>Crypted disks with remote key placed on http server | Petr's blog about Linux</title>
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all posts" href="../../../../feed/index.html" />
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all comments" href="../../../../comments/feed/index.html" />
+	<link rel="pingback" href="../../../../xmlrpc.php" />
+
+	<!-- style START -->
+	<link rel="stylesheet" href="../../../../wp-content/themes/elegant-box/style.css" type="text/css" media="screen" />
+		<!--[if IE]>
+		<link rel="stylesheet" href="http://linux.xvx.cz/wp-content/themes/elegant-box/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+
+	<!-- default style -->
+			<link rel="stylesheet" href="../../../../wp-content/themes/elegant-box/styles/blue/default.css" type="text/css" media="screen" title="blue" />
+		<link rel="stylesheet" href="../../../../wp-content/themes/elegant-box/styles/blue/global.css" type="text/css" media="screen" />
+	
+	<!-- others styles -->
+	<!-- style END -->
+
+	<!-- javascript START -->
+		<script type="text/javascript" src="../../../../wp-content/themes/elegant-box/js/base.js"></script>
+	<script type="text/javascript" src="../../../../wp-content/themes/elegant-box/js/menu.js"></script>
+	<!-- javascript END -->
+
+		
+			<script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.5 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-6594742-3']);
+							_gaq.push(['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+			<link rel="alternate" type="application/rss+xml" title="Petr&#039;s blog about Linux &raquo; Crypted disks with remote key placed on http server Comments Feed" href="../feed/index.html" />
+<link rel='stylesheet' id='gdsr_style_main-css'  href='http://linux.xvx.cz/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1347955026&#038;s=a10i10m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower%23lsgarrows&#038;o=off&#038;ver=1.9.20' type='text/css' media='all' />
+<link rel='stylesheet' id='NextGEN-css'  href='../../../../wp-content/plugins/nextgen-gallery/css/nggallery.css?ver=1.0.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='shutter-css'  href='../../../../wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.css?ver=1.3.4' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp-polls-css'  href='../../../../wp-content/themes/elegant-box/polls-css.css?ver=2.63' type='text/css' media='all' />
+<link rel='stylesheet' id='codecolorer-css'  href='../../../../wp-content/plugins/codecolorer/codecolorer.css?ver=0.9.9' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp_dlmp_styles-css'  href='../../../../wp-content/plugins/download-monitor/page-addon/styles.css?ver=3.5.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://linux.xvx.cz/wp-includes/js/jquery/jquery.js?ver=1.8.3'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/gd-star-rating/js/gdsr.js?ver=1.9.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var shutterSettings = {"msgLoading":"L O A D I N G","msgClose":"Click to Close","imageCount":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../../wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.js?ver=1.3.3'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/nextgen-gallery/js/jquery.cycle.all.min.js?ver=2.9995'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/nextgen-gallery/js/ngg.slideshow.min.js?ver=1.06'></script>
+<script type='text/javascript' src='http://linux.xvx.cz/wp-includes/js/comment-reply.min.js?ver=3.5.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://linux.xvx.cz/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Cobbler and yum in RHEL 4.6' href='../../cobbler-and-yum-in-rhel-46/trackback/index.html' />
+<link rel='next' title='Debian with GRUB2 and serial connection' href='../../../08/debian-with-grub2-and-serial-connection/trackback/index.html' />
+<meta name="generator" content="WordPress 3.5.1" />
+<link rel='shortlink' href='http://wp.me/pqpDz-e' />
+
+<!-- All in One SEO Pack 1.6.15 by Michael Torbert of Semper Fi Web Design[343,439] -->
+<meta name="description" content="This page contains few information how to create crypted disk using dm_crypt, lvm, gpg with remote key stored on http server. The advantage is to have key," />
+<link rel="canonical" href="index.html" />
+<!-- /all in one seo pack -->
+	<style type='text/css'>
+	.download-info .download-button {
+		background-image: url(../../../../wp-content/plugins/download-monitor/page-addon/downloadbutton.gif);
+	}
+	.download-info .more-button {
+		background-image: url(../../../../wp-content/plugins/download-monitor/page-addon/morebutton.gif);
+	}
+	</style>
+<link rel="shortcut icon" href="http://www.xvx.cz/favicon.ico" /><script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "31f6af320f";
+var gdsr_cnst_ajax = "http://linux.xvx.cz/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script>
+<!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]-->
+<!-- <meta name="NextGEN" version="1.9.6" /> -->
+<style type="text/css">
+.wp-polls .pollbar {
+	margin: 1px;
+	font-size: 6px;
+	line-height: 8px;
+	height: 8px;
+	background-image: url('../../../../wp-content/plugins/wp-polls/images/default/pollbg.gif');
+	border: 1px solid #c8c8c8;
+}
+</style>
+
+<!-- Start Of Script Generated By WP-PostViews -->
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery.ajax({type:'GET',url:'http://linux.xvx.cz/wp-admin/admin-ajax.php',data:'postviews_id=14&action=postviews',cache:false});/* ]]> */
+</script>
+<!-- End Of Script Generated By WP-PostViews -->
+
+<!-- Protected by WP-SpamFree v2.1.1.2 :: JS BEGIN -->
+<script type="text/javascript" src="../../../../wp-content/plugins/wp-spamfree/js/wpsf-js.php"></script> 
+<!-- Protected by WP-SpamFree v2.1.1.2 :: JS END -->
+
+<link id='MediaRSS' rel='alternate' type='application/rss+xml' title='NextGEN Gallery RSS Feed' href='../../../../wp-content/plugins/nextgen-gallery/xml/media-rss.php' />
+<script type="text/javascript">
+//<![CDATA[
+	var screen_res = ""; 
+	function writeCookie(name,value,hours) {
+		var the_cookie = name+"="+escape(value)+"; expires=";
+		var expires = "";
+		hours=hours+0; //convert to number
+		if (hours > 0) { //0==expires on browser close
+			var cdate = new Date();
+			cdate.setTime(cdate.getTime()+(hours*60*60*1000));
+			expires = expires+cdate.toGMTString();
+		} 
+		document.cookie = the_cookie+expires+"; path=/; domain=";
+	}
+	screen_res = screen.width+" x "+screen.height;
+	if (screen_res==" x ") screen_res = window.screen.width+" x "+window.screen.height;
+	if (screen_res==" x ") screen_res = screen.availWidth+" x "+screen.availHeight;
+	if (screen_res!=" x ") { 
+		writeCookie("wassup_screen_res",screen_res,"48"); //keep 2 days
+	} else {
+		screen_res = "";
+	}
+//]]>
+</script>
+</head>
+
+
+<body>
+	<!-- header START -->
+	<div id="header">
+		<div class="inner">
+			<div class="content">
+				<div class="caption">
+					<h1 id="title"><a href="../../../../index.html" title="My personal blog about Linux and other opensource applications.">Petr&#8217;s blog about Linux</a></h1>
+					<div id="tagline">My personal blog about Linux and other opensource applications.</div>
+				</div>
+
+				<!-- search box -->
+									<form action="../../../../index.html" id="search_box" method="get">
+						<div id="searchbox">
+							<input type="text" id="searchtxt" class="textfield" name="s" value="" />
+						</div>
+					</form>
+				<script type="text/javascript">
+//<![CDATA[
+	var searchbox = document.getElementById("searchbox");
+	var searchtxt = document.getElementById("searchtxt");
+	var tiptext = "Type text to search here...";
+	if(searchtxt.value == "" || searchtxt.value == tiptext) {
+		searchtxt.className += " searchtip";
+		searchtxt.value = tiptext;
+	}
+	searchtxt.onfocus = function(e) {
+		if(searchtxt.value == tiptext) {
+			searchtxt.value = "";
+			searchtxt.className = searchtxt.className.replace(" searchtip", "");
+		}
+	}
+	searchtxt.onblur = function(e) {
+		if(searchtxt.value == "") {
+			searchtxt.className += " searchtip";
+			searchtxt.value = tiptext;
+		}
+	}
+//]]>
+</script>
+
+				<!-- navigation START -->
+				<ul id="navigation">
+
+					<li class="page_item"><a href="../../../../index.html">Home</a></li>
+					<li class="page_item page-item-2"><a href="../../../../about/index.html">About</a></li>
+					<li id="subscribe">
+						<a rel="external nofollow" title="Subscribe to this blog..." id="feed" href="../../../../feed/index.html"><img src="../../../../wp-content/themes/elegant-box/images/transparent.gif" alt="RSS feed" /></a>
+													<ul>
+								<li class="first"><a rel="external nofollow" title="Subscribe with Youdao" href="http://reader.youdao.com/b.do?url=http://linux.xvx.cz/feed/"> Youdao</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Xian Guo" href="http://www.xianguo.com/subscribe.php?url=http://linux.xvx.cz/feed/"> Xian Guo</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Zhua Xia" href="http://www.zhuaxia.com/add_channel.php?url=http://linux.xvx.cz/feed/"> Zhua Xia</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Google" href="http://fusion.google.com/add?feedurl=http://linux.xvx.cz/feed/"> Google</a></li>
+								<li><a rel="external nofollow" title="Subscribe with My Yahoo!" href="http://add.my.yahoo.com/rss?url=http://linux.xvx.cz/feed/"> My Yahoo!</a></li>
+								<li><a rel="external nofollow" title="Subscribe with newsgator" href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=http://linux.xvx.cz/feed/"> newsgator</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Bloglines" href="http://www.bloglines.com/sub/http://linux.xvx.cz/feed/"> Bloglines</a></li>
+								<li><a rel="external nofollow" title="Subscribe with iNezha" href="http://inezha.com/add?url=http://linux.xvx.cz/feed/"> iNezha</a></li>
+							</ul>
+											</li>
+
+				</ul>
+				<!-- navigation END -->
+
+			</div>
+		</div>
+	</div>
+	<!-- header END -->
+
+	<div id="container">
+		<div id="content">
+			<div id="main">
+
+		
+			<div class="post">
+				<div class="title">
+					<h2>Crypted disks with remote key placed on http server</h2>
+					<div class="fixed"></div>
+				</div>
+
+				<div class="info">
+					
+					<span>June 7th, 2009</span>
+																<span> | Tags: <a href="../../../../tag/crypt/index.html" rel="tag">crypt</a>, <a href="../../../../tag/cryptsetup/index.html" rel="tag">cryptsetup</a>, <a href="../../../../tag/disks/index.html" rel="tag">disks</a>, <a href="../../../../tag/gpg/index.html" rel="tag">gpg</a>, <a href="../../../../tag/lvm/index.html" rel="tag">lvm</a>, <a href="../../../../tag/wget/index.html" rel="tag">wget</a></span>
+					
+					<div class="fixed"></div>
+				</div>
+
+				<div class="content">
+					<p>This page contains few information how to create crypted disk using dm_crypt, lvm, gpg with remote key stored on http server.<br />
+The advantage is to have key, used for unlocking crypted disk(s), somewhere on the server instead have it on USB. </p>
+<p>* You can easily delete this key if your disks are stolen and nobody can access them any longer&#8230;<br />
+* If you use USB stick to save key then you need to have it connected to the machine with the cyphered disks every reboot &#8211; usually it will be plugged all the time to the server which destroy all security.<br />
+* Keys are downloaded automatically every reboot from remote HTTP server (if not your disks will remain locked)</p>
+<p>All commands were tested on Debian and should be also applicable on other distributions.</p>
+<p><span id="more-14"></span></p>
+<h2>Remote server side</h2>
+<p>Generate a new key pair:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">gpg <span class="re5">--gen-key</span></div></div>
+<p>List the keys and write down the secret key ID (9BB7698A):</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">gpg <span class="re5">--list-keys</span><br />
+<br />
+<span class="sy0">/</span>root<span class="sy0">/</span>.gnupg<span class="sy0">/</span>pubring.gpg<br />
+<span class="re5">------------------------</span><br />
+pub &nbsp; 1024D<span class="sy0">/</span>9BB7698A <span class="nu0">2009</span>-06-07<br />
+uid &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;test_name <span class="br0">&#40;</span>test_comment<span class="br0">&#41;</span> <span class="kw3">test</span><span class="sy0">@</span>xvx.cz<br />
+sub &nbsp; 2048g<span class="sy0">/</span>A0DA1037 <span class="nu0">2009</span>-06-07</div></div>
+<p>Export private key and save it somewhere &#8220;public&#8221; temporary&#8230;</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">gpg <span class="re5">--verbose</span> <span class="re5">--export-options</span> export-attributes,export-sensitive-revkeys <span class="re5">--export-secret-keys</span> 9BB7698A <span class="sy0">&gt;</span> ~<span class="sy0">/</span>public_html<span class="sy0">/</span>secret.key</div></div>
+<p>Generate random key and encrypt it by previously generated private key. That will be the key used for dm-crypt:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">head</span> <span class="re5">-c</span> <span class="nu0">256</span> <span class="sy0">/</span>dev<span class="sy0">/</span>urandom <span class="sy0">|</span> gpg <span class="re5">--batch</span> <span class="re5">--passphrase</span> <span class="kw3">test</span> <span class="re5">--verbose</span> <span class="re5">--throw-keyids</span> <span class="re5">--local-user</span> 9BB7698A <span class="re5">--sign</span> <span class="re5">--yes</span> <span class="re5">--cipher-algo</span> AES256 <span class="re5">--encrypt</span> <span class="re5">--hidden-recipient</span> 9BB7698A <span class="re5">--no-encrypt-to</span> <span class="re5">--output</span> ~<span class="sy0">/</span>public_html<span class="sy0">/</span>abcd.html -</div></div>
+<h2>Client side (where the data will be crypted)</h2>
+<p>Login to the machine where you want to crypt your data.</p>
+<p>Create lvm volume:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="co0">#lvremove -f lvdata</span><br />
+<span class="co0">#vgremove -f vgdata</span><br />
+pvcreate <span class="re5">-ff</span> <span class="re5">-v</span> <span class="sy0">/</span>dev<span class="sy0">/</span>hda2 <span class="sy0">/</span>dev<span class="sy0">/</span>hdb1<br />
+vgcreate <span class="re5">-v</span> <span class="re5">-s</span> <span class="nu0">16</span> vgdata <span class="sy0">/</span>dev<span class="sy0">/</span>hda2 <span class="sy0">/</span>dev<span class="sy0">/</span>hdb1<br />
+lvcreate <span class="re5">-v</span> <span class="re5">-l</span> <span class="nu0">100</span><span class="sy0">%</span>FREE vgdata <span class="re5">-n</span> lvdata</div></div>
+<p>Import secret private key from the http server (don&#8217;t forget to remove secret.key from the server after this) and then download and decrypt the cipher key for dm-crypt [/mykey]:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="co0">#gpg --yes --delete-secret-keys 9BB7698A</span><br />
+<span class="co0">#gpg --yes --batch --delete-keys 9BB7698A</span><br />
+<span class="kw2">wget</span> https:<span class="sy0">//</span>10.0.2.2<span class="sy0">/</span>~ruzickap<span class="sy0">/</span>secret.key <span class="re5">-O</span> - <span class="sy0">|</span> gpg <span class="re5">--import</span> -<br />
+<span class="kw2">wget</span> https:<span class="sy0">//</span>10.0.2.2<span class="sy0">/</span>~ruzickap<span class="sy0">/</span>abcd.html <span class="re5">-O</span> - <span class="sy0">|</span> gpg <span class="re5">--quiet</span> <span class="re5">--passphrase</span> <span class="kw3">test</span> <span class="re5">--batch</span> <span class="re5">--decrypt</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>mykey</div></div>
+<p>Encrypt the lvm [vgdata-lvdata] using [/mykey]:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">cryptsetup <span class="re5">-s</span> <span class="nu0">512</span> <span class="re5">-c</span> aes-xts-plain luksFormat <span class="sy0">/</span>dev<span class="sy0">/</span>mapper<span class="sy0">/</span>vgdata-lvdata <span class="sy0">/</span>mykey</div></div>
+<p>Add the dm-crypt key [/mykey] to the &#8220;LUKS&#8221;</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">cryptsetup <span class="re5">--key-file</span>=<span class="sy0">/</span>mykey luksOpen <span class="sy0">/</span>dev<span class="sy0">/</span>mapper<span class="sy0">/</span>vgdata-lvdata vgdata-lvdata_crypt</div></div>
+<p>Format opened LUKS and copy there some data:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">mkfs.ext3 <span class="sy0">/</span>dev<span class="sy0">/</span>mapper<span class="sy0">/</span>vgdata-lvdata_crypt<br />
+<span class="kw2">mount</span> <span class="sy0">/</span>dev<span class="sy0">/</span>mapper<span class="sy0">/</span>vgdata-lvdata_crypt <span class="sy0">/</span>mnt<br />
+<span class="kw2">cp</span> <span class="sy0">/</span>etc<span class="sy0">/*</span> <span class="sy0">/</span>mnt<span class="sy0">/</span><br />
+<span class="kw2">umount</span> <span class="sy0">/</span>mnt<br />
+cryptsetup luksClose vgdata-lvdata_crypt<br />
+<span class="kw2">rm</span> <span class="sy0">/</span>mykey</div></div>
+<p>Now we have to create a short script [/script] which will download the key from remote server and decrypt it using imported secret key by GPG and display it on the screen:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="co0">#!/bin/bash</span><br />
+<span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">wget</span> <span class="re5">--quiet</span> https:<span class="sy0">//</span>10.0.2.2<span class="sy0">/</span>~ruzickap<span class="sy0">/</span>abcd.html <span class="re5">-O</span> - <span class="sy0">|</span> <span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>gpg <span class="re5">--quiet</span> <span class="re5">--homedir</span> <span class="sy0">/</span>root<span class="sy0">/</span>.gnupg <span class="re5">--quiet</span> <span class="re5">--passphrase</span> xxxx <span class="re5">--batch</span> <span class="re5">--decrypt</span> <span class="nu0">2</span><span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null</div></div>
+<p>We should not forget to mount our crypted filesystem after boot [/etc/rc.local]:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw3">echo</span> <span class="st0">&quot;Mounting crypted file system in 5 seconds...&quot;</span><br />
+<span class="kw2">sleep</span> <span class="nu0">5</span><br />
+cryptdisks_start vgdata-lvdata_crypt<br />
+<span class="kw2">mount</span> <span class="sy0">/</span>mnt</div></div>
+<p>Another necessary thing needs to be done &#8211; putting the right information to [/etc/crypttab]:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">vgdata-lvdata_crypt &nbsp; &nbsp; <span class="sy0">/</span>dev<span class="sy0">/</span>mapper<span class="sy0">/</span>vgdata-lvdata &nbsp; &nbsp; &nbsp; none noauto,<span class="re2">cipher</span>=aes-xts-plain,<span class="re2">size</span>=<span class="nu0">512</span>,luks,<span class="re2">tries</span>=<span class="nu0">1</span>,<span class="re2">checkargs</span>=ext2,<span class="re2">keyscript</span>=<span class="sy0">/</span>script</div></div>
+<p>We don&#8217;t want to mount crypted filesystem with others, because the network is not ready that time [/etc/fstab]:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="sy0">/</span>dev<span class="sy0">/</span>mapper<span class="sy0">/</span>vgdata-lvdata_crypt <span class="sy0">/</span>mnt &nbsp; &nbsp;ext3 &nbsp; &nbsp;noauto,rw,<span class="kw3">exec</span>,async,noatime,nocheck,<span class="re2">data</span>=writeback &nbsp; &nbsp;<span class="nu0">0</span> &nbsp; &nbsp; &nbsp; <span class="nu0">0</span></div></div>
+<p>This is definitively not the best how to secure your data, but it&#8217;s better than nothing. </p>
+<p>Feel free to combine this method with keys stored on on USB drive.</p>
+<div style="display: none">VN:F [1.9.20_1166]</div><div class="ratingblock "><div class="ratingheader "></div><div class="ratingstars "><div id="article_rater_14" class="ratepost gdsr-crystal gdsr-size-20"><div class="starsbar gdsr-size-20"><div class="gdouter gdheight"><div id="gdr_vote_a14" style="width: 200px;" class="gdinner gdheight"></div><div id="gdr_stars_a14" class="gdsr_rating_as"><a id="gdsrX14X10X0XaXarticle_rater_14Xarticle_loader_14X10X20" title="10 / 10" class="s10" rel="nofollow"></a><a id="gdsrX14X9X0XaXarticle_rater_14Xarticle_loader_14X10X20" title="9 / 10" class="s9" rel="nofollow"></a><a id="gdsrX14X8X0XaXarticle_rater_14Xarticle_loader_14X10X20" title="8 / 10" class="s8" rel="nofollow"></a><a id="gdsrX14X7X0XaXarticle_rater_14Xarticle_loader_14X10X20" title="7 / 10" class="s7" rel="nofollow"></a><a id="gdsrX14X6X0XaXarticle_rater_14Xarticle_loader_14X10X20" title="6 / 10" class="s6" rel="nofollow"></a><a id="gdsrX14X5X0XaXarticle_rater_14Xarticle_loader_14X10X20" title="5 / 10" class="s5" rel="nofollow"></a><a id="gdsrX14X4X0XaXarticle_rater_14Xarticle_loader_14X10X20" title="4 / 10" class="s4" rel="nofollow"></a><a id="gdsrX14X3X0XaXarticle_rater_14Xarticle_loader_14X10X20" title="3 / 10" class="s3" rel="nofollow"></a><a id="gdsrX14X2X0XaXarticle_rater_14Xarticle_loader_14X10X20" title="2 / 10" class="s2" rel="nofollow"></a><a id="gdsrX14X1X0XaXarticle_rater_14Xarticle_loader_14X10X20" title="1 / 10" class="s1" rel="nofollow"></a></div></div></div></div><div id="article_loader_14" style="display: none; width: 200px " class="ratingloaderarticle"><div class="loader arrows " style="height: 20px"><div class="loaderinner">please wait...</div></div></div></div><div class="ratingtext "><div id="gdr_text_a14">Rating: 10.0/<strong>10</strong> (2 votes cast)</div></div></div><span class="hreview-aggregate" style="display: none !important;"><span class="item"><span class="fn">Crypted disks with remote key placed on http server</span></span>, <span class="rating"><span class="average">10.0</span> out of <span class="best">10</span> based on <span class="votes">2</span> ratings <span class="summary"></span></span></span>					<div class="fixed"></div>
+				</div>
+
+				<div class="comments comments_single">
+					<a href="index.html#respond">Leave a comment</a>
+											 | <a href="index.html" rel="trackback">Trackback</a>
+									</div>
+
+				<!-- related posts START -->
+								<!-- related posts END -->
+			</div>
+
+
+<script type="text/javascript" src="../../../../wp-content/themes/elegant-box/js/comment.js"></script>
+
+	<div class="messagebox">
+		<div class="content small">
+			No comments yet.		</div>
+	</div>
+
+
+	<div id="respond">
+	<form action="http://linux.xvx.cz/wp-comments-post.php" method="post" id="commentform">
+
+	<!-- comment info -->
+	<div id="comment_header">
+		<div id="comment_info">
+							
+				<div id="author_info">
+					<div class="row">
+						<input type="text" name="author" id="author" class="textfield" value="" size="24" tabindex="1" />
+						<label for="author" class="small">Name (required)</label>
+					</div>
+					<div class="row">
+						<input type="text" name="email" id="email" class="textfield" value="" size="24" tabindex="2" />
+						<label for="email" class="small">E-Mail (will not be published) (required)</label>
+					</div>
+					<div class="row">
+						<input type="text" name="url" id="url" class="textfield" value="" size="24" tabindex="3" />
+						<label for="url" class="small">Website</label>
+					</div>
+				</div>
+
+				
+					</div>
+	</div>
+
+	<!-- comment input -->
+	<textarea name="comment" id="comment" tabindex="4" rows="8" cols="50"></textarea>
+
+	<!-- comment submit and rss -->
+	<div id="submitbox">
+		<div id="comments_rss">
+			<a href="../../../../comments/feed/index.html">
+				<span class="feed">Subscribe to comments feed</span>
+			</a>
+		</div>
+
+		<div class="act">
+							<a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display:none;">Cancel</a>						<input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit Comment" />
+		</div>
+		
+		<input type="hidden" name="comment_post_ID" value="14" />
+					<input type='hidden' name='comment_post_ID' value='14' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+				<div class="fixed"></div>
+	</div>
+
+		<script type='text/javascript'>
+	<!--
+	refJS = escape( document[ 'referrer' ] );
+	document.write("<input type='hidden' name='refJS' value='"+refJS+"'>");
+	// -->
+	</script>
+	<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="a712bf6f70" /></p>	</form>
+	</div>
+
+	
+
+			
+
+	</div>
+
+	<!-- sidebar START -->
+<div id="sidebar">
+
+<!-- Style Switcher START -->
+<!-- Style Switcher END -->
+
+		<!-- showcase -->
+		
+		<ul id="widgets">
+
+<li class="widget widget_archive"><h3>Archives</h3>		<ul>
+			<li><a href='../../../../2013/06/index.html' title='June 2013'>June 2013</a>&nbsp;(1)</li>
+	<li><a href='../../../../2012/01/index.html' title='January 2012'>January 2012</a>&nbsp;(1)</li>
+	<li><a href='../../../../2011/12/index.html' title='December 2011'>December 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../../2011/02/index.html' title='February 2011'>February 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../../2011/01/index.html' title='January 2011'>January 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../../2010/12/index.html' title='December 2010'>December 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../../2010/09/index.html' title='September 2010'>September 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../../2010/05/index.html' title='May 2010'>May 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../../2010/04/index.html' title='April 2010'>April 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../../2010/03/index.html' title='March 2010'>March 2010</a>&nbsp;(5)</li>
+	<li><a href='../../../12/index.html' title='December 2009'>December 2009</a>&nbsp;(1)</li>
+	<li><a href='../../../08/index.html' title='August 2009'>August 2009</a>&nbsp;(1)</li>
+	<li><a href='../../index.html' title='June 2009'>June 2009</a>&nbsp;(3)</li>
+	<li><a href='../../../03/index.html' title='March 2009'>March 2009</a>&nbsp;(3)</li>
+	<li><a href='../../../02/index.html' title='February 2009'>February 2009</a>&nbsp;(1)</li>
+		</ul>
+</li><li class="widget widget_polls-widget"><h3>Polls</h3><div id="polls-2" class="wp-polls">
+	<form id="polls_form_2" class="wp-polls-form" action="index.html" method="post">
+		<p style="display: none;"><input type="hidden" id="poll_2_nonce" name="wp-polls-nonce" value="72cec8fd98" /></p>
+		<p style="display: none;"><input type="hidden" name="poll_id" value="2" /></p>
+		<p style="display: none;"><input type="hidden" id="poll_multiple_ans_2" name="poll_multiple_ans_2" value="3" /></p>
+		<p style="text-align: center;"><strong>Favourite distro</strong></p><div id="polls-2-ans" class="wp-polls-ans"><ul class="wp-polls-ul">
+		<li><input type="checkbox" id="poll-answer-6" name="poll_2" value="6" /> <label for="poll-answer-6">Debian, Ubuntu</label></li>
+		<li><input type="checkbox" id="poll-answer-7" name="poll_2" value="7" /> <label for="poll-answer-7">RedHat, Fedora, CentOS</label></li>
+		<li><input type="checkbox" id="poll-answer-8" name="poll_2" value="8" /> <label for="poll-answer-8">Gentoo, Sabayon</label></li>
+		<li><input type="checkbox" id="poll-answer-9" name="poll_2" value="9" /> <label for="poll-answer-9">Arch</label></li>
+		<li><input type="checkbox" id="poll-answer-10" name="poll_2" value="10" /> <label for="poll-answer-10">Slackware</label></li>
+		<li><input type="checkbox" id="poll-answer-11" name="poll_2" value="11" /> <label for="poll-answer-11">openSUSE</label></li>
+		<li><input type="checkbox" id="poll-answer-12" name="poll_2" value="12" /> <label for="poll-answer-12">Mandriva</label></li>
+		</ul><p style="text-align: center;"><input type="button" name="vote" value="   Vote   " class="Buttons" onclick="poll_vote(2);" onkeypress="poll_result(2);" /></p><p style="text-align: center;"><a href="index.html#ViewPollResults" onclick="poll_result(2); return false;" onkeypress="poll_result(2); return false;" title="View Results Of This Poll">View Results</a></p></div>
+	</form>
+</div>
+<div id="polls-2-loading" class="wp-polls-loading"><img src="../../../../wp-content/plugins/wp-polls/images/loading.gif" width="16" height="16" alt="Loading ..." title="Loading ..." class="wp-polls-image" />&nbsp;Loading ...</div>
+</li><li class="widget wassup_widget"><h3>Visitors Online</h3><ul class='links'><li><strong style='padding:0 4px 0 4px;background:#ddd;color:#777'>03</strong> visitor(s) online</li><li style='font-size:6pt; color:#bbb;'>powered by <a style='color:#777;' href='http://www.wpwp.org' title='WassUp - Real Time Visitors Tracking'>WassUp</a></li></ul></li>		</ul>
+
+		<!-- showcase 2 -->
+		
+</div>
+<!-- sidebar END -->
+
+	<div class="fixed"></div>
+
+		<div id="bottom">
+			<div class="postnav">
+				<span class="alignleft">&laquo; <a href="../../cobbler-and-yum-in-rhel-46/trackback/index.html" rel="prev">Cobbler and yum in RHEL 4.6</a></span>
+				<span class="alignright"><a href="../../../08/debian-with-grub2-and-serial-connection/trackback/index.html" rel="next">Debian with GRUB2 and serial connection</a> &raquo;</span>
+				<div class="fixed"></div>
+			</div>
+
+			<div class="anchor">
+				<span><a href="index.html#" onclick="MGJS.goTop();return false;">TOP</a></span>
+			</div>
+			<div class="fixed"></div>
+			</div>
+		<div class="fixed"></div>
+	</div>
+</div>
+
+<!-- footer START -->
+<div id="footer">
+	<div class="inner">
+		<div class="content">
+			<p id="about">
+				Copyright &copy; 2009-2013 Petr&#8217;s blog about Linux | Powered by <a href="http://wordpress.org/">WordPress</a> | Theme by <a href="http://www.neoease.com/">NeoEase</a>			</p>
+
+			<ul id="admin">
+								<li><a href="../../../../wp-login.php">Log in</a></li>
+			</ul>
+
+			<div class="fixed"></div>
+		</div>
+	</div>
+</div><!-- footer END -->
+<!--[if IE]>
+<script language=javascript>
+//<![CDATA[
+	if (screen_res=="") {
+		screen_res = screen.width + " x " + screen.height;
+	}
+	if (screen_res!=" x ") {
+		var cdate = new Date();
+		cdate.setTime(cdate.getTime()+(48*60*60*1000));
+		var cexpires = cdate.toGMTString();
+		//var the_cookie = "wassup_screen_res="+escape(screen_res)+"; expires="+cexpires;
+		document.cookie = "wassup_screen_res=" + escape(screen_res)+ "; path=/; domain=" + document.domain;
+
+	}
+//]]>
+</script>
+<![endif]--><!--
+<p class="small"> WassUp 1.8.3.1 timestamp: 2013-06-22 10:03:50AM UTC (11:03AM)<br />
+If above timestamp is not current time, this page is cached.</p> -->
+<script type='text/javascript' src='http://lite.piclens.com/current/piclens_optimized.js?ver=3.5.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var pollsL10n = {"ajax_url":"http:\/\/linux.xvx.cz\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"1","show_fading":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../../wp-content/plugins/wp-polls/polls-js.js?ver=2.63'></script>
+<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201325.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'6295081',v:'ext',post:'14'});
+var load_cmc = function(){linktracker_init(6295081,14,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+
+</body>
+</html>

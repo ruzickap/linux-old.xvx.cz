@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+		>
+<channel>
+	<title>Comments on: Debian with GRUB2 and serial connection</title>
+	<atom:link href="http://linux.xvx.cz/2009/08/debian-with-grub2-and-serial-connection/feed/" rel="self" type="application/rss+xml" />
+	<link>http://linux.xvx.cz/2009/08/debian-with-grub2-and-serial-connection/</link>
+	<description>My personal blog about Linux and other opensource applications.</description>
+	<lastBuildDate>Sun, 25 Nov 2012 15:03:00 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.5.1</generator>
+	<item>
+		<title>By: Emmanuel Kasper</title>
+		<link>http://linux.xvx.cz/2009/08/debian-with-grub2-and-serial-connection/comment-page-1/#comment-391</link>
+		<dc:creator>Emmanuel Kasper</dc:creator>
+		<pubDate>Sat, 10 Mar 2012 22:56:25 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=188#comment-391</guid>
+		<description><![CDATA[You should use GRUB_CMDLINE_LINUX instead of GRUB_CMDLINE_LINUX_DEFAULT otherwise you&#039;ll miss the console when you boot in rescue ( single user ) mode via a grub entry.]]></description>
+		<content:encoded><![CDATA[<p>You should use GRUB_CMDLINE_LINUX instead of GRUB_CMDLINE_LINUX_DEFAULT otherwise you&#8217;ll miss the console when you boot in rescue ( single user ) mode via a grub entry.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: How to install Vyatta 6.1 Core LiveCD on Qemu image in Linux &#171; Brezular&#039;s Technical Blog</title>
+		<link>http://linux.xvx.cz/2009/08/debian-with-grub2-and-serial-connection/comment-page-1/#comment-230</link>
+		<dc:creator>How to install Vyatta 6.1 Core LiveCD on Qemu image in Linux &#171; Brezular&#039;s Technical Blog</dc:creator>
+		<pubDate>Fri, 12 Nov 2010 23:01:01 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=188#comment-230</guid>
+		<description><![CDATA[[...] thanks to Petr&#8217;s blog [...]]]></description>
+		<content:encoded><![CDATA[<p>[...] thanks to Petr&#8217;s blog [...]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Petr Ruzicka</title>
+		<link>http://linux.xvx.cz/2009/08/debian-with-grub2-and-serial-connection/comment-page-1/#comment-144</link>
+		<dc:creator>Petr Ruzicka</dc:creator>
+		<pubDate>Sun, 03 Jan 2010 08:45:23 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=188#comment-144</guid>
+		<description><![CDATA[115200 is much faster, but most devices like switches, routers and fw are using 9600. So that&#039;s the reason why I&#039;m using 9600 - it&#039;s for compatibility :-)
+
+Good luck...]]></description>
+		<content:encoded><![CDATA[<p>115200 is much faster, but most devices like switches, routers and fw are using 9600. So that&#8217;s the reason why I&#8217;m using 9600 &#8211; it&#8217;s for compatibility <img src='http://linux.xvx.cz/wp-includes/images/smilies/icon_smile.gif' alt=':-)' class='wp-smiley' /> </p>
+<p>Good luck&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Ian Tomkins</title>
+		<link>http://linux.xvx.cz/2009/08/debian-with-grub2-and-serial-connection/comment-page-1/#comment-142</link>
+		<dc:creator>Ian Tomkins</dc:creator>
+		<pubDate>Sat, 02 Jan 2010 16:09:56 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=188#comment-142</guid>
+		<description><![CDATA[Don&#039;t forget that you also need to add/uncomment an entry to your /etc/inittab file to create a serial console you can login to once the OS is booted.
+
+Something like this:
+T0:2345:respawn:/sbin/getty -L ttyS0 9600 vt100
+
+It is also worth saying that everything is more responsive if you increase the rate to 115200 rather than 9600.]]></description>
+		<content:encoded><![CDATA[<p>Don&#8217;t forget that you also need to add/uncomment an entry to your /etc/inittab file to create a serial console you can login to once the OS is booted.</p>
+<p>Something like this:<br />
+T0:2345:respawn:/sbin/getty -L ttyS0 9600 vt100</p>
+<p>It is also worth saying that everything is more responsive if you increase the rate to 115200 rather than 9600.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: luciano</title>
+		<link>http://linux.xvx.cz/2009/08/debian-with-grub2-and-serial-connection/comment-page-1/#comment-136</link>
+		<dc:creator>luciano</dc:creator>
+		<pubDate>Fri, 11 Dec 2009 10:40:49 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=188#comment-136</guid>
+		<description><![CDATA[In my Ubuntu 9.10 server installed on an industrial PC (PentiumIII) your suggestion works fine 100%. I can manage my server when i am at work via the local VGA console, and at home, via a Cisco 2500 terminal-server with the ttyS0 and a null-modem cable. I just modified the speed to 19200bps.
+Thank You
+luciano]]></description>
+		<content:encoded><![CDATA[<p>In my Ubuntu 9.10 server installed on an industrial PC (PentiumIII) your suggestion works fine 100%. I can manage my server when i am at work via the local VGA console, and at home, via a Cisco 2500 terminal-server with the ttyS0 and a null-modem cable. I just modified the speed to 19200bps.<br />
+Thank You<br />
+luciano</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: rené</title>
+		<link>http://linux.xvx.cz/2009/08/debian-with-grub2-and-serial-connection/comment-page-1/#comment-133</link>
+		<dc:creator>rené</dc:creator>
+		<pubDate>Tue, 20 Oct 2009 23:45:46 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=188#comment-133</guid>
+		<description><![CDATA[Hello there,
+
+I came across this post when I searched on how to set up output to go to the serial console when using grub2, and I found something missing in your post: in order to get a terminal on the remote machine, you need to add a line to /etc/inittab (described there).
+
+Anyway - have you managed to make grub2 actually show you the grub menu on the console? I can, for some reason, not get it to show anything but the output from the booting kernel and then the login-prompt and this slightly makes my reason for attaching a console to my machine go away as I might need to change boot parameters in case my remote machine misbehaves (my remote machine is ~100km away, so I can&#039;t just go there and sort things there).
+
+
+I found numerous other posts like this one, but from people on other distributions, who actively mentions that they get the grub-menu on their console.. so. Your experience, please :)
+
+PS: I&#039;m using Debian Testing (Squeeze)]]></description>
+		<content:encoded><![CDATA[<p>Hello there,</p>
+<p>I came across this post when I searched on how to set up output to go to the serial console when using grub2, and I found something missing in your post: in order to get a terminal on the remote machine, you need to add a line to /etc/inittab (described there).</p>
+<p>Anyway &#8211; have you managed to make grub2 actually show you the grub menu on the console? I can, for some reason, not get it to show anything but the output from the booting kernel and then the login-prompt and this slightly makes my reason for attaching a console to my machine go away as I might need to change boot parameters in case my remote machine misbehaves (my remote machine is ~100km away, so I can&#8217;t just go there and sort things there).</p>
+<p>I found numerous other posts like this one, but from people on other distributions, who actively mentions that they get the grub-menu on their console.. so. Your experience, please <img src='http://linux.xvx.cz/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+<p>PS: I&#8217;m using Debian Testing (Squeeze)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Zak B. Elep</title>
+		<link>http://linux.xvx.cz/2009/08/debian-with-grub2-and-serial-connection/comment-page-1/#comment-131</link>
+		<dc:creator>Zak B. Elep</dc:creator>
+		<pubDate>Mon, 14 Sep 2009 11:21:43 +0000</pubDate>
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=188#comment-131</guid>
+		<description><![CDATA[Hey, thanks for this bit.  Came in handy while setting up a sid qemu. :)]]></description>
+		<content:encoded><![CDATA[<p>Hey, thanks for this bit.  Came in handy while setting up a sid qemu. <img src='http://linux.xvx.cz/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

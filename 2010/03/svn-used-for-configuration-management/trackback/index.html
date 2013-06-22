@@ -1,0 +1,722 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<title>SVN used for configuration management | Petr's blog about Linux</title>
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all posts" href="../../../../feed/index.html" />
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all comments" href="../../../../comments/feed/index.html" />
+	<link rel="pingback" href="../../../../xmlrpc.php" />
+
+	<!-- style START -->
+	<link rel="stylesheet" href="../../../../wp-content/themes/elegant-box/style.css" type="text/css" media="screen" />
+		<!--[if IE]>
+		<link rel="stylesheet" href="http://linux.xvx.cz/wp-content/themes/elegant-box/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+
+	<!-- default style -->
+			<link rel="stylesheet" href="../../../../wp-content/themes/elegant-box/styles/blue/default.css" type="text/css" media="screen" title="blue" />
+		<link rel="stylesheet" href="../../../../wp-content/themes/elegant-box/styles/blue/global.css" type="text/css" media="screen" />
+	
+	<!-- others styles -->
+	<!-- style END -->
+
+	<!-- javascript START -->
+		<script type="text/javascript" src="../../../../wp-content/themes/elegant-box/js/base.js"></script>
+	<script type="text/javascript" src="../../../../wp-content/themes/elegant-box/js/menu.js"></script>
+	<!-- javascript END -->
+
+		
+			<script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.5 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-6594742-3']);
+							_gaq.push(['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+			<link rel="alternate" type="application/rss+xml" title="Petr&#039;s blog about Linux &raquo; SVN used for configuration management Comments Feed" href="../feed/index.html" />
+<link rel='stylesheet' id='gdsr_style_main-css'  href='http://linux.xvx.cz/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1347955026&#038;s=a10i10m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower%23lsgarrows&#038;o=off&#038;ver=1.9.20' type='text/css' media='all' />
+<link rel='stylesheet' id='NextGEN-css'  href='../../../../wp-content/plugins/nextgen-gallery/css/nggallery.css?ver=1.0.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='shutter-css'  href='../../../../wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.css?ver=1.3.4' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp-polls-css'  href='../../../../wp-content/themes/elegant-box/polls-css.css?ver=2.63' type='text/css' media='all' />
+<link rel='stylesheet' id='codecolorer-css'  href='../../../../wp-content/plugins/codecolorer/codecolorer.css?ver=0.9.9' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp_dlmp_styles-css'  href='../../../../wp-content/plugins/download-monitor/page-addon/styles.css?ver=3.5.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://linux.xvx.cz/wp-includes/js/jquery/jquery.js?ver=1.8.3'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/gd-star-rating/js/gdsr.js?ver=1.9.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var shutterSettings = {"msgLoading":"L O A D I N G","msgClose":"Click to Close","imageCount":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../../wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.js?ver=1.3.3'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/nextgen-gallery/js/jquery.cycle.all.min.js?ver=2.9995'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/nextgen-gallery/js/ngg.slideshow.min.js?ver=1.06'></script>
+<script type='text/javascript' src='http://linux.xvx.cz/wp-includes/js/comment-reply.min.js?ver=3.5.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://linux.xvx.cz/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Debian Wi-Fi hotspot using CoovaChilli, FreeRadius, MySQL and daloRADIUS' href='../../debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/trackback/index.html' />
+<link rel='next' title='PXE server using Dnsmasq and SystemRescueCd with minimal effort' href='../../../04/pxe-server-using-dnsmasq-and-systemrescuecd-with-minimal-effort/trackback/index.html' />
+<meta name="generator" content="WordPress 3.5.1" />
+<link rel='shortlink' href='http://wp.me/pqpDz-3D' />
+
+<!-- All in One SEO Pack 1.6.15 by Michael Torbert of Semper Fi Web Design[343,425] -->
+<meta name="description" content="SVN used for configuration management" />
+<meta name="keywords" content="configuration, debian, server, ssh, svn, websvn" />
+<link rel="canonical" href="index.html" />
+<!-- /all in one seo pack -->
+	<style type='text/css'>
+	.download-info .download-button {
+		background-image: url(../../../../wp-content/plugins/download-monitor/page-addon/downloadbutton.gif);
+	}
+	.download-info .more-button {
+		background-image: url(../../../../wp-content/plugins/download-monitor/page-addon/morebutton.gif);
+	}
+	</style>
+<link rel="shortcut icon" href="http://www.xvx.cz/favicon.ico" /><script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "31f6af320f";
+var gdsr_cnst_ajax = "http://linux.xvx.cz/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script>
+<!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]-->
+<!-- <meta name="NextGEN" version="1.9.6" /> -->
+<style type="text/css">
+.wp-polls .pollbar {
+	margin: 1px;
+	font-size: 6px;
+	line-height: 8px;
+	height: 8px;
+	background-image: url('../../../../wp-content/plugins/wp-polls/images/default/pollbg.gif');
+	border: 1px solid #c8c8c8;
+}
+</style>
+
+<!-- Start Of Script Generated By WP-PostViews -->
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery.ajax({type:'GET',url:'http://linux.xvx.cz/wp-admin/admin-ajax.php',data:'postviews_id=225&action=postviews',cache:false});/* ]]> */
+</script>
+<!-- End Of Script Generated By WP-PostViews -->
+
+<!-- Protected by WP-SpamFree v2.1.1.2 :: JS BEGIN -->
+<script type="text/javascript" src="../../../../wp-content/plugins/wp-spamfree/js/wpsf-js.php"></script> 
+<!-- Protected by WP-SpamFree v2.1.1.2 :: JS END -->
+
+<link id='MediaRSS' rel='alternate' type='application/rss+xml' title='NextGEN Gallery RSS Feed' href='../../../../wp-content/plugins/nextgen-gallery/xml/media-rss.php' />
+<script type="text/javascript">
+//<![CDATA[
+	var screen_res = ""; 
+	function writeCookie(name,value,hours) {
+		var the_cookie = name+"="+escape(value)+"; expires=";
+		var expires = "";
+		hours=hours+0; //convert to number
+		if (hours > 0) { //0==expires on browser close
+			var cdate = new Date();
+			cdate.setTime(cdate.getTime()+(hours*60*60*1000));
+			expires = expires+cdate.toGMTString();
+		} 
+		document.cookie = the_cookie+expires+"; path=/; domain=";
+	}
+	screen_res = screen.width+" x "+screen.height;
+	if (screen_res==" x ") screen_res = window.screen.width+" x "+window.screen.height;
+	if (screen_res==" x ") screen_res = screen.availWidth+" x "+screen.availHeight;
+	if (screen_res!=" x ") { 
+		writeCookie("wassup_screen_res",screen_res,"48"); //keep 2 days
+	} else {
+		screen_res = "";
+	}
+//]]>
+</script>
+</head>
+
+
+<body>
+	<!-- header START -->
+	<div id="header">
+		<div class="inner">
+			<div class="content">
+				<div class="caption">
+					<h1 id="title"><a href="../../../../index.html" title="My personal blog about Linux and other opensource applications.">Petr&#8217;s blog about Linux</a></h1>
+					<div id="tagline">My personal blog about Linux and other opensource applications.</div>
+				</div>
+
+				<!-- search box -->
+									<form action="../../../../index.html" id="search_box" method="get">
+						<div id="searchbox">
+							<input type="text" id="searchtxt" class="textfield" name="s" value="" />
+						</div>
+					</form>
+				<script type="text/javascript">
+//<![CDATA[
+	var searchbox = document.getElementById("searchbox");
+	var searchtxt = document.getElementById("searchtxt");
+	var tiptext = "Type text to search here...";
+	if(searchtxt.value == "" || searchtxt.value == tiptext) {
+		searchtxt.className += " searchtip";
+		searchtxt.value = tiptext;
+	}
+	searchtxt.onfocus = function(e) {
+		if(searchtxt.value == tiptext) {
+			searchtxt.value = "";
+			searchtxt.className = searchtxt.className.replace(" searchtip", "");
+		}
+	}
+	searchtxt.onblur = function(e) {
+		if(searchtxt.value == "") {
+			searchtxt.className += " searchtip";
+			searchtxt.value = tiptext;
+		}
+	}
+//]]>
+</script>
+
+				<!-- navigation START -->
+				<ul id="navigation">
+
+					<li class="page_item"><a href="../../../../index.html">Home</a></li>
+					<li class="page_item page-item-2"><a href="../../../../about/index.html">About</a></li>
+					<li id="subscribe">
+						<a rel="external nofollow" title="Subscribe to this blog..." id="feed" href="../../../../feed/index.html"><img src="../../../../wp-content/themes/elegant-box/images/transparent.gif" alt="RSS feed" /></a>
+													<ul>
+								<li class="first"><a rel="external nofollow" title="Subscribe with Youdao" href="http://reader.youdao.com/b.do?url=http://linux.xvx.cz/feed/"> Youdao</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Xian Guo" href="http://www.xianguo.com/subscribe.php?url=http://linux.xvx.cz/feed/"> Xian Guo</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Zhua Xia" href="http://www.zhuaxia.com/add_channel.php?url=http://linux.xvx.cz/feed/"> Zhua Xia</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Google" href="http://fusion.google.com/add?feedurl=http://linux.xvx.cz/feed/"> Google</a></li>
+								<li><a rel="external nofollow" title="Subscribe with My Yahoo!" href="http://add.my.yahoo.com/rss?url=http://linux.xvx.cz/feed/"> My Yahoo!</a></li>
+								<li><a rel="external nofollow" title="Subscribe with newsgator" href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=http://linux.xvx.cz/feed/"> newsgator</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Bloglines" href="http://www.bloglines.com/sub/http://linux.xvx.cz/feed/"> Bloglines</a></li>
+								<li><a rel="external nofollow" title="Subscribe with iNezha" href="http://inezha.com/add?url=http://linux.xvx.cz/feed/"> iNezha</a></li>
+							</ul>
+											</li>
+
+				</ul>
+				<!-- navigation END -->
+
+			</div>
+		</div>
+	</div>
+	<!-- header END -->
+
+	<div id="container">
+		<div id="content">
+			<div id="main">
+
+		
+			<div class="post">
+				<div class="title">
+					<h2>SVN used for configuration management</h2>
+					<div class="fixed"></div>
+				</div>
+
+				<div class="info">
+					
+					<span>March 29th, 2010</span>
+																<span> | Tags: <a href="../../../../tag/configuration/index.html" rel="tag">configuration</a>, <a href="../../../../tag/debian/index.html" rel="tag">debian</a>, <a href="../../../../tag/server/index.html" rel="tag">server</a>, <a href="../../../../tag/ssh/index.html" rel="tag">ssh</a>, <a href="../../../../tag/svn/index.html" rel="tag">svn</a>, <a href="../../../../tag/websvn/index.html" rel="tag">websvn</a></span>
+					
+					<div class="fixed"></div>
+				</div>
+
+				<div class="content">
+					<p>Like every UNIX server admin, I&#8217;m using many various text based configurations on my machines. It&#8217;s important to track &#8220;every&#8221; change of these important files to prevent problems with service stability.</p>
+<p>I decided to set up <a href="http://subversion.apache.org/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://subversion.apache.org']);">Subversion</a> server and store all useful configurations from my Linux boxes there. For this purpose I wrote script <a href="http://websvn.xvx.cz/wsvn-websvn.xvx.cz/projects/trunk/scripts/svnci/svnci" >svnci</a> which is used to save/delete/update files from svn. You can off course save all necessary files to SVN by hand, but it&#8217;s quicker to write short parser for it.</p>
+<p><span id="more-225"></span></p>
+<p>The idea is to create main repository &#8220;system_configs&#8221; where you will have subdirectories correspond to hostnames of your machines:</p>
+<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;"><div class="text codecolorer">/var/lib/svn-repos/ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+└── system_configs &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; ├── debian &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; └── czbrn0208</div></div>
+<p>Then the access rights are set for each host to access the right directory in SVN. Then you should be able to commit changes to SVN using svn+ssh and private keys.<br />
+Use cron to automatically check changes in your files and add them to SVN.</p>
+<p>Here is the example how I installed subversion server to debian and managed configuration files in it.</p>
+<h2>SVN server installation and configuration together with WebSVN</h2>
+<p>Install necessary software:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">aptitude</span> <span class="kw2">install</span> openssh-server subversion websvn</div></div>
+<p>Prepare SVN directory:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">useradd <span class="kw2">svn</span><br />
+<span class="kw2">mkdir</span> <span class="sy0">/</span>home<span class="sy0">/</span><span class="kw2">svn</span><br />
+<span class="kw2">mkdir</span> <span class="sy0">/</span>home<span class="sy0">/</span>svn<span class="sy0">/</span>.ssh<br />
+<span class="kw2">mkdir</span> <span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>svn-repos<br />
+<span class="kw2">chown</span> <span class="re5">-R</span> svn:svn <span class="sy0">/</span>home<span class="sy0">/</span><span class="kw2">svn</span><br />
+<span class="kw2">svnadmin</span> create <span class="re5">--fs-type</span> fsfs <span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>svn-repos<span class="sy0">/</span>system_configs</div></div>
+<p>Now it&#8217;s necessary to setup access rights for servers which will read/write configuration to your SVN server. In my example I will use servers with hostnames &#8220;debian&#8221; and &#8220;czbrn0208&#8243;.</p>
+<li>authz</li>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">cat</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>svn-repos<span class="sy0">/</span>system_configs<span class="sy0">/</span>conf<span class="sy0">/</span>authz <span class="co2">&lt;&lt; EOF<br />
+<br />
+[/czbrn0208]<br />
+czbrn0208 = rw<br />
+<br />
+[/debian]<br />
+debian = rw<br />
+EOF</span></div></div>
+<li>svnserve.conf
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">cat</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>svn-repos<span class="sy0">/</span>system_configs<span class="sy0">/</span>conf<span class="sy0">/</span>svnserve.conf <span class="co2">&lt;&lt; EOF<br />
+[general]<br />
+authz-db = authz<br />
+anon-access = none<br />
+EOF</span></div></div>
+<p>Now you have to create directory structure matching the hostnames and import it to SVN:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>repo<span class="sy0">/</span>debian <span class="sy0">/</span>tmp<span class="sy0">/</span>repo<span class="sy0">/</span>czbrn0208<br />
+<span class="kw2">svn import</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>repo file:<span class="sy0">///</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>svn-repos<span class="sy0">/</span>system_configs <span class="re5">-m</span> <span class="st0">&quot;Initial import (<span class="es5">`date +\&quot;%F %T\&quot;`</span>)&quot;</span><br />
+<span class="kw2">rm</span> <span class="re5">-rf</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>repo</div></div>
+<p>We should also change rights to &#8220;svn&#8221; user:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">chmod</span> <span class="re5">-R</span> g+<span class="kw2">w</span> <span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>svn-repos<span class="sy0">/</span>system_configs<br />
+<span class="kw2">chown</span> <span class="re5">-R</span> svn:svn <span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>svn-repos</div></div>
+<p>You should check your SVN directory structure and it should look like:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">root<span class="sy0">@</span>debian:<span class="sy0">/</span> <span class="kw2">svnlook</span> <span class="kw2">tree</span> <span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>svn-repos<span class="sy0">/</span>system_configs<br />
+<span class="sy0">/</span><br />
+&nbsp;debian<span class="sy0">/</span><br />
+&nbsp;czbrn0208<span class="sy0">/</span></div></div>
+<p>Now you need to add public keys to: /home/svn/.ssh/authorized_keys to allow access from hosts to SVN server using svn+ssh.<br />
+I include here also ssh key generation:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;height:300px;"><div class="bash codecolorer">root<span class="sy0">@</span>debian:<span class="sy0">/</span> <span class="kw2">ssh-keygen</span><br />
+Generating public<span class="sy0">/</span>private rsa key pair.<br />
+Enter <span class="kw2">file</span> <span class="kw1">in</span> <span class="kw2">which</span> to save the key <span class="br0">&#40;</span><span class="sy0">/</span>root<span class="sy0">/</span>.ssh<span class="sy0">/</span>id_rsa<span class="br0">&#41;</span>:<br />
+Created directory <span class="st_h">'/root/.ssh'</span>.<br />
+Enter passphrase <span class="br0">&#40;</span>empty <span class="kw1">for</span> no passphrase<span class="br0">&#41;</span>:<br />
+Enter same passphrase again:<br />
+Your identification has been saved <span class="kw1">in</span> <span class="sy0">/</span>root<span class="sy0">/</span>.ssh<span class="sy0">/</span>id_rsa.<br />
+Your public key has been saved <span class="kw1">in</span> <span class="sy0">/</span>root<span class="sy0">/</span>.ssh<span class="sy0">/</span>id_rsa.pub.<br />
+The key fingerprint is:<br />
+e4:e7:b9:<span class="nu0">75</span>:<span class="nu0">10</span>:<span class="nu0">97</span>:e4:4b:<span class="nu0">28</span>:2d:ad:<span class="nu0">69</span>:<span class="nu0">65</span>:d2:3d:<span class="nu0">78</span> root<span class="sy0">@</span>debian<br />
+The key<span class="st_h">'s randomart image is:<br />
++--[ RSA 2048]----+<br />
+| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;. &nbsp;|<br />
+| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; + * . |<br />
+| &nbsp; &nbsp; &nbsp; &nbsp;. + X E &nbsp;|<br />
+| &nbsp; &nbsp; &nbsp; o &nbsp; O = o |<br />
+| &nbsp; &nbsp; &nbsp; &nbsp;S = . . &nbsp;|<br />
+| &nbsp; &nbsp; &nbsp; &nbsp; + . . &nbsp; |<br />
+| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;o . . &nbsp;|<br />
+| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; o . &nbsp; |<br />
+| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;. &nbsp; &nbsp; &nbsp;|<br />
++-----------------+</span></div></div>
+<p>Now you should save $HOME/.ssh/id_rsa.pub to /home/svn/.ssh/authorized_keys like:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">root<span class="sy0">@</span>debian:<span class="sy0">/</span> <span class="kw3">echo</span> <span class="st0">&quot;command=<span class="es1">\&quot;</span>/usr/bin/svnserve -t -r /var/lib/svn-repos/system_configs <span class="es1">\<br />
+</span>--tunnel-user=<span class="es5">`hostname`</span><span class="es1">\&quot;</span>,no-port-forwarding,no-pty,no-agent-forwarding,no-X11-forwarding <span class="es1">\<br />
+</span><span class="es5">`cat $HOME/.ssh/id_rsa.pub`</span>&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>home<span class="sy0">/</span>svn<span class="sy0">/</span>.ssh<span class="sy0">/</span>authorized_keys</div></div>
+<p>I should do the same for my second host czbrn0208, but I have to first transfer it&#8217;s public key to the server and then run similar command:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">root<span class="sy0">@</span>debian:<span class="sy0">/</span> <span class="kw3">echo</span> <span class="st0">&quot;command=<span class="es1">\&quot;</span>/usr/bin/svnserve -t -r /var/lib/svn-repos/system_configs <span class="es1">\<br />
+</span>--tunnel-user=czbrn0208<span class="es1">\&quot;</span>,no-port-forwarding,no-pty,no-agent-forwarding,no-X11-forwarding <span class="es1">\<br />
+</span><span class="es5">`ssh root@czbrn0208 &quot;cat /root/.ssh/id_rsa.pub&quot;`</span>&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>home<span class="sy0">/</span>svn<span class="sy0">/</span>.ssh<span class="sy0">/</span>authorized_keys<br />
+root<span class="sy0">@</span>debian:<span class="sy0">/</span> <span class="kw2">cat</span> <span class="sy0">/</span>home<span class="sy0">/</span>svn<span class="sy0">/</span>.ssh<span class="sy0">/</span>authorized_keys<br />
+<span class="re2">command</span>=<span class="st0">&quot;/usr/bin/svnserve -t -r /var/lib/svn-repos --tunnel-user=debian&quot;</span>,no-port-forwarding,no-pty,no-agent-forwarding,no-X11-forwarding ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA7INCS6YC4VtsBpPa7H3sg4grSeRXSosWhWFzqyNDf++pau37DH1wZYCunfBpJjbiVMFJnOoT3LPmNc7DUTipEUAbz8p9XNt20qG8edLuf2zJ1VrqCxTydIJon+X+ZT6CI95v6<span class="sy0">/</span>xG3SBevRKaV07kwzxIPdLMhJKdF0d7HKUOGTgWrWGIoRCnxSyIO5Jn7qEA+<span class="nu0">7</span><span class="sy0">/</span>h7IYZo94IOedwDi1009akOfU73Iw<span class="sy0">/</span>ArxtDAM752UNf7Y0gANtJRngBdT1nkiW1Yko2OPMG+gMDkc4bZ14TYqXzHeFHSGD<span class="sy0">/</span>ipZlKn9czry3z5Pw5quI<span class="sy0">/</span>K6m6uaWP9WuMC<span class="sy0">/</span><span class="re2">CEjhRmNbOpsVRNg00Q</span>== root<span class="sy0">@</span>debian<br />
+<span class="re2">command</span>=<span class="st0">&quot;/usr/bin/svnserve -t -r /var/lib/svn-repos/system_configs --tunnel-user=czbrn0208&quot;</span>,no-port-forwarding,no-pty,no-agent-forwarding,no-X11-forwarding ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA4p<span class="sy0">/</span>ax75qZ5KiI1j3uy3rmgNFjyaxflKdVN0mQKPg4xzHAIy2cVdAk9eVdmNJOCKzjJej4dEL2NwgR0LDaaVJelZt2tI<span class="sy0">/</span>GMZj4VnxLyAJQeJEeyMuUccwDJLF4X6CtUP22f7dzkHe6ovpRgBdUiuNWlmmOVkTwJqgQMp6P7c5BtKA60VLWvu1dfnChbJ8hay+9y890n893egOm6aAHpzbsaSPF0DxqrkNnVYrabOh4Y7HoXuKwJNdQtbR0zKdnURTk+GWMiUgyMU5NkEAC9GqAzVN<span class="sy0">/</span>t+4NWZHDWuS1VlBdNbt1pmfMNhlUAIm<span class="sy0">/</span><span class="re2">tsWtPdPwYEnI8MqolQHnHSDw9KYeQ</span>== root<span class="sy0">@</span>czbrn0208<br />
+root<span class="sy0">@</span>debian:<span class="sy0">/</span></div></div>
+<p>Now you should be able to access SVN from the hosts:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">root<span class="sy0">@</span>debian:<span class="sy0">/</span> <span class="kw2">mkdir</span> <span class="sy0">/</span>root<span class="sy0">/</span>configuration-<span class="sy0">`</span><span class="kw2">hostname</span><span class="sy0">`</span><br />
+root<span class="sy0">@</span>debian:<span class="sy0">/</span> <span class="kw2">svn co</span> <span class="kw2">svn</span>+ssh:<span class="sy0">//</span><span class="kw2">svn</span><span class="sy0">@</span>debian.xvx.cz<span class="sy0">/`</span><span class="kw2">hostname</span><span class="sy0">`</span> <span class="sy0">/</span>root<span class="sy0">/</span>configuration-<span class="sy0">`</span><span class="kw2">hostname</span><span class="sy0">`</span><br />
+root<span class="sy0">@</span>czbrn0208:~ <span class="kw2">mkdir</span> <span class="sy0">/</span>root<span class="sy0">/</span>configuration-<span class="sy0">`</span><span class="kw2">hostname</span><span class="sy0">`</span><br />
+root<span class="sy0">@</span>czbrn0208:~ <span class="kw2">svn co</span> <span class="kw2">svn</span>+ssh:<span class="sy0">//</span><span class="kw2">svn</span><span class="sy0">@</span>debian.xvx.cz<span class="sy0">/`</span><span class="kw2">hostname</span><span class="sy0">`</span> <span class="sy0">/</span>root<span class="sy0">/</span>configuration-<span class="sy0">`</span><span class="kw2">hostname</span><span class="sy0">`</span></div></div>
+<p>Now your repositories are ready to import first files/directories:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">cp</span> <span class="sy0">/</span>etc<span class="sy0">/</span>rc.local <span class="sy0">/</span>root<span class="sy0">/</span>configuration-<span class="sy0">`</span><span class="kw2">hostname</span><span class="sy0">`/</span><br />
+<span class="kw2">svn add</span> <span class="sy0">/</span>root<span class="sy0">/</span>configuration-debian<span class="sy0">/</span>rc.local<br />
+<span class="kw2">svn ci</span> <span class="re5">--message</span> <span class="st0">&quot;Test&quot;</span> <span class="sy0">/</span>root<span class="sy0">/</span>configuration-debian<span class="sy0">/</span></div></div>
+<p>Now there should be first file in the repository.</p>
+<p>Now you can access your repository by <a href="http://www.websvn.info/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.websvn.info']);">WebSVN</a> using http://my_server/websvn.</p>
+<p>Everybody like screenshots so I put there some from my own SVN server:</p>
+
+		<style type='text/css'>
+			#gallery-1 {
+				margin: auto;
+			}
+			#gallery-1 .gallery-item {
+				float: left;
+				margin-top: 10px;
+				text-align: center;
+				width: 33%;
+			}
+			#gallery-1 img {
+				border: 2px solid #cfcfcf;
+			}
+			#gallery-1 .gallery-caption {
+				margin-left: 0;
+			}
+		</style>
+		<!-- see gallery_shortcode() in wp-includes/media.php -->
+		<div id='gallery-1' class='gallery galleryid-225 gallery-columns-3 gallery-size-thumbnail'><dl class='gallery-item'>
+			<dt class='gallery-icon'>
+				<a href="../../../../wp-uploads/svn_3.jpeg"  title='WebSVN 3'><img width="150" height="150" src="../../../../wp-uploads/svn_3-150x150.jpg" class="attachment-thumbnail" alt="WebSVN screenshot" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon'>
+				<a href="../../../../wp-uploads/svn_2.jpeg"  title='WebSVN 2'><img width="150" height="150" src="../../../../wp-uploads/svn_2-150x150.jpg" class="attachment-thumbnail" alt="WebSVN screenshot" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon'>
+				<a href="../../../../wp-uploads/svn_1.jpeg"  title='WebSVN 1'><img width="150" height="150" src="../../../../wp-uploads/svn_1-150x150.jpg" class="attachment-thumbnail" alt="WebSVN screenshot" /></a>
+			</dt></dl><br style="clear: both" />
+			<br style='clear: both;' />
+		</div>
+
+<h2>snvci script</h2>
+<p>Here is a link for my script which can help you to add/update/remove to svn repository without deep knowledge of it: <a href="http://websvn.xvx.cz/wsvn-websvn.xvx.cz/projects/trunk/scripts/svnci/svnci" >http://websvn.xvx.cz/wsvn-websvn.xvx.cz/projects/trunk/scripts/svnci/svnci</a>.</p>
+<p>I use it because it&#8217;s faster and easy to remember than learn various svn commands combined with shell &#8211; so here are some examples:</p>
+<p>Add files to repository:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;height:300px;"><div class="bash codecolorer">gate:<span class="sy0">/</span>etc<span class="sy0">/</span>freeradius<span class="co0"># svnci sql.conf</span><br />
+<span class="sy0">`/</span>etc<span class="sy0">/</span>freeradius<span class="sy0">/</span>sql.conf<span class="st_h">' -&gt; `/root/configuration-gate/etc/freeradius/sql.conf'</span><br />
+<br />
+A &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">/</span>root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>freeradius<span class="sy0">/</span>sql.conf<br />
+Adding &nbsp; &nbsp; &nbsp; &nbsp; root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>freeradius<span class="sy0">/</span>sql.conf<br />
+Sending &nbsp; &nbsp; &nbsp; &nbsp;root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>files<br />
+Transmitting <span class="kw2">file</span> data ..<br />
+Committed revision <span class="nu0">36</span>.<br />
+Initial: <span class="sy0">/</span>etc<span class="sy0">/</span>freeradius<span class="sy0">/</span>sql.conf<br />
+<br />
+gate:<span class="sy0">/</span><span class="co0"># svnci /etc/freeradius/sites-available/default</span><br />
+<span class="sy0">/</span>etc<span class="sy0">/</span>freeradius<span class="sy0">/</span>sites-available -<span class="sy0">&gt;</span> <span class="sy0">/</span>root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>freeradius<span class="sy0">/</span>sites-available<br />
+<span class="sy0">`/</span>etc<span class="sy0">/</span>freeradius<span class="sy0">/</span>sites-available<span class="sy0">/</span>default<span class="st_h">' -&gt; `/root/configuration-gate/etc/freeradius/sites-available/default'</span><br />
+<br />
+A &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">/</span>root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>freeradius<span class="sy0">/</span>sites-available<br />
+A &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">/</span>root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>freeradius<span class="sy0">/</span>sites-available<span class="sy0">/</span>default<br />
+Adding &nbsp; &nbsp; &nbsp; &nbsp; root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>freeradius<span class="sy0">/</span>sites-available<br />
+Adding &nbsp; &nbsp; &nbsp; &nbsp; root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>freeradius<span class="sy0">/</span>sites-available<span class="sy0">/</span>default<br />
+Sending &nbsp; &nbsp; &nbsp; &nbsp;root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>files<br />
+Transmitting <span class="kw2">file</span> data ..<br />
+Committed revision <span class="nu0">37</span>.<br />
+Initial: <span class="sy0">/</span>etc<span class="sy0">/</span>freeradius<span class="sy0">/</span>sites-available<span class="sy0">/</span>default</div></div>
+<p>Add directory to repository:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;height:300px;"><div class="bash codecolorer">gate:<span class="sy0">/</span>etc<span class="co0"># ls -ld cron.monthly</span><br />
+drwxr-xr-x <span class="nu0">2</span> root root <span class="nu0">4096</span> <span class="nu0">2010</span>-02-<span class="nu0">25</span> <span class="nu0">17</span>:02 cron.monthly<br />
+<br />
+gate:<span class="sy0">/</span>etc<span class="co0"># svnci cron.monthly</span><br />
+<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly -<span class="sy0">&gt;</span> <span class="sy0">/</span>root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<br />
+<span class="sy0">`/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>.placeholder<span class="st_h">' -&gt; `/root/configuration-gate/etc/cron.monthly/.placeholder'</span><br />
+<span class="sy0">`/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>debsums<span class="st_h">' -&gt; `/root/configuration-gate/etc/cron.monthly/debsums'</span><br />
+<span class="sy0">`/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>standard<span class="st_h">' -&gt; `/root/configuration-gate/etc/cron.monthly/standard'</span><br />
+<br />
+A &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">/</span>root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<br />
+A &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">/</span>root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>.placeholder<br />
+A &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">/</span>root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>debsums<br />
+A &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">/</span>root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>standard<br />
+Adding &nbsp; &nbsp; &nbsp; &nbsp; root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<br />
+Adding &nbsp; &nbsp; &nbsp; &nbsp; root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>.placeholder<br />
+Adding &nbsp; &nbsp; &nbsp; &nbsp; root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>debsums<br />
+Adding &nbsp; &nbsp; &nbsp; &nbsp; root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>standard<br />
+Sending &nbsp; &nbsp; &nbsp; &nbsp;root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>files<br />
+Transmitting <span class="kw2">file</span> data ....<br />
+Committed revision <span class="nu0">38</span>.<br />
+Initial: <span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span></div></div>
+<p>Removing file(s):</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">gate:<span class="sy0">/</span>etc<span class="co0"># cd cron.monthly</span><br />
+gate:<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="co0"># svnci -r debsums standard</span><br />
+Removing <span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>debsums from repository: D &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">/</span>root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>debsums<br />
+Removing <span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>standard from repository: D &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy0">/</span>root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>standard<br />
+Deleting &nbsp; &nbsp; &nbsp; root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>debsums<br />
+Deleting &nbsp; &nbsp; &nbsp; root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>cron.monthly<span class="sy0">/</span>standard<br />
+Sending &nbsp; &nbsp; &nbsp; &nbsp;root<span class="sy0">/</span>configuration-gate<span class="sy0">/</span>files<br />
+Transmitting <span class="kw2">file</span> data .<br />
+Committed revision <span class="nu0">39</span>.</div></div>
+<p>For updating files included in your repository you can use &#8220;svnci -u&#8221; command. It&#8217;s also handy to run it every night by cron to automatically track changes in your &#8220;monitored&#8221; files:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">gate:<span class="sy0">/</span>etc<span class="co0"># svnci -u</span><br />
+Sending &nbsp; &nbsp; &nbsp; &nbsp;configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>apache2<span class="sy0">/</span>httpd.conf<br />
+Sending &nbsp; &nbsp; &nbsp; &nbsp;configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>apache2<span class="sy0">/</span>sites-available<span class="sy0">/</span>default-ssl<br />
+Sending &nbsp; &nbsp; &nbsp; &nbsp;configuration-gate<span class="sy0">/</span>etc<span class="sy0">/</span>munin<span class="sy0">/</span>plugin-conf.d<span class="sy0">/</span>munin-node<br />
+Sending &nbsp; &nbsp; &nbsp; &nbsp;configuration-gate<span class="sy0">/</span>packages<br />
+Sending &nbsp; &nbsp; &nbsp; &nbsp;configuration-gate<span class="sy0">/</span>root<span class="sy0">/</span>bin<span class="sy0">/</span>files<br />
+Transmitting <span class="kw2">file</span> data .............<br />
+Committed revision <span class="nu0">45</span>.</div></div>
+<p>Useful links:<br />
+<a href="http://jimmyg.org/blog/2007/subversion-over-svnssh-on-debian.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://jimmyg.org']);">http://jimmyg.org/blog/2007/subversion-over-svnssh-on-debian.html</a></p>
+<div style="display: none">VN:F [1.9.20_1166]</div><div class="ratingblock "><div class="ratingheader "></div><div class="ratingstars "><div id="article_rater_225" class="ratepost gdsr-crystal gdsr-size-20"><div class="starsbar gdsr-size-20"><div class="gdouter gdheight"><div id="gdr_vote_a225" style="width: 0px;" class="gdinner gdheight"></div><div id="gdr_stars_a225" class="gdsr_rating_as"><a id="gdsrX225X10X0XaXarticle_rater_225Xarticle_loader_225X10X20" title="10 / 10" class="s10" rel="nofollow"></a><a id="gdsrX225X9X0XaXarticle_rater_225Xarticle_loader_225X10X20" title="9 / 10" class="s9" rel="nofollow"></a><a id="gdsrX225X8X0XaXarticle_rater_225Xarticle_loader_225X10X20" title="8 / 10" class="s8" rel="nofollow"></a><a id="gdsrX225X7X0XaXarticle_rater_225Xarticle_loader_225X10X20" title="7 / 10" class="s7" rel="nofollow"></a><a id="gdsrX225X6X0XaXarticle_rater_225Xarticle_loader_225X10X20" title="6 / 10" class="s6" rel="nofollow"></a><a id="gdsrX225X5X0XaXarticle_rater_225Xarticle_loader_225X10X20" title="5 / 10" class="s5" rel="nofollow"></a><a id="gdsrX225X4X0XaXarticle_rater_225Xarticle_loader_225X10X20" title="4 / 10" class="s4" rel="nofollow"></a><a id="gdsrX225X3X0XaXarticle_rater_225Xarticle_loader_225X10X20" title="3 / 10" class="s3" rel="nofollow"></a><a id="gdsrX225X2X0XaXarticle_rater_225Xarticle_loader_225X10X20" title="2 / 10" class="s2" rel="nofollow"></a><a id="gdsrX225X1X0XaXarticle_rater_225Xarticle_loader_225X10X20" title="1 / 10" class="s1" rel="nofollow"></a></div></div></div></div><div id="article_loader_225" style="display: none; width: 200px " class="ratingloaderarticle"><div class="loader arrows " style="height: 20px"><div class="loaderinner">please wait...</div></div></div></div><div class="ratingtext "><div id="gdr_text_a225">Rating: 0.0/<strong>10</strong> (0 votes cast)</div></div></div>					<div class="fixed"></div>
+				</div>
+
+				<div class="comments comments_single">
+					<a href="index.html#respond">Leave a comment</a>
+											 | <a href="index.html" rel="trackback">Trackback</a>
+									</div>
+
+				<!-- related posts START -->
+								<!-- related posts END -->
+			</div>
+
+
+<script type="text/javascript" src="../../../../wp-content/themes/elegant-box/js/comment.js"></script>
+
+	<!-- comments START -->
+	<ol class="commentlist">
+			<li class="comment " id="comment-201">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/e054a5fcd6e15c629442c04949243582?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-201">
+											Krzysztof Tomczyk											</span>
+									</div>
+				<div class="date">May 28th, 2010 at 14:31</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-201', 'comment-201', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-201', 'comment-201', 'commentbody-201', 'comment');">Quote</a> | 
+								<a href="index.html#comment-201">#1</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-201"><p>Tak a look at this tool  <a href="http://sourceforge.net/projects/pmsvn" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://sourceforge.net']);" rel="nofollow">http://sourceforge.net/projects/pmsvn</a></p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-222">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/6e031e15f9ff2dac506788764ac0b8a9?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-222">
+											dave											</span>
+									</div>
+				<div class="date">October 5th, 2010 at 15:20</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-222', 'comment-222', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-222', 'comment-222', 'commentbody-222', 'comment');">Quote</a> | 
+								<a href="index.html#comment-222">#2</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-222"><p>Peter,</p>
+<p>This looks good, but how are you updating your configuration files on the servers? ln -s?</p>
+<p>We are kicking around this idea as well, but we are going a different route with it.</p>
+<p>Grouping all of our machines based on type. so we will have:<br />
+/reporoot<br />
+   /Linux<br />
+   /Solaris<br />
+   /AIX<br />
+   /&#8230;</p>
+<p>I would much rather update three files, instead of 250.</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment  admincomment" id="comment-223">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/5484c0fd9f98e2ffd9212b158931bf4b?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-223" href="http://www.xvx.cz" rel="external nofollow">
+											Petr Ruzicka											</a>
+									</div>
+				<div class="date">October 6th, 2010 at 11:07</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-223', 'comment-223', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-223', 'comment-223', 'commentbody-223', 'comment');">Quote</a> | 
+								<a href="index.html#comment-223">#3</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-223"><p>Hello Dave.</p>
+<p>I&#8217;m updating the configurations by script using cron every midnight. </p>
+<p>In this article I just wanted to show what are the possibilities of having config files in SVN repository, because it&#8217;s good idea (according me). You can easily track the changes on the machines. </p>
+<p>I agree it can be handy to have machines grouped by OS type. I prefer to keep configs per hosts &#8211; because if something is not working well on the box I can see all it&#8217;s changes.</p>
+<p>But it&#8217;s just my preference&#8230;. </p>
+<p>I&#8217;m sure everybody can script these svn commits/updates and create it&#8217;s own solution &#8211; here I describe the way how I did it&#8230;</p>
+<p>See you and good luck&#8230;</p>
+<p>PetrR</p>
+</div>
+		</div>
+
+</li>
+	</ol>
+	<!-- comments END -->
+
+	<!-- comments navi START -->
+		<!-- comments navi END -->
+
+	<!-- trackback START -->
+		<!-- trackback END -->
+
+
+	<div id="respond">
+	<form action="http://linux.xvx.cz/wp-comments-post.php" method="post" id="commentform">
+
+	<!-- comment info -->
+	<div id="comment_header">
+		<div id="comment_info">
+							
+				<div id="author_info">
+					<div class="row">
+						<input type="text" name="author" id="author" class="textfield" value="" size="24" tabindex="1" />
+						<label for="author" class="small">Name (required)</label>
+					</div>
+					<div class="row">
+						<input type="text" name="email" id="email" class="textfield" value="" size="24" tabindex="2" />
+						<label for="email" class="small">E-Mail (will not be published) (required)</label>
+					</div>
+					<div class="row">
+						<input type="text" name="url" id="url" class="textfield" value="" size="24" tabindex="3" />
+						<label for="url" class="small">Website</label>
+					</div>
+				</div>
+
+				
+					</div>
+	</div>
+
+	<!-- comment input -->
+	<textarea name="comment" id="comment" tabindex="4" rows="8" cols="50"></textarea>
+
+	<!-- comment submit and rss -->
+	<div id="submitbox">
+		<div id="comments_rss">
+			<a href="../../../../comments/feed/index.html">
+				<span class="feed">Subscribe to comments feed</span>
+			</a>
+		</div>
+
+		<div class="act">
+							<a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display:none;">Cancel</a>						<input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit Comment" />
+		</div>
+		
+		<input type="hidden" name="comment_post_ID" value="225" />
+					<input type='hidden' name='comment_post_ID' value='225' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+				<div class="fixed"></div>
+	</div>
+
+		<script type='text/javascript'>
+	<!--
+	refJS = escape( document[ 'referrer' ] );
+	document.write("<input type='hidden' name='refJS' value='"+refJS+"'>");
+	// -->
+	</script>
+	<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="a5eeead195" /></p>	</form>
+	</div>
+
+	
+
+			
+
+	</div>
+
+	<!-- sidebar START -->
+<div id="sidebar">
+
+<!-- Style Switcher START -->
+<!-- Style Switcher END -->
+
+		<!-- showcase -->
+		
+		<ul id="widgets">
+
+<li class="widget widget_archive"><h3>Archives</h3>		<ul>
+			<li><a href='../../../../2013/06/index.html' title='June 2013'>June 2013</a>&nbsp;(1)</li>
+	<li><a href='../../../../2012/01/index.html' title='January 2012'>January 2012</a>&nbsp;(1)</li>
+	<li><a href='../../../../2011/12/index.html' title='December 2011'>December 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../../2011/02/index.html' title='February 2011'>February 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../../2011/01/index.html' title='January 2011'>January 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../12/index.html' title='December 2010'>December 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../09/index.html' title='September 2010'>September 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../05/index.html' title='May 2010'>May 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../04/index.html' title='April 2010'>April 2010</a>&nbsp;(1)</li>
+	<li><a href='../../index.html' title='March 2010'>March 2010</a>&nbsp;(5)</li>
+	<li><a href='../../../../2009/12/index.html' title='December 2009'>December 2009</a>&nbsp;(1)</li>
+	<li><a href='../../../../2009/08/index.html' title='August 2009'>August 2009</a>&nbsp;(1)</li>
+	<li><a href='../../../../2009/06/index.html' title='June 2009'>June 2009</a>&nbsp;(3)</li>
+	<li><a href='../../../../2009/03/index.html' title='March 2009'>March 2009</a>&nbsp;(3)</li>
+	<li><a href='../../../../2009/02/index.html' title='February 2009'>February 2009</a>&nbsp;(1)</li>
+		</ul>
+</li><li class="widget widget_polls-widget"><h3>Polls</h3><div id="polls-2" class="wp-polls">
+	<form id="polls_form_2" class="wp-polls-form" action="index.html" method="post">
+		<p style="display: none;"><input type="hidden" id="poll_2_nonce" name="wp-polls-nonce" value="72cec8fd98" /></p>
+		<p style="display: none;"><input type="hidden" name="poll_id" value="2" /></p>
+		<p style="display: none;"><input type="hidden" id="poll_multiple_ans_2" name="poll_multiple_ans_2" value="3" /></p>
+		<p style="text-align: center;"><strong>Favourite distro</strong></p><div id="polls-2-ans" class="wp-polls-ans"><ul class="wp-polls-ul">
+		<li><input type="checkbox" id="poll-answer-6" name="poll_2" value="6" /> <label for="poll-answer-6">Debian, Ubuntu</label></li>
+		<li><input type="checkbox" id="poll-answer-7" name="poll_2" value="7" /> <label for="poll-answer-7">RedHat, Fedora, CentOS</label></li>
+		<li><input type="checkbox" id="poll-answer-8" name="poll_2" value="8" /> <label for="poll-answer-8">Gentoo, Sabayon</label></li>
+		<li><input type="checkbox" id="poll-answer-9" name="poll_2" value="9" /> <label for="poll-answer-9">Arch</label></li>
+		<li><input type="checkbox" id="poll-answer-10" name="poll_2" value="10" /> <label for="poll-answer-10">Slackware</label></li>
+		<li><input type="checkbox" id="poll-answer-11" name="poll_2" value="11" /> <label for="poll-answer-11">openSUSE</label></li>
+		<li><input type="checkbox" id="poll-answer-12" name="poll_2" value="12" /> <label for="poll-answer-12">Mandriva</label></li>
+		</ul><p style="text-align: center;"><input type="button" name="vote" value="   Vote   " class="Buttons" onclick="poll_vote(2);" onkeypress="poll_result(2);" /></p><p style="text-align: center;"><a href="index.html#ViewPollResults" onclick="poll_result(2); return false;" onkeypress="poll_result(2); return false;" title="View Results Of This Poll">View Results</a></p></div>
+	</form>
+</div>
+<div id="polls-2-loading" class="wp-polls-loading"><img src="../../../../wp-content/plugins/wp-polls/images/loading.gif" width="16" height="16" alt="Loading ..." title="Loading ..." class="wp-polls-image" />&nbsp;Loading ...</div>
+</li><li class="widget wassup_widget"><h3>Visitors Online</h3><ul class='links'><li><strong style='padding:0 4px 0 4px;background:#ddd;color:#777'>04</strong> visitor(s) online</li><li style='font-size:6pt; color:#bbb;'>powered by <a style='color:#777;' href='http://www.wpwp.org' title='WassUp - Real Time Visitors Tracking'>WassUp</a></li></ul></li>		</ul>
+
+		<!-- showcase 2 -->
+		
+</div>
+<!-- sidebar END -->
+
+	<div class="fixed"></div>
+
+		<div id="bottom">
+			<div class="postnav">
+				<span class="alignleft">&laquo; <a href="../../debian-wi-fi-hotspot-using-coovachilli-freeradius-mysql-and-daloradius/trackback/index.html" rel="prev">Debian Wi-Fi hotspot using CoovaChilli, FreeRadius, MySQL and daloRADIUS</a></span>
+				<span class="alignright"><a href="../../../04/pxe-server-using-dnsmasq-and-systemrescuecd-with-minimal-effort/trackback/index.html" rel="next">PXE server using Dnsmasq and SystemRescueCd with minimal effort</a> &raquo;</span>
+				<div class="fixed"></div>
+			</div>
+
+			<div class="anchor">
+				<span><a href="index.html#" onclick="MGJS.goTop();return false;">TOP</a></span>
+			</div>
+			<div class="fixed"></div>
+			</div>
+		<div class="fixed"></div>
+	</div>
+</div>
+
+<!-- footer START -->
+<div id="footer">
+	<div class="inner">
+		<div class="content">
+			<p id="about">
+				Copyright &copy; 2009-2013 Petr&#8217;s blog about Linux | Powered by <a href="http://wordpress.org/">WordPress</a> | Theme by <a href="http://www.neoease.com/">NeoEase</a>			</p>
+
+			<ul id="admin">
+								<li><a href="../../../../wp-login.php">Log in</a></li>
+			</ul>
+
+			<div class="fixed"></div>
+		</div>
+	</div>
+</div><!-- footer END -->
+<!--[if IE]>
+<script language=javascript>
+//<![CDATA[
+	if (screen_res=="") {
+		screen_res = screen.width + " x " + screen.height;
+	}
+	if (screen_res!=" x ") {
+		var cdate = new Date();
+		cdate.setTime(cdate.getTime()+(48*60*60*1000));
+		var cexpires = cdate.toGMTString();
+		//var the_cookie = "wassup_screen_res="+escape(screen_res)+"; expires="+cexpires;
+		document.cookie = "wassup_screen_res=" + escape(screen_res)+ "; path=/; domain=" + document.domain;
+
+	}
+//]]>
+</script>
+<![endif]--><!--
+<p class="small"> WassUp 1.8.3.1 timestamp: 2013-06-22 10:03:14AM UTC (11:03AM)<br />
+If above timestamp is not current time, this page is cached.</p> -->
+<script type='text/javascript' src='http://lite.piclens.com/current/piclens_optimized.js?ver=3.5.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var pollsL10n = {"ajax_url":"http:\/\/linux.xvx.cz\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"1","show_fading":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../../wp-content/plugins/wp-polls/polls-js.js?ver=2.63'></script>
+<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201325.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'6295081',v:'ext',post:'225'});
+var load_cmc = function(){linktracker_init(6295081,225,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+
+</body>
+</html>

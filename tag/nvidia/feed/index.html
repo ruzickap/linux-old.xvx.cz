@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Petr's blog about Linux &#187; nvidia</title>
+	<atom:link href="http://linux.xvx.cz/tag/nvidia/feed/" rel="self" type="application/rss+xml" />
+	<link>http://linux.xvx.cz</link>
+	<description>My personal blog about Linux and other opensource applications.</description>
+	<lastBuildDate>Sat, 08 Jun 2013 08:57:21 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.5.1</generator>
+		<item>
+		<title>Nvidia proprietary drivers and RHEL6</title>
+		<link>http://linux.xvx.cz/2011/01/nvidia-proprietary-drivers-and-rhel6/</link>
+		<comments>http://linux.xvx.cz/2011/01/nvidia-proprietary-drivers-and-rhel6/#comments</comments>
+		<pubDate>Thu, 20 Jan 2011 16:03:02 +0000</pubDate>
+		<dc:creator>Petr Ruzicka</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[disable]]></category>
+		<category><![CDATA[drivers]]></category>
+		<category><![CDATA[nouveau]]></category>
+		<category><![CDATA[nvidia]]></category>
+		<category><![CDATA[rhel6]]></category>
+
+		<guid isPermaLink="false">http://linux.xvx.cz/?p=981</guid>
+		<description><![CDATA[Sometimes you need to run Nvidia proprietary drivers in various linux distributions. I was able to run it on standard RHEL 6.0 installed as &#8220;Desktop&#8221; with the following commands: Update the system and install the necessary packages yum update yum install gcc kernel-devel reboot Blacklist the nouveau driver sed -i '/root=/s&#124;$&#124; rdblacklist=nouveau vga=791&#124;' /boot/grub/grub.conf echo [...]]]></description>
+		<wfw:commentRss>http://linux.xvx.cz/2011/01/nvidia-proprietary-drivers-and-rhel6/feed/</wfw:commentRss>
+		<slash:comments>13</slash:comments>
+		</item>
+	</channel>
+</rss>

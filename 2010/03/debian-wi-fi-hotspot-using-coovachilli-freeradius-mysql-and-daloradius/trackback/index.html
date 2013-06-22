@@ -1,0 +1,1644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<title>Debian Wi-Fi hotspot using CoovaChilli, FreeRadius, MySQL and daloRADIUS | Petr's blog about Linux</title>
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all posts" href="../../../../feed/index.html" />
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all comments" href="../../../../comments/feed/index.html" />
+	<link rel="pingback" href="../../../../xmlrpc.php" />
+
+	<!-- style START -->
+	<link rel="stylesheet" href="../../../../wp-content/themes/elegant-box/style.css" type="text/css" media="screen" />
+		<!--[if IE]>
+		<link rel="stylesheet" href="http://linux.xvx.cz/wp-content/themes/elegant-box/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+
+	<!-- default style -->
+			<link rel="stylesheet" href="../../../../wp-content/themes/elegant-box/styles/blue/default.css" type="text/css" media="screen" title="blue" />
+		<link rel="stylesheet" href="../../../../wp-content/themes/elegant-box/styles/blue/global.css" type="text/css" media="screen" />
+	
+	<!-- others styles -->
+	<!-- style END -->
+
+	<!-- javascript START -->
+		<script type="text/javascript" src="../../../../wp-content/themes/elegant-box/js/base.js"></script>
+	<script type="text/javascript" src="../../../../wp-content/themes/elegant-box/js/menu.js"></script>
+	<!-- javascript END -->
+
+		
+			<script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.5 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-6594742-3']);
+							_gaq.push(['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+			<link rel="alternate" type="application/rss+xml" title="Petr&#039;s blog about Linux &raquo; Debian Wi-Fi hotspot using CoovaChilli, FreeRadius, MySQL and daloRADIUS Comments Feed" href="../feed/index.html" />
+<link rel='stylesheet' id='gdsr_style_main-css'  href='http://linux.xvx.cz/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1347955026&#038;s=a10i10m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower%23lsgarrows&#038;o=off&#038;ver=1.9.20' type='text/css' media='all' />
+<link rel='stylesheet' id='NextGEN-css'  href='../../../../wp-content/plugins/nextgen-gallery/css/nggallery.css?ver=1.0.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='shutter-css'  href='../../../../wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.css?ver=1.3.4' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp-polls-css'  href='../../../../wp-content/themes/elegant-box/polls-css.css?ver=2.63' type='text/css' media='all' />
+<link rel='stylesheet' id='codecolorer-css'  href='../../../../wp-content/plugins/codecolorer/codecolorer.css?ver=0.9.9' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp_dlmp_styles-css'  href='../../../../wp-content/plugins/download-monitor/page-addon/styles.css?ver=3.5.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://linux.xvx.cz/wp-includes/js/jquery/jquery.js?ver=1.8.3'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/gd-star-rating/js/gdsr.js?ver=1.9.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var shutterSettings = {"msgLoading":"L O A D I N G","msgClose":"Click to Close","imageCount":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../../wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.js?ver=1.3.3'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/nextgen-gallery/js/jquery.cycle.all.min.js?ver=2.9995'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/nextgen-gallery/js/ngg.slideshow.min.js?ver=1.06'></script>
+<script type='text/javascript' src='http://linux.xvx.cz/wp-includes/js/comment-reply.min.js?ver=3.5.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://linux.xvx.cz/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Using Grub2 and LUA installed on USB booting ISO images' href='../../using-grub2-and-lua-installed-on-usb-booting-iso-images-2/trackback/index.html' />
+<link rel='next' title='SVN used for configuration management' href='../../svn-used-for-configuration-management/trackback/index.html' />
+<meta name="generator" content="WordPress 3.5.1" />
+<link rel='shortlink' href='http://wp.me/pqpDz-4g' />
+
+<!-- All in One SEO Pack 1.6.15 by Michael Torbert of Semper Fi Web Design[343,460] -->
+<meta name="description" content="I decide to create hotspot from my server to allow other connect to Internet for free. I used Captive portal solution based on these applications: CoovaChilli, FreeRadius, MySQL, daloRADIUS." />
+<meta name="keywords" content="coovachilli, daloradius, debian, freeradius, hotspot, mysql, wi-fi, routing, nat, network" />
+<link rel="canonical" href="index.html" />
+<!-- /all in one seo pack -->
+	<style type='text/css'>
+	.download-info .download-button {
+		background-image: url(../../../../wp-content/plugins/download-monitor/page-addon/downloadbutton.gif);
+	}
+	.download-info .more-button {
+		background-image: url(../../../../wp-content/plugins/download-monitor/page-addon/morebutton.gif);
+	}
+	</style>
+<link rel="shortcut icon" href="http://www.xvx.cz/favicon.ico" /><script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "31f6af320f";
+var gdsr_cnst_ajax = "http://linux.xvx.cz/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script>
+<!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]-->
+<!-- <meta name="NextGEN" version="1.9.6" /> -->
+<style type="text/css">
+.wp-polls .pollbar {
+	margin: 1px;
+	font-size: 6px;
+	line-height: 8px;
+	height: 8px;
+	background-image: url('../../../../wp-content/plugins/wp-polls/images/default/pollbg.gif');
+	border: 1px solid #c8c8c8;
+}
+</style>
+
+<!-- Start Of Script Generated By WP-PostViews -->
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery.ajax({type:'GET',url:'http://linux.xvx.cz/wp-admin/admin-ajax.php',data:'postviews_id=264&action=postviews',cache:false});/* ]]> */
+</script>
+<!-- End Of Script Generated By WP-PostViews -->
+
+<!-- Protected by WP-SpamFree v2.1.1.2 :: JS BEGIN -->
+<script type="text/javascript" src="../../../../wp-content/plugins/wp-spamfree/js/wpsf-js.php"></script> 
+<!-- Protected by WP-SpamFree v2.1.1.2 :: JS END -->
+
+<link id='MediaRSS' rel='alternate' type='application/rss+xml' title='NextGEN Gallery RSS Feed' href='../../../../wp-content/plugins/nextgen-gallery/xml/media-rss.php' />
+<script type="text/javascript">
+//<![CDATA[
+	var screen_res = ""; 
+	function writeCookie(name,value,hours) {
+		var the_cookie = name+"="+escape(value)+"; expires=";
+		var expires = "";
+		hours=hours+0; //convert to number
+		if (hours > 0) { //0==expires on browser close
+			var cdate = new Date();
+			cdate.setTime(cdate.getTime()+(hours*60*60*1000));
+			expires = expires+cdate.toGMTString();
+		} 
+		document.cookie = the_cookie+expires+"; path=/; domain=";
+	}
+	screen_res = screen.width+" x "+screen.height;
+	if (screen_res==" x ") screen_res = window.screen.width+" x "+window.screen.height;
+	if (screen_res==" x ") screen_res = screen.availWidth+" x "+screen.availHeight;
+	if (screen_res!=" x ") { 
+		writeCookie("wassup_screen_res",screen_res,"48"); //keep 2 days
+	} else {
+		screen_res = "";
+	}
+//]]>
+</script>
+</head>
+
+
+<body>
+	<!-- header START -->
+	<div id="header">
+		<div class="inner">
+			<div class="content">
+				<div class="caption">
+					<h1 id="title"><a href="../../../../index.html" title="My personal blog about Linux and other opensource applications.">Petr&#8217;s blog about Linux</a></h1>
+					<div id="tagline">My personal blog about Linux and other opensource applications.</div>
+				</div>
+
+				<!-- search box -->
+									<form action="../../../../index.html" id="search_box" method="get">
+						<div id="searchbox">
+							<input type="text" id="searchtxt" class="textfield" name="s" value="" />
+						</div>
+					</form>
+				<script type="text/javascript">
+//<![CDATA[
+	var searchbox = document.getElementById("searchbox");
+	var searchtxt = document.getElementById("searchtxt");
+	var tiptext = "Type text to search here...";
+	if(searchtxt.value == "" || searchtxt.value == tiptext) {
+		searchtxt.className += " searchtip";
+		searchtxt.value = tiptext;
+	}
+	searchtxt.onfocus = function(e) {
+		if(searchtxt.value == tiptext) {
+			searchtxt.value = "";
+			searchtxt.className = searchtxt.className.replace(" searchtip", "");
+		}
+	}
+	searchtxt.onblur = function(e) {
+		if(searchtxt.value == "") {
+			searchtxt.className += " searchtip";
+			searchtxt.value = tiptext;
+		}
+	}
+//]]>
+</script>
+
+				<!-- navigation START -->
+				<ul id="navigation">
+
+					<li class="page_item"><a href="../../../../index.html">Home</a></li>
+					<li class="page_item page-item-2"><a href="../../../../about/index.html">About</a></li>
+					<li id="subscribe">
+						<a rel="external nofollow" title="Subscribe to this blog..." id="feed" href="../../../../feed/index.html"><img src="../../../../wp-content/themes/elegant-box/images/transparent.gif" alt="RSS feed" /></a>
+													<ul>
+								<li class="first"><a rel="external nofollow" title="Subscribe with Youdao" href="http://reader.youdao.com/b.do?url=http://linux.xvx.cz/feed/"> Youdao</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Xian Guo" href="http://www.xianguo.com/subscribe.php?url=http://linux.xvx.cz/feed/"> Xian Guo</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Zhua Xia" href="http://www.zhuaxia.com/add_channel.php?url=http://linux.xvx.cz/feed/"> Zhua Xia</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Google" href="http://fusion.google.com/add?feedurl=http://linux.xvx.cz/feed/"> Google</a></li>
+								<li><a rel="external nofollow" title="Subscribe with My Yahoo!" href="http://add.my.yahoo.com/rss?url=http://linux.xvx.cz/feed/"> My Yahoo!</a></li>
+								<li><a rel="external nofollow" title="Subscribe with newsgator" href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=http://linux.xvx.cz/feed/"> newsgator</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Bloglines" href="http://www.bloglines.com/sub/http://linux.xvx.cz/feed/"> Bloglines</a></li>
+								<li><a rel="external nofollow" title="Subscribe with iNezha" href="http://inezha.com/add?url=http://linux.xvx.cz/feed/"> iNezha</a></li>
+							</ul>
+											</li>
+
+				</ul>
+				<!-- navigation END -->
+
+			</div>
+		</div>
+	</div>
+	<!-- header END -->
+
+	<div id="container">
+		<div id="content">
+			<div id="main">
+
+		
+			<div class="post">
+				<div class="title">
+					<h2>Debian Wi-Fi hotspot using CoovaChilli, FreeRadius, MySQL and daloRADIUS</h2>
+					<div class="fixed"></div>
+				</div>
+
+				<div class="info">
+					
+					<span>March 24th, 2010</span>
+																<span> | Tags: <a href="../../../../tag/coovachilli/index.html" rel="tag">CoovaChilli</a>, <a href="../../../../tag/daloradius/index.html" rel="tag">daloRADIUS</a>, <a href="../../../../tag/debian/index.html" rel="tag">debian</a>, <a href="../../../../tag/freeradius/index.html" rel="tag">FreeRadius</a>, <a href="../../../../tag/hotspot/index.html" rel="tag">hotspot</a>, <a href="../../../../tag/mysql/index.html" rel="tag">MySQL</a>, <a href="../../../../tag/nat/index.html" rel="tag">NAT</a>, <a href="../../../../tag/network/index.html" rel="tag">network</a>, <a href="../../../../tag/routing/index.html" rel="tag">routing</a>, <a href="../../../../tag/wi-fi/index.html" rel="tag">wi-fi</a></span>
+					
+					<div class="fixed"></div>
+				</div>
+
+				<div class="content">
+					<p>I decide to create <a href="http://en.wikipedia.org/wiki/Hotspot_%28Wi-Fi%29" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">hotspot</a> from my server to allow other connect to Internet for free. I used &#8220;<a href="http://en.wikipedia.org/wiki/Captive_portal" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">Captive portal</a>&#8221; solution based on these applications:</p>
+<ul>
+<li><a href="http://coova.org/CoovaChilli" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://coova.org']);">CoovaChilli</a></li>
+<li><a href="http://freeradius.org/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://freeradius.org']);">FreeRadius</a></li>
+<li><a href="http://www.mysql.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.mysql.com']);">MySQL</a></li>
+<li><a href="http://daloradius.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://daloradius.com']);">daloRADIUS</a></li>
+</ul>
+<p>When somebody wants to connect to Internet using my wifi, the first page he can see is the register/login page (whatever page he wants to visit).<br />
+After registration/login he is able to connect to Internet.</p>
+<p>So let&#8217;s see how I did it.</p>
+<p><span id="more-264"></span></p>
+<p>Let&#8217;s have one server with two network interfaces &#8211; first (eth0) goes to Internet, the second one (eth1) is the wifi for &#8220;unknown&#8221; clients.<br />
+<center><br />
+<embed width="600" height="140" src="../../../../wp-uploads/hotspot.svg"/><br />
+</center></p>
+<p>Install basic software:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">aptitude</span> <span class="kw2">install</span> mysql-server phpmyadmin freeradius freeradius-utils freeradius-mysql apache2 php-pear php-db<br />
+a2enmod ssl<br />
+a2ensite default-ssl<br />
+service apache2 restart<br />
+<span class="kw3">cd</span> <span class="sy0">/</span>tmp <span class="sy0">&amp;&amp;</span> <span class="kw2">wget</span> <span class="st_h">'http://downloads.sourceforge.net/project/daloradius/daloradius/daloradius-0.9-8/daloradius-0.9-8.tar.gz'</span><br />
+<span class="kw2">tar</span> xvzf daloradius-<span class="nu0">0.9</span>-<span class="nu0">8</span>.tar.gz<br />
+<span class="kw2">mv</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>daloradius-<span class="nu0">0.9</span>-<span class="nu0">8</span> <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>daloradius<br />
+<span class="kw2">chown</span> <span class="re5">-R</span> www-data:www-data <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>daloradius<br />
+<span class="kw2">cp</span> <span class="re5">-r</span> <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>daloradius<span class="sy0">/</span>contrib<span class="sy0">/</span>chilli<span class="sy0">/</span>portal2<span class="sy0">/*</span> <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span><br />
+<span class="kw2">rm</span> <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>index.html</div></div>
+<p>Because my machine is 64 bit I need to build CoovaChilli package myself:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">aptitude</span> <span class="re5">--assume-yes</span> <span class="kw2">install</span> dpkg-dev debhelper libssl-dev<br />
+<span class="kw3">cd</span> <span class="sy0">/</span>tmp<br />
+<span class="kw2">wget</span> <span class="re5">-c</span> http:<span class="sy0">//</span>ap.coova.org<span class="sy0">/</span>chilli<span class="sy0">/</span>coova-chilli-1.2.2.tar.gz<br />
+<span class="kw2">tar</span> xzf coova-chilli<span class="sy0">*</span>.tar.gz<br />
+<span class="kw3">cd</span> coova-chilli<span class="sy0">*</span><br />
+dpkg-buildpackage <span class="re5">-rfakeroot</span></div></div>
+<p>Install CoovaChilli:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw3">cd</span> ..<br />
+<span class="kw2">dpkg</span> <span class="re5">-i</span> coova-chilli_<span class="sy0">*</span>_amd64.deb</div></div>
+<h2>Configure FreeRadius</h2>
+<p>Change <em>/etc/freeradius/clients.conf</em>:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">client 127.0.0.1 <span class="br0">&#123;</span><br />
+&nbsp;secret &nbsp; &nbsp; = mysecret<br />
+<span class="br0">&#125;</span></div></div>
+<p>Change <em>/etc/freeradius/sql.conf</em>:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">&nbsp; &nbsp; &nbsp; &nbsp; server = <span class="st0">&quot;localhost&quot;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">login</span> = <span class="st0">&quot;root&quot;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; password = <span class="st0">&quot;xxxx&quot;</span></div></div>
+<p>Uncomment in <em>/etc/freeradius/sites-available/default</em>:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">authorize <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sql<br />
+<span class="br0">&#125;</span><br />
+<br />
+accounting <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;sql<br />
+<span class="br0">&#125;</span></div></div>
+<p>Uncomment in <em>/etc/freeradius/radiusd.conf</em>:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">&nbsp; &nbsp; &nbsp; &nbsp;<span class="re1">$INCLUDE</span> sql.conf</div></div>
+<h2>Configure MySQL database for FreeRadius</h2>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">mysql <span class="re5">-u</span> root <span class="re5">--password</span>=xxxx<br />
+mysql<span class="sy0">&gt;</span> CREATE DATABASE radius;<br />
+mysql<span class="sy0">&gt;</span> <span class="kw3">exit</span><br />
+<br />
+mysql <span class="re5">-u</span> root <span class="re5">--password</span>=xxxx radius <span class="sy0">&lt;</span> <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>daloradius<span class="sy0">/</span>contrib<span class="sy0">/</span>db<span class="sy0">/</span>fr2-mysql-daloradius-and-freeradius.sql</div></div>
+<h2>daloRADIUS configuration</h2>
+<p>Modify this file <em>/var/www/daloradius/library/daloradius.conf.php</em></p>
+<p>[/cc]</p>
+<div class="codecolorer-container php default" style="overflow:auto;white-space:nowrap;"><div class="php codecolorer"><span class="re0">$configValues</span><span class="br0">&#91;</span><span class="st_h">'CONFIG_DB_PASS'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'xxxx'</span><span class="sy0">;</span><br />
+<span class="re0">$configValues</span><span class="br0">&#91;</span><span class="st_h">'CONFIG_MAINT_TEST_USER_RADIUSSECRET'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'mysecret'</span><span class="sy0">;</span><br />
+<span class="re0">$configValues</span><span class="br0">&#91;</span><span class="st_h">'CONFIG_DB_TBL_RADUSERGROUP'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'radusergroup'</span><span class="sy0">;</span></div></div>
+<p>You also need to modify following configuration files to setup sign in web pages <em>/var/www/signup-*/library/daloradius.conf.php</em>:</p>
+<div class="codecolorer-container php default" style="overflow:auto;white-space:nowrap;"><div class="php codecolorer"><span class="re0">$configValues</span><span class="br0">&#91;</span><span class="st_h">'CONFIG_DB_PASS'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'xxxx'</span><span class="sy0">;</span><br />
+<span class="re0">$configValues</span><span class="br0">&#91;</span><span class="st_h">'CONFIG_DB_NAME'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'radius'</span><span class="sy0">;</span><br />
+<span class="re0">$configValues</span><span class="br0">&#91;</span><span class="st_h">'CONFIG_DB_TBL_RADUSERGROUP'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st_h">'radusergroup'</span><span class="sy0">;</span><br />
+<span class="re0">$configValues</span><span class="br0">&#91;</span><span class="st_h">'CONFIG_SIGNUP_SUCCESS_MSG_LOGIN_LINK'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;&lt;br /&gt;Click &lt;b&gt;here&lt;/b&gt;&quot;</span><span class="sy0">.</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot; to return to the Login page and start your surfing&lt;br /&gt;&lt;br /&gt;&quot;</span><span class="sy0">;</span></div></div>
+<p>Chnage lines in <em>/var/www/signup*/index.php</em> to (changed &#8216;User-Password&#8217; -> &#8216;Cleartext-Password&#8217; and &#8216;==&#8217; -> &#8216;:=&#8217;):</p>
+<div class="codecolorer-container php default" style="overflow:auto;white-space:nowrap;"><div class="php codecolorer">&nbsp; <span class="re0">$sql</span> <span class="sy0">=</span> <span class="st0">&quot;INSERT INTO &quot;</span><span class="sy0">.</span><span class="re0">$configValues</span><span class="br0">&#91;</span><span class="st_h">'CONFIG_DB_TBL_RADCHECK'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot; (id, Username, Attribute, op, Value) &quot;</span><span class="sy0">.</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="st0">&quot; VALUES (0, '<span class="es4">$username</span>', 'Cleartext-Password', ':=', '<span class="es4">$password</span>')&quot;</span><span class="sy0">;</span></div></div>
+<p>Another file need to be modified to communicate with CoovaChilli is <em>/var/www/hotspotlogin/hotspotlogin.php</em></p>
+<div class="codecolorer-container php default" style="overflow:auto;white-space:nowrap;"><div class="php codecolorer"><span class="re0">$uamsecret</span> <span class="sy0">=</span> <span class="st0">&quot;uamsecret&quot;</span><span class="sy0">;</span></div></div>
+<p>Now you should be able to reach daloRADIUS installation on http://127.0.0.1/daloradius/</p>
+<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;"><div class="text codecolorer">username: administrator<br />
+password: radius</div></div>
+<h2>Routing</h2>
+<p>We should not forget to enable packet forwarding and setup NAT:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">iptables <span class="re5">-t</span> nat <span class="re5">-A</span> POSTROUTING <span class="re5">-o</span> eth0 <span class="re5">-j</span> MASQUERADE<br />
+<span class="kw3">echo</span> <span class="nu0">1</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>proc<span class="sy0">/</span>sys<span class="sy0">/</span>net<span class="sy0">/</span>ipv4<span class="sy0">/</span>ip_forward<br />
+<span class="kw2">sed</span> <span class="re5">--in-place</span>=.old <span class="st_h">'s/^#\(net.ipv4.ip_forward=1\)/\1/'</span> <span class="sy0">/</span>etc<span class="sy0">/</span>sysctl.conf<br />
+sysctl <span class="re5">-p</span></div></div>
+<h2>CoovaChilli configuration</h2>
+<p>Let&#8217;s start with <em>/etc/chilli/defaults</em>:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="re2">HS_NETWORK</span>=192.168.10.0<br />
+<span class="re2">HS_UAMLISTEN</span>=192.168.10.1<br />
+<br />
+<span class="re2">HS_RADSECRET</span>=mysecret<br />
+<span class="re2">HS_UAMSECRET</span>=uamsecret<br />
+<span class="re2">HS_UAMFORMAT</span>=https:<span class="sy0">//</span>\<span class="re1">$HS_UAMLISTEN</span><span class="sy0">/</span>hotspotlogin<span class="sy0">/</span>hotspotlogin.php<br />
+<span class="re2">HS_UAMHOMEPAGE</span>=https:<span class="sy0">//</span>\<span class="re1">$HS_UAMLISTEN</span></div></div>
+<p>Then don&#8217;t forget to enable CoovaChilli to start in <em>/etc/default/chilli</em></p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="re2">START_CHILLI</span>=<span class="nu0">1</span></div></div>
+<p>Maybe you need to execute chilli and radius server with some debug options to see &#8220;errors&#8221; during client connection:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">chilli <span class="re5">--fg</span> <span class="re5">--debug</span><br />
+freeradius <span class="re5">-X</span></div></div>
+<p>Few links we created:</p>
+<ul>
+<li>http://192.168.10.1/signup-free/ &#8211; sign up page (if you don&#8217;t have username/password)</li>
+<li>http://192.168.10.1:3990/prelogin &#8211; use for login to your portal</li>
+<li>http://192.168.10.1/daloradius/ &#8211; daloradius admin page</li>
+<li>http://192.168.10.1/phpmyadmin/ &#8211; phpmyadmin page (useful for sql database)</li>
+</ul>
+<p>This how-to describe simple configuration of CoovaChilli so there are many things to configure. I didn&#8217;t mentioned anything about security &#8211; so it&#8217;s up to you to tweak it yourself.</p>
+<p>You can find additional info on this web page:</p>
+<p><a href="https://help.ubuntu.com/community/WifiDocs/CoovaChilli" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://help.ubuntu.com']);">https://help.ubuntu.com/community/WifiDocs/CoovaChilli</a></p>
+<p>Engoy&#8230; <img src='http://linux.xvx.cz/wp-includes/images/smilies/icon_wink.gif' alt=';-)' class='wp-smiley' /> </p>
+<div style="display: none">VN:F [1.9.20_1166]</div><div class="ratingblock "><div class="ratingheader "></div><div class="ratingstars "><div id="article_rater_264" class="ratepost gdsr-crystal gdsr-size-20"><div class="starsbar gdsr-size-20"><div class="gdouter gdheight"><div id="gdr_vote_a264" style="width: 157.5px;" class="gdinner gdheight"></div><div id="gdr_stars_a264" class="gdsr_rating_as"><a id="gdsrX264X10X0XaXarticle_rater_264Xarticle_loader_264X10X20" title="10 / 10" class="s10" rel="nofollow"></a><a id="gdsrX264X9X0XaXarticle_rater_264Xarticle_loader_264X10X20" title="9 / 10" class="s9" rel="nofollow"></a><a id="gdsrX264X8X0XaXarticle_rater_264Xarticle_loader_264X10X20" title="8 / 10" class="s8" rel="nofollow"></a><a id="gdsrX264X7X0XaXarticle_rater_264Xarticle_loader_264X10X20" title="7 / 10" class="s7" rel="nofollow"></a><a id="gdsrX264X6X0XaXarticle_rater_264Xarticle_loader_264X10X20" title="6 / 10" class="s6" rel="nofollow"></a><a id="gdsrX264X5X0XaXarticle_rater_264Xarticle_loader_264X10X20" title="5 / 10" class="s5" rel="nofollow"></a><a id="gdsrX264X4X0XaXarticle_rater_264Xarticle_loader_264X10X20" title="4 / 10" class="s4" rel="nofollow"></a><a id="gdsrX264X3X0XaXarticle_rater_264Xarticle_loader_264X10X20" title="3 / 10" class="s3" rel="nofollow"></a><a id="gdsrX264X2X0XaXarticle_rater_264Xarticle_loader_264X10X20" title="2 / 10" class="s2" rel="nofollow"></a><a id="gdsrX264X1X0XaXarticle_rater_264Xarticle_loader_264X10X20" title="1 / 10" class="s1" rel="nofollow"></a></div></div></div></div><div id="article_loader_264" style="display: none; width: 200px " class="ratingloaderarticle"><div class="loader arrows " style="height: 20px"><div class="loaderinner">please wait...</div></div></div></div><div class="ratingtext "><div id="gdr_text_a264">Rating: 7.9/<strong>10</strong> (8 votes cast)</div></div></div><span class="hreview-aggregate" style="display: none !important;"><span class="item"><span class="fn">Debian Wi-Fi hotspot using CoovaChilli, FreeRadius, MySQL and daloRADIUS</span></span>, <span class="rating"><span class="average">7.9</span> out of <span class="best">10</span> based on <span class="votes">8</span> ratings <span class="summary"></span></span></span>					<div class="fixed"></div>
+				</div>
+
+				<div class="comments comments_single">
+					<a href="index.html#respond">Leave a comment</a>
+											 | <a href="index.html" rel="trackback">Trackback</a>
+									</div>
+
+				<!-- related posts START -->
+								<!-- related posts END -->
+			</div>
+
+
+<script type="text/javascript" src="../../../../wp-content/themes/elegant-box/js/comment.js"></script>
+
+	<!-- comments START -->
+	<ol class="commentlist">
+			<li class="comment " id="comment-185">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/71e4186924b34a674dda53ba68fb70e2?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-185">
+											jonathan											</span>
+									</div>
+				<div class="date">April 5th, 2010 at 03:36</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-185', 'comment-185', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-185', 'comment-185', 'commentbody-185', 'comment');">Quote</a> | 
+								<a href="index.html#comment-185">#1</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-185"><p>hi, </p>
+<p>I get the error </p>
+<p>redir.c: 1121: 98 (Address already in use) IP: 192.168.10.1 Port: 3990 &#8211; Waiting for retry.<br />
+in chilli and<br />
+Failed binding to socket: Address already in use<br />
+/etc/freeradius/radiusd.conf[236]: Error binding to port for 0.0.0.0 port 1812<br />
+in radius</p>
+<p>please help</p>
+<p>Thank you very much for your time.</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment  admincomment" id="comment-188">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/5484c0fd9f98e2ffd9212b158931bf4b?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-188" href="http://www.xvx.cz" rel="external nofollow">
+											Petr Ruzicka											</a>
+									</div>
+				<div class="date">April 6th, 2010 at 08:40</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-188', 'comment-188', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-188', 'comment-188', 'commentbody-188', 'comment');">Quote</a> | 
+								<a href="index.html#comment-188">#2</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-188"><p>It looks like some process is using port 3990 and 1812.<br />
+Try netstat (netstat -onatpe) to see what is the process pid and kill it.<br />
+Then it should be fine&#8230;</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-196">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/3c4fadf1c25db2ba77c2deb9cd422635?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-196" href="http://www.itelsalvador.com" rel="external nofollow">
+											Oscar											</a>
+									</div>
+				<div class="date">April 24th, 2010 at 16:04</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-196', 'comment-196', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-196', 'comment-196', 'commentbody-196', 'comment');">Quote</a> | 
+								<a href="index.html#comment-196">#3</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-196"><p>Me too&#8230; the same message.</p>
+<p>redir.c: 1121: 98 (Address already in use) IP: 192.168.10.1 Port: 3990 – Waiting for retry.</p>
+<p>The process its ok&#8230;<br />
+what happens?</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-199">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/28d07b283d4a7d0176a472cdfdfa7b92?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-199">
+											Matt H											</span>
+									</div>
+				<div class="date">May 24th, 2010 at 17:09</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-199', 'comment-199', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-199', 'comment-199', 'commentbody-199', 'comment');">Quote</a> | 
+								<a href="index.html#comment-199">#4</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-199"><p>Same error here too:<br />
+redir.c: 1121: 98 (Address already in use) IP: 10.0.7.1 Port: 3990 &#8211; Waiting for retry.</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-202">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/883bd142e224c7dac17238e503debd11?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-202">
+											chinna											</span>
+									</div>
+				<div class="date">June 2nd, 2010 at 11:56</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-202', 'comment-202', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-202', 'comment-202', 'commentbody-202', 'comment');">Quote</a> | 
+								<a href="index.html#comment-202">#5</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-202"><p>Dear all..<br />
+i install and configure using your steps properly .lastly i try to open web browser using: <a href="http://127.0.0.1/daloradius/" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://127.0.0.1']);" rel="nofollow">http://127.0.0.1/daloradius/</a> but i am not get any pages and username&amp;<br />
+password just going to this page <a href="http://127.0.0.1/daloradius/login.php" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://127.0.0.1']);" rel="nofollow">http://127.0.0.1/daloradius/login.php</a> but its blank page please guide me any one .i dont know where i made mistake</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-203">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/bf606a41b22f5d63b6dacb1699957f94?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-203">
+											John Everett											</span>
+									</div>
+				<div class="date">June 8th, 2010 at 17:13</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-203', 'comment-203', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-203', 'comment-203', 'commentbody-203', 'comment');">Quote</a> | 
+								<a href="index.html#comment-203">#6</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-203"><p>Thanks much for your documentation! Coova-Chilli has so little documentation. This is a great help.</p>
+<p>I notice that you have your wireless described as &#8216;eth1&#8242;? Is your &#8220;eth1&#8243; an ethernet adapter (with an external wireless bridge connected) or is it an actual wireless adapter in your Debian box? I can&#8217;t tell if your diagram is showing the Hotspot_Server&#8217;s eth1 *as* a wireless device, or *connected to* a wireless device.</p>
+<p>In my Debian box, the wireless adapter shows up as ath0 and it needs to be configured to work in AP mode (wlanconfig ath0 create wlandev wifi0 wlanmode ap; iwconfig ath0 essid MYNETWORK) before Coova-chilli can even start to see clients. What sort of interfaces and interface setup does your server have? If eth1 is indeed a wireless card, did you have to do anything to set it up (e.g. iwconfig wlan0 essid MYNETWORK; iwconfig wlan0 mode ap)?</p>
+<p>Also, your diagram shows the WiFi_Client as having address (eth0)192.168.10.1, which is the same address as the Hotspot_Server (eth1)192.168.10.1. Should the client have perhaps 192.168.10.2?</p>
+<p>Thanks again.</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment  admincomment" id="comment-204">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/5484c0fd9f98e2ffd9212b158931bf4b?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-204" href="http://www.xvx.cz" rel="external nofollow">
+											Petr Ruzicka											</a>
+									</div>
+				<div class="date">June 10th, 2010 at 08:30</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-204', 'comment-204', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-204', 'comment-204', 'commentbody-204', 'comment');">Quote</a> | 
+								<a href="index.html#comment-204">#7</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-204"><p>Hi. </p>
+<p>In the examples above I used VirtualBox with emulated network cards. I used it because it doesn&#8217;t matter if you will use wifi card or network card connected to switch with computers.<br />
+In the real (wifi) situation I&#8217;m using wlan0 and program <a href="http://hostap.epitest.fi/hostapd/" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://hostap.epitest.fi']);" rel="nofollow">hostapd</a> on my server. Hostapd is creating AP with WPA2 from my wireless card. You can also use iwconfig to set up ap mode &#8211; usually depends on the wireless card you are using, but you can&#8217;t setup WPA with it.<br />
+Thank you for letting me know about the picture &#8211; it&#8217;s mistake there &#8211; I&#8217;ll fix it asap <img src='http://linux.xvx.cz/wp-includes/images/smilies/icon_smile.gif' alt=':-)' class='wp-smiley' /> </p>
+<p>See you</p>
+<p>PetrR</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-206">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/cd2ca828493c38c1c1d336c4546272ab?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-206">
+											Jim P											</span>
+									</div>
+				<div class="date">June 17th, 2010 at 14:47</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-206', 'comment-206', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-206', 'comment-206', 'commentbody-206', 'comment');">Quote</a> | 
+								<a href="index.html#comment-206">#8</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-206"><p>Hello,</p>
+<p>  I recently followed your tutorial and I am running into an odd issue.. When I try to fire up chilli with the debug command. I get this outpout constantly..</p>
+<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;"><div class="text codecolorer">&nbsp;coova-chilli: Error opening configuration file '/etc/chilli/main.conf'<br />
+coova-chilli: Error opening configuration file '/etc/chilli/hs.conf'<br />
+coova-chilli: Error opening configuration file '/etc/chilli/local.conf'<br />
+coova-chilli[21354]: options.c: 174: could not generate configuration (/tmp/chilli-21354/config.bin), sleeping one second</div></div>
+<p>Any idea what I might have missed that can be causing this?</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-207">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/cd2ca828493c38c1c1d336c4546272ab?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-207">
+											Jim P											</span>
+									</div>
+				<div class="date">June 17th, 2010 at 16:52</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-207', 'comment-207', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-207', 'comment-207', 'commentbody-207', 'comment');">Quote</a> | 
+								<a href="index.html#comment-207">#9</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-207"><p><a href="index.html#comment-206" rel="nofollow">@Jim P </a> </p>
+<p>Nevermind! <img src='http://linux.xvx.cz/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' />  starting chilli via the init.d directory seemed to have resolved that issue.</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-208">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/bf606a41b22f5d63b6dacb1699957f94?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-208">
+											John Everett											</span>
+									</div>
+				<div class="date">June 18th, 2010 at 17:44</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-208', 'comment-208', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-208', 'comment-208', 'commentbody-208', 'comment');">Quote</a> | 
+								<a href="index.html#comment-208">#10</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-208"><p>I had a similar problem. In order to get the debug/foreground options (&#8211;fg &#8211;debug) I had to add them the start block of the chilli script in init.d.</p>
+<p>It came in handy too because when I switched from the instructions here (for eth0) to my wireless (ath0), the default MTU was too large for Coova Chilli and the debug output showed the problem for me to fix (with ifconfig ath0 mtu xxxx).</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-211">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/883bd142e224c7dac17238e503debd11?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-211">
+											chinna											</span>
+									</div>
+				<div class="date">July 21st, 2010 at 14:08</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-211', 'comment-211', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-211', 'comment-211', 'commentbody-211', 'comment');">Quote</a> | 
+								<a href="index.html#comment-211">#11</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-211"><p>same problem here, any one help what i made mistake , and also notice &#8220;http://192.168.10.1:3990/prelogin &#8211; use for login to your portal&#8221; following links are not working i dont know where i made mistake </p>
+<p>coova-chilli: Error opening configuration file &#8216;/etc/chilli/main.conf&#8217;<br />
+coova-chilli: Error opening configuration file &#8216;/etc/chilli/hs.conf&#8217;<br />
+coova-chilli: Error opening configuration file &#8216;/etc/chilli/local.conf&#8217;<br />
+coova-chilli[14423]: options.c: 174: could not generate configuration (/tmp/chilli-14423/config.bin), sleeping one second</p>
+<p>Please guide me anyone for this issue</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-212">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/7ef5080195c28fdc23b8df66894fabb0?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-212" href="http://www.jacambu.net" rel="external nofollow">
+											jacambu											</a>
+									</div>
+				<div class="date">July 21st, 2010 at 16:36</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-212', 'comment-212', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-212', 'comment-212', 'commentbody-212', 'comment');">Quote</a> | 
+								<a href="index.html#comment-212">#12</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-212"><p>For  user  having  &#8220;could not generate config&#8221; error , create a  fullpath folders to your  scriot.  ex: if the error is could not  generate /tmp/chilli-14423/config.bin , so create the folders  needed with mkdir -p /tmp/chilli-14423  and restart  your service.  This  is  necessary when your chilli try to create configs in some folder that not exist.</p>
+<p>After  some  errors I make it  working  well.</p>
+<p>Sorry  by poor  english.</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-213">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/521446383806cada8dc05eed6cbb3c51?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-213">
+											joseph											</span>
+									</div>
+				<div class="date">August 5th, 2010 at 12:13</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-213', 'comment-213', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-213', 'comment-213', 'commentbody-213', 'comment');">Quote</a> | 
+								<a href="index.html#comment-213">#13</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-213"><p>dear &#8230;</p>
+<p>please guide me &#8230;</p>
+<p>Not working this link: other links are working fine<br />
+<a href="http://192.168.10.1:3990/prelogin" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','']);" rel="nofollow">http://192.168.10.1:3990/prelogin</a> &#8211; use for login to your portal</p>
+<p>what reason i don know any one help me</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-214">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/521446383806cada8dc05eed6cbb3c51?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-214">
+											joseph											</span>
+									</div>
+				<div class="date">August 5th, 2010 at 13:34</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-214', 'comment-214', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-214', 'comment-214', 'commentbody-214', 'comment');">Quote</a> | 
+								<a href="index.html#comment-214">#14</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-214"><p>hi..</p>
+<p>i type the following command as root user i get the message :  please tell how to solve this: </p>
+<p>radiusd: #### Opening IP addresses and Ports ####<br />
+listen {<br />
+	type = &#8220;auth&#8221;<br />
+	ipaddr = *<br />
+	port = 0<br />
+Failed binding to authentication address * port 1812: Address already in use<br />
+/etc/freeradius/radiusd.conf[240]: Error binding to port for 0.0.0.0 port 1812</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-215">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/717e3777aa3d4c6146befee6a58550f7?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-215">
+											Yogesh Patil											</span>
+									</div>
+				<div class="date">August 17th, 2010 at 20:40</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-215', 'comment-215', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-215', 'comment-215', 'commentbody-215', 'comment');">Quote</a> | 
+								<a href="index.html#comment-215">#15</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-215"><p>hi,<br />
+   i have followed all the steps you have given, i got success running everything locally on the Linux-PC and it is also leasing IP to client, but i am not able to access any link i.e. prelogin, daloradius etc.., also not able to ping to the server (i.e. Chillispot PC)</p>
+<p>   i have already seen that you told that there is need to tweak security settings, please give settings for the allowing access from client PC</p>
+<p>Thanks</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-216">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/55b2bbad216d74d4d0a8ad088b53c677?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-216" href="http://www.cloudtechinc.com" rel="external nofollow">
+											Jeff Freeman											</a>
+									</div>
+				<div class="date">August 19th, 2010 at 20:57</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-216', 'comment-216', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-216', 'comment-216', 'commentbody-216', 'comment');">Quote</a> | 
+								<a href="index.html#comment-216">#16</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-216"><p>You mentioned you created a few links. Where did you create the links? I assume they were on the Wireless Router and not the server??</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-224">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/a9897071505fd1dbc2130418a4d3db60?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-224">
+											Admin											</span>
+									</div>
+				<div class="date">October 17th, 2010 at 08:18</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-224', 'comment-224', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-224', 'comment-224', 'commentbody-224', 'comment');">Quote</a> | 
+								<a href="index.html#comment-224">#17</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-224"><p>hello &#8230;</p>
+<p>Any one help me .same problem here </p>
+<p>joseph<br />
+August 5th, 2010 at 12:13<br />
+Reply | Quote | #13<br />
+dear …</p>
+<p>please guide me …</p>
+<p>Not working this link: other links are working fine<br />
+<a href="http://192.168.10.1:3990/prelogin" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','']);" rel="nofollow">http://192.168.10.1:3990/prelogin</a> – use for login to your portal</p>
+<p>what reason i don know any one help me</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-225">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/a9897071505fd1dbc2130418a4d3db60?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-225">
+											Admin											</span>
+									</div>
+				<div class="date">October 17th, 2010 at 08:19</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-225', 'comment-225', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-225', 'comment-225', 'commentbody-225', 'comment');">Quote</a> | 
+								<a href="index.html#comment-225">#18</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-225"><p><a href="index.html#comment-213" rel="nofollow">@joseph </a><br />
+Same problem here help me any one</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-226">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/a9897071505fd1dbc2130418a4d3db60?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-226">
+											Admin											</span>
+									</div>
+				<div class="date">October 20th, 2010 at 13:23</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-226', 'comment-226', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-226', 'comment-226', 'commentbody-226', 'comment');">Quote</a> | 
+								<a href="index.html#comment-226">#19</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-226"><p>Any one tell me ? what is this my problem?</p>
+<p>chilli status</p>
+<p>coova-chilli: Error opening configuration file &#8216;/etc/chilli/main.conf&#8217;<br />
+coova-chilli: Error opening configuration file &#8216;/etc/chilli/hs.conf&#8217;<br />
+coova-chilli: Error opening configuration file &#8216;/etc/chilli/local.conf&#8217;<br />
+coova-chilli[9345]: options.c: 164: could not generate configuration (/var/run/chilli.9345.cfg.bin), sleeping one second<br />
+coova-chilli: Error opening configuration file &#8216;/etc/chilli/main.conf&#8217;<br />
+coova-chilli: Error opening configuration file &#8216;/etc/chilli/hs.conf&#8217;<br />
+coova-chilli: Error opening configuration file &#8216;/etc/chilli/local.conf&#8217;<br />
+coova-chilli[9345]: options.c: 164: could not generate configuration (/var/run/chilli.9345.cfg.bin), sleeping one second<br />
+coova-chilli: Error opening configuration file &#8216;/etc/chilli/main.conf&#8217;<br />
+coova-chilli: Error opening configuration file &#8216;/etc/chilli/hs.conf&#8217;<br />
+coova-chilli: Error opening configuration file &#8216;/etc/chilli/local.conf&#8217;<br />
+coova-chilli[9345]: options.c: 164: could not generate configuration (/var/run/chilli.9345.cfg.bin), sleeping one second<br />
+coova-chilli: Error opening configuration file &#8216;/etc/chilli/main.conf&#8217;<br />
+coova-chilli: Error opening configuration file &#8216;/etc/chilli/hs.conf&#8217;<br />
+coova-chilli: Error opening configuration file &#8216;/etc/chilli/local.conf&#8217;<br />
+coova-chilli[9345]: options.c: 164: could not generate configuration (/var/run/chilli.9345.cfg.bin), sleeping one second</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment  admincomment" id="comment-227">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/5484c0fd9f98e2ffd9212b158931bf4b?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-227" href="http://www.xvx.cz" rel="external nofollow">
+											Petr Ruzicka											</a>
+									</div>
+				<div class="date">October 20th, 2010 at 14:03</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-227', 'comment-227', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-227', 'comment-227', 'commentbody-227', 'comment');">Quote</a> | 
+								<a href="index.html#comment-227">#20</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-227"><p>Hello guys. </p>
+<p>I&#8217;m glad this &#8220;how-to&#8221; brings many interest to CoovaChilli. Unfortunately I&#8217;m no longer using it and I&#8217;m not able to help you. As I wrote before &#8211; this is not step by step how-to for beginners. It&#8217;s just few notes I write when I configured/used it.</p>
+<p>Good luck&#8230;</p>
+<p>PetrR</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-228">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/bc99cd4f790011feec6b3228e2ec29e9?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-228" href="http://www.kashifaziz.co.cc" rel="external nofollow">
+											Kashif Aziz Awan											</a>
+									</div>
+				<div class="date">November 2nd, 2010 at 07:33</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-228', 'comment-228', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-228', 'comment-228', 'commentbody-228', 'comment');">Quote</a> | 
+								<a href="index.html#comment-228">#21</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-228"><p>This tutorial is fine..<br />
+but i cant understant whay you use both (chilli &amp; dalo) at a time..?<br />
+i think one is sufficient.</p>
+<p><a href="http://ciitix.ciit.net.pk/index.php/ciitix-wifi-documentation" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://ciitix.ciit.net.pk']);" rel="nofollow">http://ciitix.ciit.net.pk/index.php/ciitix-wifi-documentation</a></p>
+<p>Regards:<br />
+.<br />
+Kashif Aziz Awan</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment  admincomment" id="comment-229">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/5484c0fd9f98e2ffd9212b158931bf4b?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-229" href="http://www.xvx.cz" rel="external nofollow">
+											Petr Ruzicka											</a>
+									</div>
+				<div class="date">November 2nd, 2010 at 11:50</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-229', 'comment-229', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-229', 'comment-229', 'commentbody-229', 'comment');">Quote</a> | 
+								<a href="index.html#comment-229">#22</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-229"><p>Hello.</p>
+<p>As far as I know daloRADIUS is just webgui, where you can see your users, their accesses, date/times. CoovaChilli is Captive Portal solution. These two are separate projects and can be used standalone. They are doing different jobs too&#8230;</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-233">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/476872bf0109b8df74099f0f01a2909e?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-233">
+											aku82											</span>
+									</div>
+				<div class="date">November 27th, 2010 at 19:03</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-233', 'comment-233', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-233', 'comment-233', 'commentbody-233', 'comment');">Quote</a> | 
+								<a href="index.html#comment-233">#23</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-233"><p><a href="index.html#comment-226" rel="nofollow">@Admin </a><br />
+Have you used &#8220;sudo&#8221;</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-257">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/883bd142e224c7dac17238e503debd11?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-257" href="http://www.josephnetworks.com" rel="external nofollow">
+											admin											</a>
+									</div>
+				<div class="date">January 4th, 2011 at 15:57</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-257', 'comment-257', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-257', 'comment-257', 'commentbody-257', 'comment');">Quote</a> | 
+								<a href="index.html#comment-257">#24</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-257"><p>yes i am in super user(root)<a href="index.html#comment-233" rel="nofollow">@aku82 </a></p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-259">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/1dc171f12a2dccdde0cc353205467d78?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-259">
+											Flo											</span>
+									</div>
+				<div class="date">January 12th, 2011 at 16:52</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-259', 'comment-259', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-259', 'comment-259', 'commentbody-259', 'comment');">Quote</a> | 
+								<a href="index.html#comment-259">#25</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-259"><p>Hello guy !<br />
+(sorry for the english, i&#8217;m french)<br />
+i have followed step by step you howto, but i have this message :<br />
+&#8220;Enginx hotspot Login Failed&#8221;<br />
+no pop-up, however the login/pwd is in the daloradius database<br />
+can you help me ?<br />
+thx a lot<br />
+it&#8217;s for my internship (?)</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-260">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/d95dec44091a0b3d5b460f8280e1b48b?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-260">
+											Luke											</span>
+									</div>
+				<div class="date">January 14th, 2011 at 02:10</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-260', 'comment-260', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-260', 'comment-260', 'commentbody-260', 'comment');">Quote</a> | 
+								<a href="index.html#comment-260">#26</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-260"><p>Can someone please help me understand how i can do this on Centos 5? I need to create a server with freeradius that also has the login page for wifi  users to get authenticated (like a paid hotspot)</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-261">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/15d001f00ffbae77f2c7bb5c718402ed?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-261">
+											Mohammad Dashti											</span>
+									</div>
+				<div class="date">January 14th, 2011 at 22:34</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-261', 'comment-261', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-261', 'comment-261', 'commentbody-261', 'comment');">Quote</a> | 
+								<a href="index.html#comment-261">#27</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-261"><p>Hi,</p>
+<p>First (answer to Flo), I should mention that in &#8220;CoovaChilli configuration&#8221; part,</p>
+<p>instead of</p>
+<p>HS_UAMHOMEPAGE=https://$HS_UAMLISTEN</p>
+<p>should be</p>
+<p>HS_UAMHOMEPAGE=http://$HS_UAMLISTEN:$HS_UAMPORT/prelogin</p>
+<p>&#8212;-<br />
+but after performing all above operations, there is only one point left! When I enter my username/password in hotspotlogin page (from client machine), I see below result in freeradius debug output (from server machine):</p>
+<p>[sql] 	expand: %{User-Name} -&gt; dashti<br />
+[sql] sql_set_user escaped user &#8211;&gt; &#8216;dashti&#8217;<br />
+&#8230;<br />
+[pap] login attempt with password &#8220;�?c�??B_?�I?�?Z�&#8221;<br />
+[pap] Using CRYPT encryption.<br />
+[pap] Passwords don&#8217;t match<br />
+++[pap] returns reject<br />
+Failed to authenticate the user.<br />
+  WARNING: Unprintable characters in the password. 	  Double-check the shared secret on the server and the NAS!<br />
+Using Post-Auth-Type Reject<br />
++- entering group REJECT {&#8230;}<br />
+[attr_filter.access_reject] 	expand: %{User-Name} -&gt; dashti</p>
+<p>I also rechecked all secret words in mentioned configuration files.</p>
+<p>Any solution?</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-264">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/fd4634bad0b702f4f203ef8b24f8f7c2?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-264" href="http://sourceforge.net/projects/grase/" rel="external nofollow">
+											Tim											</a>
+									</div>
+				<div class="date">February 23rd, 2011 at 02:37</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-264', 'comment-264', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-264', 'comment-264', 'commentbody-264', 'comment');">Quote</a> | 
+								<a href="index.html#comment-264">#28</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-264"><p>For anyone having trouble with this. I started a project awhile ago that creates deb packages (debian/ubuntu) that do all the hard work for you. It also includes a GUI for managing users. It still uses Coova Chilli, FreeRadius, MySQL, but does the hard work of integrating them for you.<br />
+See <a href="http://sourceforge.net/projects/grase/" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://sourceforge.net']);" rel="nofollow">http://sourceforge.net/projects/grase/</a> for details. There is a single deb to download that installs the repository, then you pull in the components you need and it sets it up accordingly. Please contact me if you are using it so I can keep you updated.</p>
+<p>Tim</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-265">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/1975d9e4a4b1f79da15df1a7885f2702?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-265">
+											edwin											</span>
+									</div>
+				<div class="date">March 22nd, 2011 at 15:17</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-265', 'comment-265', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-265', 'comment-265', 'commentbody-265', 'comment');">Quote</a> | 
+								<a href="index.html#comment-265">#29</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-265"><p><a href="index.html#comment-261" rel="nofollow">@Mohammad Dashti </a><br />
+you might want to check the sql.conf where user name and password for database is. make sure it match the user name of the database you created. Example user:root password:yourdatabasepassword</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-266">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/1975d9e4a4b1f79da15df1a7885f2702?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-266">
+											edwin											</span>
+									</div>
+				<div class="date">March 22nd, 2011 at 15:20</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-266', 'comment-266', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-266', 'comment-266', 'commentbody-266', 'comment');">Quote</a> | 
+								<a href="index.html#comment-266">#30</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-266"><p><a href="index.html#comment-264" rel="nofollow">@Tim </a><br />
+does the captive portal look the same or you made any change ?</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-267">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/1975d9e4a4b1f79da15df1a7885f2702?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-267">
+											edwin											</span>
+									</div>
+				<div class="date">March 22nd, 2011 at 15:23</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-267', 'comment-267', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-267', 'comment-267', 'commentbody-267', 'comment');">Quote</a> | 
+								<a href="index.html#comment-267">#31</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-267"><p><a href="index.html#comment-259" rel="nofollow">@Flo </a><br />
+you need to do this before it works<br />
+sudo apt-get update<br />
+then apt-get install upgrade<br />
+take a walk comebvack like half an our then reboot and check it out</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-268">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/1975d9e4a4b1f79da15df1a7885f2702?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-268">
+											edwin											</span>
+									</div>
+				<div class="date">March 22nd, 2011 at 15:27</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-268', 'comment-268', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-268', 'comment-268', 'commentbody-268', 'comment');">Quote</a> | 
+								<a href="index.html#comment-268">#32</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-268"><p><a href="index.html#comment-267" rel="nofollow">@edwin </a><br />
+sorry apt-get upgrade</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-278">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/9a1ee67c2dba555799c1bbe995eb6645?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-278" href="http://imNylon.com" rel="external nofollow">
+											Joah Santos											</a>
+									</div>
+				<div class="date">May 5th, 2011 at 06:42</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-278', 'comment-278', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-278', 'comment-278', 'commentbody-278', 'comment');">Quote</a> | 
+								<a href="index.html#comment-278">#33</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-278"><p>I have a client that is interested in setting up hotspots in 150 locations.<br />
+It will be free access and the only thing that have found is the monthly payment services.</p>
+<p>I would like to set up my own system, Do you have the know how to do this and would you be available to work on this, if so please contact me.</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-293">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/2cb0536556c0c39c8fd2066e25edb300?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-293">
+											Alvin Arnardu											</span>
+									</div>
+				<div class="date">November 10th, 2011 at 15:18</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-293', 'comment-293', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-293', 'comment-293', 'commentbody-293', 'comment');">Quote</a> | 
+								<a href="index.html#comment-293">#34</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-293"><p>guys i just installed free rad using some of the above instrauctions thos is what i get , i am no also sure how the 192.168.10.1/.. pages are supposed to come up i mean do they just pop up or do i have to connect the AP..Im a newbee please explain:</p>
+<p>address: localhost! [Success]<br />
+coova-chilli[18841]: options.c: 181: could not generate configuration (/usr/local/var/run/chilli.18841.cfg.bin), sleeping one second<br />
+main-opt.c: 523: 0 (Debug) DHCP Listen: 10.1.0.1<br />
+main-opt.c: 524: 0 (Debug) UAM Listen: 10.1.0.1<br />
+garden.c: 143: 0 (Debug) Uamallowed <a href="http://www.coova.org" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://www.coova.org']);" rel="nofollow">http://www.coova.org</a><br />
+garden.c: 124: 0 (Debug) Uamallowed IP address #0:128: proto=0 host=174.129.195.118 port=0<br />
+garden.c: 143: 0 (Debug) Uamallowed 10.1.0.1<br />
+garden.c: 124: 0 (Debug) Uamallowed IP address #1:128: proto=0 host=10.1.0.1 port=0<br />
+garden.c: 143: 0 (Debug) Uamallowed<br />
+garden.c: 207: 0 (Debug) Invalid uamallowed domain or address: !<br />
+garden.c: 143: 0 (Debug) Uamallowed <a href="http://www.coova.org" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://www.coova.org']);" rel="nofollow">http://www.coova.org</a><br />
+garden.c: 96: 0 (Debug) Uamallowed already exists #0:128: proto=0 host=174.129.195.118 port=0</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-295">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/d82e05e4bc665d8b3da7039ea0f7ba0f?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-295">
+											edwin											</span>
+									</div>
+				<div class="date">November 19th, 2011 at 16:03</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-295', 'comment-295', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-295', 'comment-295', 'commentbody-295', 'comment');">Quote</a> | 
+								<a href="index.html#comment-295">#35</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-295"><p>hey sure I do email me a <a href="mailto:edwinosantos@gmail.com">edwinosantos@gmail.com</a> hope its no too late<a href="index.html#comment-278" rel="nofollow">@Joah Santos </a></p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-296">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/d82e05e4bc665d8b3da7039ea0f7ba0f?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-296">
+											edwin											</span>
+									</div>
+				<div class="date">November 22nd, 2011 at 19:03</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-296', 'comment-296', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-296', 'comment-296', 'commentbody-296', 'comment');">Quote</a> | 
+								<a href="index.html#comment-296">#36</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-296"><blockquote cite="#commentbody-278"><p>
+<strong><a href="index.html#comment-278" rel="nofollow">Joah Santos</a> :</strong>I have a client that is interested in setting up hotspots in 150 locations.<br />
+It will be free access and the only thing that have found is the monthly payment services.<br />
+I would like to set up my own system, Do you have the know how to do this and would you be available to work on this, if so please contact me.
+</p></blockquote>
+<p><a href="mailto:edwinosantos@gmail.com">edwinosantos@gmail.com</a></p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-317">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://0.gravatar.com/avatar/6f170b6e8151b305775fc19475f89dec?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-317" href="http://ukanjuruhan.ac.id" rel="external nofollow">
+											Paijo											</a>
+									</div>
+				<div class="date">December 19th, 2011 at 08:26</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-317', 'comment-317', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-317', 'comment-317', 'commentbody-317', 'comment');">Quote</a> | 
+								<a href="index.html#comment-317">#37</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-317"><p>Install &#8220;haserl&#8221; for coovachilli</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-351">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/d4e5853d39acee87af27ab05e4890137?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-351" href="http://www.co.montezuma.co.us" rel="external nofollow">
+											Kyle H											</a>
+									</div>
+				<div class="date">December 27th, 2011 at 16:18</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-351', 'comment-351', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-351', 'comment-351', 'commentbody-351', 'comment');">Quote</a> | 
+								<a href="index.html#comment-351">#38</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-351"><p>Hi, I&#8217;ve gone through this walkthrough and I&#8217;m unable to authenticate clients and what not through the system. Getting the server to pass traffic from one interface to the other was challenging, but I&#8217;ve finally gotten data to be able to pass through the box and to the internet. Any help would be much appriciated. I know this appears to be a dead thread, but here is my email in case anyone wants to try and help me out.</p>
+<p><a href="mailto:kyle_hoehn@hotmail.com">kyle_hoehn@hotmail.com</a></p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-387">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/7a9ac5ed0b86fa3b3b2e076b7fac779d?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<span id="commentauthor-387">
+											Andy B											</span>
+									</div>
+				<div class="date">February 26th, 2012 at 22:27</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-387', 'comment-387', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-387', 'comment-387', 'commentbody-387', 'comment');">Quote</a> | 
+								<a href="index.html#comment-387">#39</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-387"><p>Hi, this is my first foray into a hotspot/radius though I&#8217;m &#8220;reasonable&#8221; with linux (been a unix/linux admin for longer than I care to remember 8-).</p>
+<p>Having a problem with the radius server&#8230; daloradius is telling me that radius is disabled and the radius log file is showing: -</p>
+<p>Sun Feb 26 19:49:16 2012 : Info: Loaded virtual server inner-tunnel<br />
+Sun Feb 26 19:49:16 2012 : Info: Loaded virtual server<br />
+Sun Feb 26 19:49:16 2012 : Info: Ready to process requests.<br />
+Sun Feb 26 19:49:17 2012 : Info: Received HUP signal.<br />
+Sun Feb 26 19:49:17 2012 : Info: HUP &#8211; Re-reading configuration files<br />
+Sun Feb 26 19:49:17 2012 : Info: HUP &#8211; loading modules<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;files&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;suffix&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;detail&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;pap&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;radutmp&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;attr_filter.access_reject&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info:  Module: Reloaded module &#8220;attr_filter.accounting_response&#8221;<br />
+Sun Feb 26 19:49:17 2012 : Info: Loaded virtual server inner-tunnel<br />
+Sun Feb 26 19:49:17 2012 : Info: Loaded virtual server<br />
+Sun Feb 26 21:03:26 2012 : Info: Exiting normally.<br />
+Sun Feb 26 21:04:50 2012 : Error: Failed to add duplicate client 127.0.0.1<br />
+Sun Feb 26 21:04:50 2012 : Error: /etc/freeradius/clients.conf[235]: Failed to add client 127.0.0.1</p>
+<p>I can&#8217;t for the life of me spot what&#8217;s causing the errors &#8211; any ideas?</p>
+<p>Thanks!</p>
+<p>Andy B.</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-396">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/772a45af91e0d8059cfd438a6e8bd545?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-396" href="http://hami.pl" rel="external nofollow">
+											Krystian											</a>
+									</div>
+				<div class="date">November 25th, 2012 at 16:03</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-396', 'comment-396', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-396', 'comment-396', 'commentbody-396', 'comment');">Quote</a> | 
+								<a href="index.html#comment-396">#40</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-396"><p>hello!</p>
+<p>Can we make some MAC who that they will not have to log in and as soon as the connect will have immediate access?</p>
+</div>
+		</div>
+
+</li>
+	</ol>
+	<!-- comments END -->
+
+	<!-- comments navi START -->
+		<!-- comments navi END -->
+
+	<!-- trackback START -->
+		<!-- trackback END -->
+
+
+	<div id="respond">
+	<form action="http://linux.xvx.cz/wp-comments-post.php" method="post" id="commentform">
+
+	<!-- comment info -->
+	<div id="comment_header">
+		<div id="comment_info">
+							
+				<div id="author_info">
+					<div class="row">
+						<input type="text" name="author" id="author" class="textfield" value="" size="24" tabindex="1" />
+						<label for="author" class="small">Name (required)</label>
+					</div>
+					<div class="row">
+						<input type="text" name="email" id="email" class="textfield" value="" size="24" tabindex="2" />
+						<label for="email" class="small">E-Mail (will not be published) (required)</label>
+					</div>
+					<div class="row">
+						<input type="text" name="url" id="url" class="textfield" value="" size="24" tabindex="3" />
+						<label for="url" class="small">Website</label>
+					</div>
+				</div>
+
+				
+					</div>
+	</div>
+
+	<!-- comment input -->
+	<textarea name="comment" id="comment" tabindex="4" rows="8" cols="50"></textarea>
+
+	<!-- comment submit and rss -->
+	<div id="submitbox">
+		<div id="comments_rss">
+			<a href="../../../../comments/feed/index.html">
+				<span class="feed">Subscribe to comments feed</span>
+			</a>
+		</div>
+
+		<div class="act">
+							<a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display:none;">Cancel</a>						<input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit Comment" />
+		</div>
+		
+		<input type="hidden" name="comment_post_ID" value="264" />
+					<input type='hidden' name='comment_post_ID' value='264' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+				<div class="fixed"></div>
+	</div>
+
+		<script type='text/javascript'>
+	<!--
+	refJS = escape( document[ 'referrer' ] );
+	document.write("<input type='hidden' name='refJS' value='"+refJS+"'>");
+	// -->
+	</script>
+	<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="9622f90bac" /></p>	</form>
+	</div>
+
+	
+
+			
+
+	</div>
+
+	<!-- sidebar START -->
+<div id="sidebar">
+
+<!-- Style Switcher START -->
+<!-- Style Switcher END -->
+
+		<!-- showcase -->
+		
+		<ul id="widgets">
+
+<li class="widget widget_archive"><h3>Archives</h3>		<ul>
+			<li><a href='../../../../2013/06/index.html' title='June 2013'>June 2013</a>&nbsp;(1)</li>
+	<li><a href='../../../../2012/01/index.html' title='January 2012'>January 2012</a>&nbsp;(1)</li>
+	<li><a href='../../../../2011/12/index.html' title='December 2011'>December 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../../2011/02/index.html' title='February 2011'>February 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../../2011/01/index.html' title='January 2011'>January 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../12/index.html' title='December 2010'>December 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../09/index.html' title='September 2010'>September 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../05/index.html' title='May 2010'>May 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../04/index.html' title='April 2010'>April 2010</a>&nbsp;(1)</li>
+	<li><a href='../../index.html' title='March 2010'>March 2010</a>&nbsp;(5)</li>
+	<li><a href='../../../../2009/12/index.html' title='December 2009'>December 2009</a>&nbsp;(1)</li>
+	<li><a href='../../../../2009/08/index.html' title='August 2009'>August 2009</a>&nbsp;(1)</li>
+	<li><a href='../../../../2009/06/index.html' title='June 2009'>June 2009</a>&nbsp;(3)</li>
+	<li><a href='../../../../2009/03/index.html' title='March 2009'>March 2009</a>&nbsp;(3)</li>
+	<li><a href='../../../../2009/02/index.html' title='February 2009'>February 2009</a>&nbsp;(1)</li>
+		</ul>
+</li><li class="widget widget_polls-widget"><h3>Polls</h3><div id="polls-2" class="wp-polls">
+	<form id="polls_form_2" class="wp-polls-form" action="index.html" method="post">
+		<p style="display: none;"><input type="hidden" id="poll_2_nonce" name="wp-polls-nonce" value="72cec8fd98" /></p>
+		<p style="display: none;"><input type="hidden" name="poll_id" value="2" /></p>
+		<p style="display: none;"><input type="hidden" id="poll_multiple_ans_2" name="poll_multiple_ans_2" value="3" /></p>
+		<p style="text-align: center;"><strong>Favourite distro</strong></p><div id="polls-2-ans" class="wp-polls-ans"><ul class="wp-polls-ul">
+		<li><input type="checkbox" id="poll-answer-6" name="poll_2" value="6" /> <label for="poll-answer-6">Debian, Ubuntu</label></li>
+		<li><input type="checkbox" id="poll-answer-7" name="poll_2" value="7" /> <label for="poll-answer-7">RedHat, Fedora, CentOS</label></li>
+		<li><input type="checkbox" id="poll-answer-8" name="poll_2" value="8" /> <label for="poll-answer-8">Gentoo, Sabayon</label></li>
+		<li><input type="checkbox" id="poll-answer-9" name="poll_2" value="9" /> <label for="poll-answer-9">Arch</label></li>
+		<li><input type="checkbox" id="poll-answer-10" name="poll_2" value="10" /> <label for="poll-answer-10">Slackware</label></li>
+		<li><input type="checkbox" id="poll-answer-11" name="poll_2" value="11" /> <label for="poll-answer-11">openSUSE</label></li>
+		<li><input type="checkbox" id="poll-answer-12" name="poll_2" value="12" /> <label for="poll-answer-12">Mandriva</label></li>
+		</ul><p style="text-align: center;"><input type="button" name="vote" value="   Vote   " class="Buttons" onclick="poll_vote(2);" onkeypress="poll_result(2);" /></p><p style="text-align: center;"><a href="index.html#ViewPollResults" onclick="poll_result(2); return false;" onkeypress="poll_result(2); return false;" title="View Results Of This Poll">View Results</a></p></div>
+	</form>
+</div>
+<div id="polls-2-loading" class="wp-polls-loading"><img src="../../../../wp-content/plugins/wp-polls/images/loading.gif" width="16" height="16" alt="Loading ..." title="Loading ..." class="wp-polls-image" />&nbsp;Loading ...</div>
+</li><li class="widget wassup_widget"><h3>Visitors Online</h3><ul class='links'><li><strong style='padding:0 4px 0 4px;background:#ddd;color:#777'>05</strong> visitor(s) online</li><li style='font-size:6pt; color:#bbb;'>powered by <a style='color:#777;' href='http://www.wpwp.org' title='WassUp - Real Time Visitors Tracking'>WassUp</a></li></ul></li>		</ul>
+
+		<!-- showcase 2 -->
+		
+</div>
+<!-- sidebar END -->
+
+	<div class="fixed"></div>
+
+		<div id="bottom">
+			<div class="postnav">
+				<span class="alignleft">&laquo; <a href="../../using-grub2-and-lua-installed-on-usb-booting-iso-images-2/trackback/index.html" rel="prev">Using Grub2 and LUA installed on USB booting ISO images</a></span>
+				<span class="alignright"><a href="../../svn-used-for-configuration-management/trackback/index.html" rel="next">SVN used for configuration management</a> &raquo;</span>
+				<div class="fixed"></div>
+			</div>
+
+			<div class="anchor">
+				<span><a href="index.html#" onclick="MGJS.goTop();return false;">TOP</a></span>
+			</div>
+			<div class="fixed"></div>
+			</div>
+		<div class="fixed"></div>
+	</div>
+</div>
+
+<!-- footer START -->
+<div id="footer">
+	<div class="inner">
+		<div class="content">
+			<p id="about">
+				Copyright &copy; 2009-2013 Petr&#8217;s blog about Linux | Powered by <a href="http://wordpress.org/">WordPress</a> | Theme by <a href="http://www.neoease.com/">NeoEase</a>			</p>
+
+			<ul id="admin">
+								<li><a href="../../../../wp-login.php">Log in</a></li>
+			</ul>
+
+			<div class="fixed"></div>
+		</div>
+	</div>
+</div><!-- footer END -->
+<!--[if IE]>
+<script language=javascript>
+//<![CDATA[
+	if (screen_res=="") {
+		screen_res = screen.width + " x " + screen.height;
+	}
+	if (screen_res!=" x ") {
+		var cdate = new Date();
+		cdate.setTime(cdate.getTime()+(48*60*60*1000));
+		var cexpires = cdate.toGMTString();
+		//var the_cookie = "wassup_screen_res="+escape(screen_res)+"; expires="+cexpires;
+		document.cookie = "wassup_screen_res=" + escape(screen_res)+ "; path=/; domain=" + document.domain;
+
+	}
+//]]>
+</script>
+<![endif]--><!--
+<p class="small"> WassUp 1.8.3.1 timestamp: 2013-06-22 10:03:24AM UTC (11:03AM)<br />
+If above timestamp is not current time, this page is cached.</p> -->
+<script type='text/javascript' src='http://lite.piclens.com/current/piclens_optimized.js?ver=3.5.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var pollsL10n = {"ajax_url":"http:\/\/linux.xvx.cz\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"1","show_fading":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../../wp-content/plugins/wp-polls/polls-js.js?ver=2.63'></script>
+<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201325.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'6295081',v:'ext',post:'264'});
+var load_cmc = function(){linktracker_init(6295081,264,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+
+</body>
+</html>

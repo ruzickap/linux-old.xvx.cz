@@ -1,0 +1,815 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<title>Another OpenWrt configuration... | Petr's blog about Linux</title>
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all posts" href="../../../feed/index.html" />
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all comments" href="../../../comments/feed/index.html" />
+	<link rel="pingback" href="../../../xmlrpc.php" />
+
+	<!-- style START -->
+	<link rel="stylesheet" href="../../../wp-content/themes/elegant-box/style.css" type="text/css" media="screen" />
+		<!--[if IE]>
+		<link rel="stylesheet" href="http://linux.xvx.cz/wp-content/themes/elegant-box/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+
+	<!-- default style -->
+			<link rel="stylesheet" href="../../../wp-content/themes/elegant-box/styles/blue/default.css" type="text/css" media="screen" title="blue" />
+		<link rel="stylesheet" href="../../../wp-content/themes/elegant-box/styles/blue/global.css" type="text/css" media="screen" />
+	
+	<!-- others styles -->
+	<!-- style END -->
+
+	<!-- javascript START -->
+		<script type="text/javascript" src="../../../wp-content/themes/elegant-box/js/base.js"></script>
+	<script type="text/javascript" src="../../../wp-content/themes/elegant-box/js/menu.js"></script>
+	<!-- javascript END -->
+
+		
+			<script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.5 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-6594742-3']);
+							_gaq.push(['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+			<link rel="alternate" type="application/rss+xml" title="Petr&#039;s blog about Linux &raquo; Another OpenWrt configuration Comments Feed" href="feed/index.html" />
+<link rel='stylesheet' id='gdsr_style_main-css'  href='http://linux.xvx.cz/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1347955026&#038;s=a10i10m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower%23lsgarrows&#038;o=off&#038;ver=1.9.20' type='text/css' media='all' />
+<link rel='stylesheet' id='NextGEN-css'  href='../../../wp-content/plugins/nextgen-gallery/css/nggallery.css?ver=1.0.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='shutter-css'  href='../../../wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.css?ver=1.3.4' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp-polls-css'  href='../../../wp-content/themes/elegant-box/polls-css.css?ver=2.63' type='text/css' media='all' />
+<link rel='stylesheet' id='codecolorer-css'  href='../../../wp-content/plugins/codecolorer/codecolorer.css?ver=0.9.9' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp_dlmp_styles-css'  href='../../../wp-content/plugins/download-monitor/page-addon/styles.css?ver=3.5.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://linux.xvx.cz/wp-includes/js/jquery/jquery.js?ver=1.8.3'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/gd-star-rating/js/gdsr.js?ver=1.9.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var shutterSettings = {"msgLoading":"L O A D I N G","msgClose":"Click to Close","imageCount":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../wp-content/plugins/nextgen-gallery/shutter/shutter-reloaded.js?ver=1.3.3'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/nextgen-gallery/js/jquery.cycle.all.min.js?ver=2.9995'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/nextgen-gallery/js/ngg.slideshow.min.js?ver=1.06'></script>
+<script type='text/javascript' src='http://linux.xvx.cz/wp-includes/js/comment-reply.min.js?ver=3.5.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://linux.xvx.cz/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='OpenWrt (Backfire 10.03) and TL-WR1043ND' href='../../../2011/12/openwrt-backfire-10-03-and-tl-wr1043nd/index.html' />
+<link rel='next' title='Last post' href='../../../2013/06/last-post/index.html' />
+<meta name="generator" content="WordPress 3.5.1" />
+<link rel='shortlink' href='http://wp.me/pqpDz-gi' />
+
+<!-- All in One SEO Pack 1.6.15 by Michael Torbert of Semper Fi Web Design[343,417] -->
+<meta name="description" content="Another OpenWrt configuration for TL-WR1043ND." />
+<meta name="keywords" content="openwrt, backfire, tl-wr1043nd" />
+<link rel="canonical" href="index.html" />
+<!-- /all in one seo pack -->
+	<style type='text/css'>
+	.download-info .download-button {
+		background-image: url(../../../wp-content/plugins/download-monitor/page-addon/downloadbutton.gif);
+	}
+	.download-info .more-button {
+		background-image: url(../../../wp-content/plugins/download-monitor/page-addon/morebutton.gif);
+	}
+	</style>
+<link rel="shortcut icon" href="http://www.xvx.cz/favicon.ico" /><script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "31f6af320f";
+var gdsr_cnst_ajax = "http://linux.xvx.cz/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script>
+<!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]-->
+<!-- <meta name="NextGEN" version="1.9.6" /> -->
+<style type="text/css">
+.wp-polls .pollbar {
+	margin: 1px;
+	font-size: 6px;
+	line-height: 8px;
+	height: 8px;
+	background-image: url('../../../wp-content/plugins/wp-polls/images/default/pollbg.gif');
+	border: 1px solid #c8c8c8;
+}
+</style>
+
+<!-- Start Of Script Generated By WP-PostViews -->
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery.ajax({type:'GET',url:'http://linux.xvx.cz/wp-admin/admin-ajax.php',data:'postviews_id=1010&action=postviews',cache:false});/* ]]> */
+</script>
+<!-- End Of Script Generated By WP-PostViews -->
+
+<!-- Protected by WP-SpamFree v2.1.1.2 :: JS BEGIN -->
+<script type="text/javascript" src="../../../wp-content/plugins/wp-spamfree/js/wpsf-js.php"></script> 
+<!-- Protected by WP-SpamFree v2.1.1.2 :: JS END -->
+
+<link id='MediaRSS' rel='alternate' type='application/rss+xml' title='NextGEN Gallery RSS Feed' href='../../../wp-content/plugins/nextgen-gallery/xml/media-rss.php' />
+<script type="text/javascript">
+//<![CDATA[
+	var screen_res = ""; 
+	function writeCookie(name,value,hours) {
+		var the_cookie = name+"="+escape(value)+"; expires=";
+		var expires = "";
+		hours=hours+0; //convert to number
+		if (hours > 0) { //0==expires on browser close
+			var cdate = new Date();
+			cdate.setTime(cdate.getTime()+(hours*60*60*1000));
+			expires = expires+cdate.toGMTString();
+		} 
+		document.cookie = the_cookie+expires+"; path=/; domain=";
+	}
+	screen_res = screen.width+" x "+screen.height;
+	if (screen_res==" x ") screen_res = window.screen.width+" x "+window.screen.height;
+	if (screen_res==" x ") screen_res = screen.availWidth+" x "+screen.availHeight;
+	if (screen_res!=" x ") { 
+		writeCookie("wassup_screen_res",screen_res,"48"); //keep 2 days
+	} else {
+		screen_res = "";
+	}
+//]]>
+</script>
+</head>
+
+
+<body>
+	<!-- header START -->
+	<div id="header">
+		<div class="inner">
+			<div class="content">
+				<div class="caption">
+					<h1 id="title"><a href="../../../index.html" title="My personal blog about Linux and other opensource applications.">Petr&#8217;s blog about Linux</a></h1>
+					<div id="tagline">My personal blog about Linux and other opensource applications.</div>
+				</div>
+
+				<!-- search box -->
+									<form action="../../../index.html" id="search_box" method="get">
+						<div id="searchbox">
+							<input type="text" id="searchtxt" class="textfield" name="s" value="" />
+						</div>
+					</form>
+				<script type="text/javascript">
+//<![CDATA[
+	var searchbox = document.getElementById("searchbox");
+	var searchtxt = document.getElementById("searchtxt");
+	var tiptext = "Type text to search here...";
+	if(searchtxt.value == "" || searchtxt.value == tiptext) {
+		searchtxt.className += " searchtip";
+		searchtxt.value = tiptext;
+	}
+	searchtxt.onfocus = function(e) {
+		if(searchtxt.value == tiptext) {
+			searchtxt.value = "";
+			searchtxt.className = searchtxt.className.replace(" searchtip", "");
+		}
+	}
+	searchtxt.onblur = function(e) {
+		if(searchtxt.value == "") {
+			searchtxt.className += " searchtip";
+			searchtxt.value = tiptext;
+		}
+	}
+//]]>
+</script>
+
+				<!-- navigation START -->
+				<ul id="navigation">
+
+					<li class="page_item"><a href="../../../index.html">Home</a></li>
+					<li class="page_item page-item-2"><a href="../../../about/index.html">About</a></li>
+					<li id="subscribe">
+						<a rel="external nofollow" title="Subscribe to this blog..." id="feed" href="../../../feed/index.html"><img src="../../../wp-content/themes/elegant-box/images/transparent.gif" alt="RSS feed" /></a>
+													<ul>
+								<li class="first"><a rel="external nofollow" title="Subscribe with Youdao" href="http://reader.youdao.com/b.do?url=http://linux.xvx.cz/feed/"> Youdao</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Xian Guo" href="http://www.xianguo.com/subscribe.php?url=http://linux.xvx.cz/feed/"> Xian Guo</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Zhua Xia" href="http://www.zhuaxia.com/add_channel.php?url=http://linux.xvx.cz/feed/"> Zhua Xia</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Google" href="http://fusion.google.com/add?feedurl=http://linux.xvx.cz/feed/"> Google</a></li>
+								<li><a rel="external nofollow" title="Subscribe with My Yahoo!" href="http://add.my.yahoo.com/rss?url=http://linux.xvx.cz/feed/"> My Yahoo!</a></li>
+								<li><a rel="external nofollow" title="Subscribe with newsgator" href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=http://linux.xvx.cz/feed/"> newsgator</a></li>
+								<li><a rel="external nofollow" title="Subscribe with Bloglines" href="http://www.bloglines.com/sub/http://linux.xvx.cz/feed/"> Bloglines</a></li>
+								<li><a rel="external nofollow" title="Subscribe with iNezha" href="http://inezha.com/add?url=http://linux.xvx.cz/feed/"> iNezha</a></li>
+							</ul>
+											</li>
+
+				</ul>
+				<!-- navigation END -->
+
+			</div>
+		</div>
+	</div>
+	<!-- header END -->
+
+	<div id="container">
+		<div id="content">
+			<div id="main">
+
+		
+			<div class="post">
+				<div class="title">
+					<h2>Another OpenWrt configuration</h2>
+					<div class="fixed"></div>
+				</div>
+
+				<div class="info">
+					
+					<span>January 28th, 2012</span>
+																<span> | Tags: <a href="../../../tag/10-03-1/index.html" rel="tag">10.03.1</a>, <a href="../../../tag/backfire/index.html" rel="tag">Backfire</a>, <a href="../../../tag/dhcp/index.html" rel="tag">dhcp</a>, <a href="../../../tag/firewall/index.html" rel="tag">firewall</a>, <a href="../../../tag/openwrt/index.html" rel="tag">OpenWrt</a>, <a href="../../../tag/tl-wr1043nd/index.html" rel="tag">TL-WR1043ND</a>, <a href="../../../tag/wifi/index.html" rel="tag">wifi</a></span>
+					
+					<div class="fixed"></div>
+				</div>
+
+				<div class="content">
+					<p>I would like to describe another <a href="http://openwrt.org/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://openwrt.org']);">OpenWrt</a> configuration. It&#8217;s going to be just few examples how to configure latest available OpenWrt firmware <a href="http://downloads.openwrt.org/backfire/10.03.1/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://downloads.openwrt.org']);">Backfire 10.03.1</a>.</p>
+<p>I&#8217;m going to use <a href="http://www.tp-link.com/en/products/details/?model=TL-WR1043ND" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.tp-link.com']);">TP-Link TL-WR1043ND</a> wifi router with small 64MB USB stick [/dev/sda1] containing ext2 partition. I plan to have some stats on the USB stick and simple html pages as well.</p>
+<p><span id="more-1010"></span></p>
+<p>After flashing the original firmware with <a href="http://downloads.openwrt.org/backfire/10.03.1/ar71xx/openwrt-ar71xx-tl-wr1043nd-v1-squashfs-factory.bin" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://downloads.openwrt.org']);">openwrt-ar71xx-tl-wr1043nd-v1-squashfs-factory.bin</a> I installed the kernel related packages and <a href="http://wiki.openwrt.org/doc/howto/extroot" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.openwrt.org']);">extroot</a>:</p>
+<p>(if you have OpenWRT already installed use: mtd -e firmware -r write /www2/openwrt-ar71xx-tl-wr1043nd-v1-squashfs-sysupgrade.bin firmware)</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;height:300px;"><div class="bash codecolorer">telnet 192.168.1.1<br />
+<span class="kw2">passwd</span><br />
+<br />
+opkg update<br />
+opkg <span class="kw2">install</span> block-hotplug block-extroot kmod-fs-ext4 kmod-usb-storage<br />
+<br />
+uci <span class="kw1">set</span> system.<span class="sy0">@</span>system<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.hostname=openwrt<br />
+uci <span class="kw1">set</span> system.<span class="sy0">@</span>system<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.timezone=CET-1CEST,M3.5.0,M10.5.0<span class="sy0">/</span><span class="nu0">3</span><br />
+uci <span class="kw1">set</span> system.<span class="sy0">@</span>system<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.timezone=CET-1CEST,M3.5.0,M10.5.0<span class="sy0">/</span><span class="nu0">3</span><br />
+uci <span class="kw1">set</span> system.<span class="sy0">@</span>system<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.log_file=<span class="sy0">/</span>etc<span class="sy0">/</span>messages<br />
+uci <span class="kw1">set</span> system.<span class="sy0">@</span>system<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.log_size=<span class="nu0">1024</span><br />
+uci <span class="kw1">set</span> system.<span class="sy0">@</span>system<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.log_type=<span class="kw2">file</span><br />
+<br />
+uci <span class="kw1">set</span> fstab.<span class="sy0">@</span><span class="kw2">mount</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.device=<span class="sy0">/</span>dev<span class="sy0">/</span>sda1<br />
+uci <span class="kw1">set</span> fstab.<span class="sy0">@</span><span class="kw2">mount</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.fstype=ext4<br />
+uci <span class="kw1">set</span> fstab.<span class="sy0">@</span><span class="kw2">mount</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.options=rw,<span class="kw2">sync</span><br />
+uci <span class="kw1">set</span> fstab.<span class="sy0">@</span><span class="kw2">mount</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.enabled=<span class="nu0">1</span><br />
+uci <span class="kw1">set</span> fstab.<span class="sy0">@</span><span class="kw2">mount</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.enabled_fsck=<span class="nu0">0</span><br />
+uci <span class="kw1">set</span> fstab.<span class="sy0">@</span><span class="kw2">mount</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.is_rootfs=<span class="nu0">1</span><br />
+<br />
+uci <span class="kw1">set</span> dropbear.<span class="sy0">@</span>dropbear<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.Port=<span class="nu0">2222</span><br />
+<br />
+uci add firewall rule<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.name=<span class="kw2">ssh</span><br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.src=wan<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.target=ACCEPT<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.proto=tcp<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.dest_port=<span class="nu0">2222</span><br />
+<br />
+uci add firewall rule<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.name=iodined<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.src=wan<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.target=ACCEPT<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.proto=udp<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.dest_port=<span class="nu0">53</span><br />
+<br />
+uci add firewall rule<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.name=snmp<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.src=wan<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.target=ACCEPT<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.proto=udp<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.dest_port=<span class="nu0">161</span><br />
+<br />
+uci add firewall rule<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.name=http_ser<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.src=lan<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.dst=wan<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.src_ip=192.168.0.0<span class="sy0">/</span><span class="nu0">24</span><br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.target=ACCEPT<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.proto=tcp<br />
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.dest_port=<span class="nu0">80</span><br />
+<br />
+uci <span class="kw1">set</span> wireless.<span class="sy0">@</span>wifi-iface<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.ssid=ser<br />
+uci <span class="kw1">set</span> wireless.<span class="sy0">@</span>wifi-iface<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.encryption=psk2<br />
+uci <span class="kw1">set</span> wireless.<span class="sy0">@</span>wifi-iface<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.key=xxxxxxxx<br />
+<br />
+uci <span class="kw1">set</span> wireless.radio0.channel=<span class="nu0">3</span><br />
+uci <span class="kw1">set</span> wireless.radio0.htmode=HT40<br />
+<br />
+uci del wireless.<span class="sy0">@</span>wifi-device<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.disabled<br />
+<br />
+uci <span class="kw1">set</span> network.lan.ipaddr=192.168.0.1<br />
+<br />
+uci <span class="kw1">set</span> dhcp.<span class="sy0">@</span>dnsmasq<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.domain=ser.no-ip.org<br />
+uci <span class="kw1">set</span> dhcp.<span class="sy0">@</span>dnsmasq<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.leasefile=<span class="sy0">/</span>etc<span class="sy0">/</span>dnsmasq-dhcp.leases<br />
+uci <span class="kw1">set</span> dhcp.<span class="sy0">@</span>dnsmasq<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.port=<span class="nu0">0</span><br />
+uci <span class="kw1">set</span> dhcp.<span class="sy0">@</span>dnsmasq<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.cachelocal=<span class="nu0">0</span><br />
+uci <span class="kw1">set</span> dhcp.lan.dhcp_option=<span class="nu0">6</span>,8.8.8.8<br />
+<br />
+uci <span class="kw1">set</span> dhcp.lan.start=<span class="nu0">200</span><br />
+uci <span class="kw1">set</span> dhcp.lan.limit=<span class="nu0">254</span><br />
+<br />
+uci add dhcp host<br />
+uci <span class="kw1">set</span> dhcp.<span class="sy0">@</span>host<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.name=ruz<br />
+uci <span class="kw1">set</span> dhcp.<span class="sy0">@</span>host<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.ip=192.168.0.2<br />
+uci <span class="kw1">set</span> dhcp.<span class="sy0">@</span>host<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.mac=XX:XX:XX:XX:XX:XX</div></div>
+<p>Configure the ssh to enable autologin:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">scp</span> <span class="re1">$HOME</span><span class="sy0">/</span>.ssh<span class="sy0">/</span>id_rsa.pub root<span class="sy0">@</span>192.168.1.1:<span class="sy0">/</span>tmp<span class="sy0">/</span>authorized_keys<br />
+<span class="kw2">ssh</span> root<span class="sy0">@</span>192.168.1.1<br />
+<span class="kw2">cp</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>authorized_keys <span class="sy0">/</span>etc<span class="sy0">/</span>dropbear<span class="sy0">/</span>authorized_keys<br />
+<span class="kw2">chmod</span> <span class="nu0">600</span> <span class="sy0">/</span>etc<span class="sy0">/</span>dropbear<span class="sy0">/</span>authorized_keys</div></div>
+<p>Install few applications:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">opkg update<br />
+opkg <span class="kw2">install</span> <span class="re5">--force-overwrite</span> htop <span class="kw2">less</span> openssh-sftp-server tcpdump wget-nossl</div></div>
+<p>Configure ssmtp for the outgoing emails:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">opkg <span class="kw2">install</span> msmtp-nossl<br />
+<br />
+<span class="kw2">sed</span> <span class="re5">-i</span> <span class="st_h">'s/^\(host\).*/\1 smtp.XXXXXX.cz/'</span> <span class="sy0">/</span>etc<span class="sy0">/</span>msmtprc<br />
+<span class="kw2">cat</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>msmtprc <span class="co2">&lt;&lt; EOF<br />
+auto_from on<br />
+maildomain ser.no-ip.org<br />
+EOF</span><br />
+<br />
+<span class="kw2">sed</span> <span class="re5">-i</span> <span class="st_h">'/^exit 0/i echo -e &quot;Subject: Reboot `uci get system.@system[0].hostname`\\n\\nOpenwrt rebooted: `date`\\n\\n`grep -B 50 \\&quot;syslogd started\\&quot; /etc/messages`&quot; | sendmail petr.ruzicka@gmail.com'</span> <span class="sy0">/</span>etc<span class="sy0">/</span>rc.local</div></div>
+<p>Configure DDNS:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">opkg <span class="kw2">install</span> luci-app-ddns<br />
+<br />
+uci <span class="kw1">set</span> ddns.myddns.enabled=<span class="nu0">1</span><br />
+uci <span class="kw1">set</span> ddns.myddns.service_name=no-ip.com<br />
+uci <span class="kw1">set</span> ddns.myddns.domain=ser.no-ip.org<br />
+uci <span class="kw1">set</span> ddns.myddns.username=ruz<br />
+uci <span class="kw1">set</span> ddns.myddns.password=XXXXXXXXXXX</div></div>
+<p>Install snmpd:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">opkg <span class="kw2">install</span> mini-snmpd<br />
+<br />
+uci <span class="kw1">set</span> mini_snmpd.<span class="sy0">@</span>mini_snmpd<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.interfaces=lo,br-lan,eth0.2,eth0.1<br />
+uci <span class="kw1">set</span> mini_snmpd.<span class="sy0">@</span>mini_snmpd<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.community=OpenWrt<br />
+uci <span class="kw1">set</span> mini_snmpd.<span class="sy0">@</span>mini_snmpd<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.location=<span class="st_h">'Ser'</span><br />
+uci <span class="kw1">set</span> mini_snmpd.<span class="sy0">@</span>mini_snmpd<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.contact=<span class="st_h">'Ser'</span><br />
+uci <span class="kw1">set</span> mini_snmpd.<span class="sy0">@</span>mini_snmpd<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.disks=<span class="st_h">'/tmp,/overlay'</span><br />
+<br />
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>mini_snmpd <span class="kw3">enable</span></div></div>
+<p>Configure TFTPboot and dnsmasq script:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer"><span class="kw2">mkdir</span> <span class="sy0">/</span>tftpboot<br />
+<br />
+<span class="kw2">wget</span> <span class="re5">-P</span> <span class="sy0">/</span>tftpboot http:<span class="sy0">//</span>static.netboot.me<span class="sy0">/</span>gpxe<span class="sy0">/</span>netbootme.kpxe<br />
+uci <span class="kw1">set</span> dhcp.<span class="sy0">@</span>dnsmasq<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.enable_tftp=<span class="nu0">1</span><br />
+uci <span class="kw1">set</span> dhcp.<span class="sy0">@</span>dnsmasq<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.tftp_root=<span class="sy0">/</span>tftpboot<br />
+uci <span class="kw1">set</span> dhcp.<span class="sy0">@</span>dnsmasq<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.dhcp_boot=netbootme.kpxe<br />
+<br />
+<span class="kw3">echo</span> <span class="st0">&quot;dhcp-script=/etc/dnsmasq-script.sh&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>dnsmasq.conf<br />
+<br />
+<span class="kw2">cat</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>dnsmasq-script.sh <span class="sy0">&lt;&lt;</span> \EOF <br />
+<span class="co0">#!/bin/sh</span><br />
+<br />
+<span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw3">echo</span> <span class="sy0">`/</span>bin<span class="sy0">/</span><span class="kw2">date</span> +<span class="st0">&quot;%F %T&quot;</span><span class="sy0">`</span> <span class="re4">$*</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>www2<span class="sy0">/</span>dnsmasq.script.log<br />
+<br />
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;$1&quot;</span> == <span class="st0">&quot;add&quot;</span> <span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="sy0">!</span> <span class="kw2">grep</span> <span class="re5">-iq</span> <span class="re4">$2</span> <span class="sy0">/</span>etc<span class="sy0">/</span>config<span class="sy0">/</span>dhcp; <span class="kw1">then</span><br />
+&nbsp; <span class="kw3">echo</span> <span class="re5">-e</span> <span class="st0">&quot;Subject: New MAC on <span class="es5">`uci get system.@system[0].hostname`</span>.<span class="es5">`uci get dhcp.@dnsmasq[0].domain`</span>\<span class="es1">\n</span>\<span class="es1">\n</span><span class="es5">`/bin/date +&quot;%F %T&quot;`</span> $*&quot;</span> <span class="sy0">|</span> <span class="kw2">sendmail</span> petr.ruzicka<span class="sy0">@</span>gmail.com<br />
+<span class="kw1">fi</span><br />
+EOF<br />
+<br />
+<span class="kw2">chmod</span> a+x <span class="sy0">/</span>etc<span class="sy0">/</span>dnsmasq-script.sh</div></div>
+<p>Configuration of iodined server (dns-tunelling)</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">opkg <span class="kw2">install</span> iodined<br />
+<br />
+uci <span class="kw1">set</span> iodined.<span class="sy0">@</span>iodined<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.address=XX.XXX.XX.XX<br />
+uci <span class="kw1">set</span> iodined.<span class="sy0">@</span>iodined<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.password=XXXXXXXX<br />
+uci <span class="kw1">set</span> iodined.<span class="sy0">@</span>iodined<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.tunnelip=192.168.99.1<br />
+uci <span class="kw1">set</span> iodined.<span class="sy0">@</span>iodined<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.tld=tunnel.XXXXX.cz<br />
+<br />
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>iodined <span class="kw3">enable</span></div></div>
+<p>Configure httpd daemon for the &#8220;/www2&#8243;:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">opkg <span class="kw2">install</span> px5g uhttpd-mod-tls<br />
+<br />
+uci del uhttpd.main.listen_http<br />
+uci <span class="kw1">set</span> uhttpd.px5g.days=<span class="nu0">3650</span><br />
+uci <span class="kw1">set</span> uhttpd.px5g.country=CZ<br />
+uci <span class="kw1">set</span> uhttpd.px5g.state=<span class="st0">&quot;Czech Republic&quot;</span><br />
+uci <span class="kw1">set</span> uhttpd.px5g.location=Brno<br />
+<span class="kw2">rm</span> <span class="sy0">/</span>etc<span class="sy0">/</span>uhttpd.crt <span class="sy0">/</span>etc<span class="sy0">/</span>uhttpd.key<br />
+<br />
+uci <span class="kw1">set</span> uhttpd.main.listen_https=<span class="st0">&quot;0.0.0.0:443&quot;</span><br />
+<br />
+<span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="sy0">/</span>www2<span class="sy0">/</span>vnstat<br />
+uci <span class="kw1">set</span> uhttpd.my=uhttpd<br />
+uci <span class="kw1">set</span> uhttpd.my.listen_http=<span class="st0">&quot;0.0.0.0:80&quot;</span><br />
+uci <span class="kw1">set</span> uhttpd.my.home=<span class="sy0">/</span>www2</div></div>
+<p>Set the checking time for watchcat for 1 hour:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">opkg <span class="kw2">install</span> watchcat<br />
+<br />
+<span class="sy0">/</span>etc<span class="sy0">/</span>uci-defaults<span class="sy0">/</span><span class="nu0">50</span>-watchcat<br />
+uci <span class="kw1">set</span> system.<span class="sy0">@</span>watchcat<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.period=1h<br />
+<br />
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>watchcat <span class="kw3">enable</span><br />
+uci commit<br />
+reboot</div></div>
+<p>Repeat the previous steps and continue&#8230;<br />
+You need to repeat it, because your router now reads the configs from &#8220;empty&#8221; USB stick and not form internal memory. If you will remove the USB stick openwrt will read the configs from the memory.</p>
+<p>Configure statistics (collectd):</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;height:300px;"><div class="bash codecolorer">opkg <span class="kw2">install</span> luci-app-statistics<br />
+<br />
+opkg <span class="kw2">install</span> collectd-mod-cpu collectd-mod-disk collectd-mod-irq collectd-mod-ping collectd-mod-processes collectd-mod-tcpconns<br />
+<br />
+uci <span class="kw1">set</span> luci_statistics.collectd_rrdtool.DataDir=<span class="sy0">/</span>etc<span class="sy0">/</span>collectd<br />
+uci <span class="kw1">set</span> luci_statistics.collectd_ping.enable=<span class="nu0">1</span><br />
+uci <span class="kw1">set</span> luci_statistics.collectd_ping.Hosts=www.google.com<br />
+uci <span class="kw1">set</span> luci_statistics.collectd_df.enable=<span class="nu0">1</span><br />
+uci <span class="kw1">set</span> luci_statistics.collectd_df.Devices=<span class="sy0">/</span>dev<span class="sy0">/</span>sda1<br />
+uci <span class="kw1">set</span> luci_statistics.collectd_df.MountPoints=<span class="sy0">/</span>overlay<br />
+uci <span class="kw1">set</span> luci_statistics.collectd_df.FSTypes=fuseblk<br />
+uci <span class="kw1">set</span> luci_statistics.collectd_disk.enable=<span class="nu0">1</span><br />
+uci <span class="kw1">set</span> luci_statistics.collectd_disk.Disks=sda<br />
+uci <span class="kw1">set</span> luci_statistics.collectd_interface.Interfaces=<span class="st0">&quot;eth0.2 wlan0 eth0.1&quot;</span><br />
+uci <span class="kw1">set</span> luci_statistics.collectd_irq.enable=<span class="nu0">1</span><br />
+uci <span class="kw1">set</span> luci_statistics.collectd_tcpconns.LocalPorts=<span class="st0">&quot;2222 80 443&quot;</span><br />
+uci <span class="kw1">set</span> luci_statistics.collectd_rrdtool.CacheTimeout=<span class="nu0">120</span><br />
+uci <span class="kw1">set</span> luci_statistics.collectd_rrdtool.CacheFlush=<span class="nu0">900</span><br />
+<br />
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>luci_statistics <span class="kw3">enable</span><br />
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>collectd <span class="kw3">enable</span></div></div>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;height:300px;"><div class="bash codecolorer">opkg <span class="kw2">install</span> luci-app-vnstat vnstat vnstati<br />
+<br />
+<span class="kw2">mkdir</span> <span class="sy0">/</span>etc<span class="sy0">/</span>vnstat<br />
+<span class="kw2">sed</span> <span class="re5">-i</span> <span class="st_h">'s@^\(DatabaseDir\).*@\1 &quot;/overlay/etc/vnstat&quot;@'</span> <span class="sy0">/</span>etc<span class="sy0">/</span>vnstat.conf<br />
+vnstat <span class="re5">-u</span> <span class="re5">-i</span> eth0.2<br />
+vnstat <span class="re5">-u</span> <span class="re5">-i</span> wlan0<br />
+vnstat <span class="re5">-u</span> <span class="re5">-i</span> eth0.1<br />
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>vnstat <span class="kw3">enable</span><br />
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>vnstat start<br />
+<span class="kw3">echo</span> <span class="st0">&quot;*/5 * * * * vnstat -u&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>crontabs<span class="sy0">/</span>root<br />
+<br />
+<span class="kw2">cat</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>graphs-vnstat.sh <span class="sy0">&lt;&lt;</span> \EOF<br />
+<span class="co0">#!/bin/sh</span><br />
+<span class="co0"># vnstati image generation script.</span><br />
+<span class="co0"># Source: http://code.google.com/p/x-wrt/source/browse/trunk/package/webif/files/www/cgi-bin/webif/graphs-vnstat.sh</span><br />
+&nbsp;<br />
+<span class="re2">WWW_D</span>=<span class="sy0">/</span>www2<span class="sy0">/</span>vnstat <span class="co0"># output images to here</span><br />
+<span class="re2">LIB_D</span>=<span class="sy0">`</span><span class="kw2">awk</span> <span class="re5">-F</span> <span class="co3">\&quot;</span> <span class="st_h">'/^DatabaseDir/ { print $2 }'</span> <span class="sy0">/</span>etc<span class="sy0">/</span>vnstat.conf<span class="sy0">`</span> <span class="co0"># db location</span><br />
+<span class="re2">BIN</span>=<span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>vnstati &nbsp;<span class="co0"># which vnstati</span><br />
+&nbsp;<br />
+<span class="re2">outputs</span>=<span class="st0">&quot;s h d t m&quot;</span> &nbsp; <span class="co0"># what images to generate</span><br />
+&nbsp;<br />
+<span class="co0"># Sanity checks</span><br />
+<span class="br0">&#91;</span> <span class="re5">-d</span> <span class="st0">&quot;<span class="es2">$WWW_D</span>&quot;</span> <span class="br0">&#93;</span> <span class="sy0">||</span> <span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="st0">&quot;<span class="es2">$WWW_D</span>&quot;</span> <span class="co0"># make the folder if it dont exist.</span><br />
+<br />
+<span class="co0"># End of config changes</span><br />
+<span class="re2">interfaces</span>=<span class="st0">&quot;<span class="es4">$(ls -1 $LIB_D)</span>&quot;</span><br />
+&nbsp;<br />
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re5">-z</span> <span class="st0">&quot;<span class="es2">$interfaces</span>&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span><br />
+&nbsp; &nbsp; <span class="kw3">echo</span> <span class="st0">&quot;No database found, nothing to do.&quot;</span><br />
+&nbsp; &nbsp; <span class="kw3">echo</span> <span class="st0">&quot;A new database can be created with the following command: &quot;</span><br />
+&nbsp; &nbsp; <span class="kw3">echo</span> <span class="st0">&quot; &nbsp; &nbsp;vnstat -u -i eth0&quot;</span><br />
+&nbsp; &nbsp; <span class="kw3">exit</span> <span class="nu0">0</span><br />
+<span class="kw1">else</span><br />
+&nbsp; &nbsp; <span class="kw1">for</span> interface <span class="kw1">in</span> <span class="re1">$interfaces</span>; <span class="kw1">do</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">for</span> output <span class="kw1">in</span> <span class="re1">$outputs</span>; <span class="kw1">do</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re1">$BIN</span> -<span class="co1">${output}</span> <span class="re5">-i</span> <span class="re1">$interface</span> <span class="re5">-o</span> <span class="re1">$WWW_D</span><span class="sy0">/</span>vnstat_<span class="co1">${interface}</span>_<span class="co1">${output}</span>.png<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">done</span><br />
+&nbsp; &nbsp; <span class="kw1">done</span><br />
+<span class="kw1">fi</span><br />
+&nbsp;<br />
+<span class="kw3">exit</span> <span class="nu0">1</span><br />
+EOF<br />
+<br />
+<span class="kw2">chmod</span> a+x <span class="sy0">/</span>etc<span class="sy0">/</span>graphs-vnstat.sh<br />
+<span class="kw3">echo</span> <span class="st0">&quot;*/31 * * * * /etc/graphs-vnstat.sh&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>crontabs<span class="sy0">/</span>root<br />
+<br />
+<span class="kw2">cat</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>www2<span class="sy0">/</span>vnstat<span class="sy0">/</span>index.html <span class="sy0">&lt;&lt;</span> \EOF<br />
+<span class="sy0">&lt;</span>META HTTP-EQUIV=<span class="st0">&quot;refresh&quot;</span> <span class="re2">CONTENT</span>=<span class="st0">&quot;300&quot;</span><span class="sy0">&gt;</span><br />
+<span class="sy0">&lt;</span>html<span class="sy0">&gt;</span><br />
+&nbsp; <span class="sy0">&lt;</span><span class="kw2">head</span><span class="sy0">&gt;</span><br />
+&nbsp; &nbsp; <span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>Traffic of OpenWRT interfaces<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span><br />
+&nbsp; <span class="sy0">&lt;/</span><span class="kw2">head</span><span class="sy0">&gt;</span><br />
+&nbsp; <span class="sy0">&lt;</span>body<span class="sy0">&gt;</span><br />
+EOF<br />
+<br />
+<span class="kw1">for</span> IFCE <span class="kw1">in</span> $<span class="br0">&#40;</span><span class="kw2">ls</span> <span class="re5">-1</span> <span class="sy0">`</span><span class="kw2">awk</span> <span class="re5">-F</span> <span class="co3">\&quot;</span> <span class="st_h">'/^DatabaseDir/ { print $2 }'</span> <span class="sy0">/</span>etc<span class="sy0">/</span>vnstat.conf<span class="sy0">`</span><span class="br0">&#41;</span>; <span class="kw1">do</span><br />
+<span class="kw2">cat</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>www2<span class="sy0">/</span>vnstat<span class="sy0">/</span>index.html <span class="co2">&lt;&lt; EOF<br />
+&nbsp; &nbsp; &lt;h2&gt;Traffic of Interface $IFCE&lt;/h2&gt;<br />
+&nbsp; &nbsp; &lt;table&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;tbody&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;vnstat_${IFCE}_s.png&quot; alt=&quot;$IFCE Summary&quot; /&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;vnstat_${IFCE}_h.png&quot; alt=&quot;$IFCE Hourly&quot; /&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td valign=&quot;top&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;vnstat_${IFCE}_d.png&quot; alt=&quot;$IFCE Daily&quot; /&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td valign=&quot;top&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;vnstat_${IFCE}_t.png&quot; alt=&quot;$IFCE Top 10&quot; /&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;br /&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;vnstat_${IFCE}_m.png&quot; alt=&quot;$IFCE Monthly&quot; /&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/td&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/tbody&gt;<br />
+&nbsp; &nbsp; &lt;/table&gt;<br />
+EOF</span><br />
+<span class="kw1">done</span><br />
+<br />
+<span class="kw2">cat</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>www2<span class="sy0">/</span>vnstat<span class="sy0">/</span>index.html <span class="sy0">&lt;&lt;</span> \EOF<br />
+&nbsp; <span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span><br />
+<span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span><br />
+EOF</div></div>
+<p>Configure the nodogsplash:</p>
+<div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;"><div class="bash codecolorer">opkg <span class="kw2">install</span> nodogsplash<br />
+<br />
+<span class="kw2">cp</span> nodogsplash.conf nodogsplash.conf-orig<br />
+<span class="kw2">sed</span> <span class="re5">-i</span> <span class="st0">&quot;s/\(^GatewayInterface\).*/\1 br-lan/;s/^# \(GatewayName\).*/\1 Ser/;s/\(.*FirewallRule allow tcp port 80\)$/#\1/;s@^# \(GatewayIPRange\).*@\1 192.168.0.192/26@;/FirewallRule block to 10.0.0.0\/8/a\ \ \ \ FirewallRule allow tcp port 80&quot;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>nodogsplash<span class="sy0">/</span>nodogsplash.conf<br />
+<br />
+<span class="kw2">sed</span> <span class="re5">-i</span> <span class="st0">&quot;/&lt;td align=center height=<span class="es1">\&quot;</span>120<span class="es1">\&quot;</span>&gt;/a<span class="es1">\<br />
+</span>&lt;h3&gt;For Internet access - click the dog&lt;/h3&gt;<span class="es1">\<br />
+</span>&lt;h3&gt;Pro pristup na Internet klikni na psa.&lt;/h3&gt;<span class="es1">\<br />
+</span>&quot;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>nodogsplash<span class="sy0">/</span>htdocs<span class="sy0">/</span>splash.html<br />
+<br />
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>nodogsplash <span class="kw3">enable</span><br />
+<br />
+uci commit<br />
+reboot</div></div>
+<p>That&#8217;s all&#8230; <img src='http://linux.xvx.cz/wp-includes/images/smilies/icon_wink.gif' alt=';-)' class='wp-smiley' />  Happy OpenWRTing&#8230;</p>
+<div style="display: none">VN:F [1.9.20_1166]</div><div class="ratingblock "><div class="ratingheader "></div><div class="ratingstars "><div id="article_rater_1010" class="ratepost gdsr-crystal gdsr-size-20"><div class="starsbar gdsr-size-20"><div class="gdouter gdheight"><div id="gdr_vote_a1010" style="width: 190px;" class="gdinner gdheight"></div><div id="gdr_stars_a1010" class="gdsr_rating_as"><a id="gdsrX1010X10X0XaXarticle_rater_1010Xarticle_loader_1010X10X20" title="10 / 10" class="s10" rel="nofollow"></a><a id="gdsrX1010X9X0XaXarticle_rater_1010Xarticle_loader_1010X10X20" title="9 / 10" class="s9" rel="nofollow"></a><a id="gdsrX1010X8X0XaXarticle_rater_1010Xarticle_loader_1010X10X20" title="8 / 10" class="s8" rel="nofollow"></a><a id="gdsrX1010X7X0XaXarticle_rater_1010Xarticle_loader_1010X10X20" title="7 / 10" class="s7" rel="nofollow"></a><a id="gdsrX1010X6X0XaXarticle_rater_1010Xarticle_loader_1010X10X20" title="6 / 10" class="s6" rel="nofollow"></a><a id="gdsrX1010X5X0XaXarticle_rater_1010Xarticle_loader_1010X10X20" title="5 / 10" class="s5" rel="nofollow"></a><a id="gdsrX1010X4X0XaXarticle_rater_1010Xarticle_loader_1010X10X20" title="4 / 10" class="s4" rel="nofollow"></a><a id="gdsrX1010X3X0XaXarticle_rater_1010Xarticle_loader_1010X10X20" title="3 / 10" class="s3" rel="nofollow"></a><a id="gdsrX1010X2X0XaXarticle_rater_1010Xarticle_loader_1010X10X20" title="2 / 10" class="s2" rel="nofollow"></a><a id="gdsrX1010X1X0XaXarticle_rater_1010Xarticle_loader_1010X10X20" title="1 / 10" class="s1" rel="nofollow"></a></div></div></div></div><div id="article_loader_1010" style="display: none; width: 200px " class="ratingloaderarticle"><div class="loader arrows " style="height: 20px"><div class="loaderinner">please wait...</div></div></div></div><div class="ratingtext "><div id="gdr_text_a1010">Rating: 9.5/<strong>10</strong> (2 votes cast)</div></div></div><span class="hreview-aggregate" style="display: none !important;"><span class="item"><span class="fn">Another OpenWrt configuration</span></span>, <span class="rating"><span class="average">9.5</span> out of <span class="best">10</span> based on <span class="votes">2</span> ratings <span class="summary"></span></span></span>					<div class="fixed"></div>
+				</div>
+
+				<div class="comments comments_single">
+					<a href="index.html#respond">Leave a comment</a>
+									</div>
+
+				<!-- related posts START -->
+								<!-- related posts END -->
+			</div>
+
+
+<script type="text/javascript" src="../../../wp-content/themes/elegant-box/js/comment.js"></script>
+
+	<!-- comments START -->
+	<ol class="commentlist">
+			<li class="comment " id="comment-388">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/d791ebdf7911a2f8d7c907fecfd42285?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-388" href="http://www.rsti.ca" rel="external nofollow">
+											Mark Symmes											</a>
+									</div>
+				<div class="date">March 5th, 2012 at 05:05</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-388', 'comment-388', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-388', 'comment-388', 'commentbody-388', 'comment');">Quote</a> | 
+								<a href="index.html#comment-388">#1</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-388"><p>Petr,</p>
+<p>This is great!  I have installed nodogsplash just in the past few days.<br />
+It works. But I can not find a tutorial on how to add authentication other than by hard-coding a username and password into the nodogsplash.conf.<br />
+How would I integrate with a radius server or something even simpler?  Any ideas where to start?</p>
+<p>red6</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment  admincomment" id="comment-389">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/5484c0fd9f98e2ffd9212b158931bf4b?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-389" href="http://www.xvx.cz" rel="external nofollow">
+											Petr Ruzicka											</a>
+									</div>
+				<div class="date">March 5th, 2012 at 12:36</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-389', 'comment-389', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-389', 'comment-389', 'commentbody-389', 'comment');">Quote</a> | 
+								<a href="index.html#comment-389">#2</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-389"><p>Hello.<br />
+You can not use nodogsplash with radius (as far as I know). You are probably looking for coova-chilli (<a href="http://coova.org/CoovaChilli" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://coova.org']);" rel="nofollow">http://coova.org/CoovaChilli</a>) or chillispot (<a href="http://www.chillispot.info/" onclick="javascript:_gaq.push(['_trackEvent','outbound-comment','http://www.chillispot.info']);" rel="nofollow">http://www.chillispot.info/</a>). The second one is no longer developed.<br />
+I&#8217;m sure there are much more solutions, but I was playing only with coova-chilli long time ago.</p>
+<p>Regards</p>
+<p>PetrR</p>
+</div>
+		</div>
+
+</li>
+	<li class="comment " id="comment-390">
+		<div class="userinfo">
+			<div class="userpic"><img alt='' src='http://1.gravatar.com/avatar/d791ebdf7911a2f8d7c907fecfd42285?s=24&amp;d=blank&amp;r=G' class='avatar avatar-24 photo' height='24' width='24' /></div>			<div class="usertext">
+				<div class="username">
+											<a id="commentauthor-390" href="http://www.rsti.ca" rel="external nofollow">
+											Mark Symmes											</a>
+									</div>
+				<div class="date">March 5th, 2012 at 19:51</div>
+			</div>
+			<div class="count">
+									<a href="javascript:void(0);" onclick="CMT.reply('commentauthor-390', 'comment-390', 'comment');">Reply</a> | 
+								<a href="javascript:void(0);" onclick="CMT.quote('commentauthor-390', 'comment-390', 'commentbody-390', 'comment');">Quote</a> | 
+								<a href="index.html#comment-390">#3</a>
+			</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="comment_text">
+			
+			<div id="commentbody-390"><p>Thanks for the info.  I will have a look at Coova.</p>
+</div>
+		</div>
+
+</li>
+	</ol>
+	<!-- comments END -->
+
+	<!-- comments navi START -->
+		<!-- comments navi END -->
+
+	<!-- trackback START -->
+		<!-- trackback END -->
+
+
+	<div id="respond">
+	<form action="http://linux.xvx.cz/wp-comments-post.php" method="post" id="commentform">
+
+	<!-- comment info -->
+	<div id="comment_header">
+		<div id="comment_info">
+							
+				<div id="author_info">
+					<div class="row">
+						<input type="text" name="author" id="author" class="textfield" value="" size="24" tabindex="1" />
+						<label for="author" class="small">Name (required)</label>
+					</div>
+					<div class="row">
+						<input type="text" name="email" id="email" class="textfield" value="" size="24" tabindex="2" />
+						<label for="email" class="small">E-Mail (will not be published) (required)</label>
+					</div>
+					<div class="row">
+						<input type="text" name="url" id="url" class="textfield" value="" size="24" tabindex="3" />
+						<label for="url" class="small">Website</label>
+					</div>
+				</div>
+
+				
+					</div>
+	</div>
+
+	<!-- comment input -->
+	<textarea name="comment" id="comment" tabindex="4" rows="8" cols="50"></textarea>
+
+	<!-- comment submit and rss -->
+	<div id="submitbox">
+		<div id="comments_rss">
+			<a href="../../../comments/feed/index.html">
+				<span class="feed">Subscribe to comments feed</span>
+			</a>
+		</div>
+
+		<div class="act">
+							<a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display:none;">Cancel</a>						<input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit Comment" />
+		</div>
+		
+		<input type="hidden" name="comment_post_ID" value="1010" />
+					<input type='hidden' name='comment_post_ID' value='1010' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+				<div class="fixed"></div>
+	</div>
+
+		<script type='text/javascript'>
+	<!--
+	refJS = escape( document[ 'referrer' ] );
+	document.write("<input type='hidden' name='refJS' value='"+refJS+"'>");
+	// -->
+	</script>
+	<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="45201e7be2" /></p>	</form>
+	</div>
+
+	
+
+			
+
+	</div>
+
+	<!-- sidebar START -->
+<div id="sidebar">
+
+<!-- Style Switcher START -->
+<!-- Style Switcher END -->
+
+		<!-- showcase -->
+		
+		<ul id="widgets">
+
+<li class="widget widget_archive"><h3>Archives</h3>		<ul>
+			<li><a href='../../../2013/06/index.html' title='June 2013'>June 2013</a>&nbsp;(1)</li>
+	<li><a href='../index.html' title='January 2012'>January 2012</a>&nbsp;(1)</li>
+	<li><a href='../../../2011/12/index.html' title='December 2011'>December 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../2011/02/index.html' title='February 2011'>February 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../2011/01/index.html' title='January 2011'>January 2011</a>&nbsp;(1)</li>
+	<li><a href='../../../2010/12/index.html' title='December 2010'>December 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../2010/09/index.html' title='September 2010'>September 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../2010/05/index.html' title='May 2010'>May 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../2010/04/index.html' title='April 2010'>April 2010</a>&nbsp;(1)</li>
+	<li><a href='../../../2010/03/index.html' title='March 2010'>March 2010</a>&nbsp;(5)</li>
+	<li><a href='../../../2009/12/index.html' title='December 2009'>December 2009</a>&nbsp;(1)</li>
+	<li><a href='../../../2009/08/index.html' title='August 2009'>August 2009</a>&nbsp;(1)</li>
+	<li><a href='../../../2009/06/index.html' title='June 2009'>June 2009</a>&nbsp;(3)</li>
+	<li><a href='../../../2009/03/index.html' title='March 2009'>March 2009</a>&nbsp;(3)</li>
+	<li><a href='../../../2009/02/index.html' title='February 2009'>February 2009</a>&nbsp;(1)</li>
+		</ul>
+</li><li class="widget widget_polls-widget"><h3>Polls</h3><div id="polls-2" class="wp-polls">
+	<form id="polls_form_2" class="wp-polls-form" action="index.html" method="post">
+		<p style="display: none;"><input type="hidden" id="poll_2_nonce" name="wp-polls-nonce" value="72cec8fd98" /></p>
+		<p style="display: none;"><input type="hidden" name="poll_id" value="2" /></p>
+		<p style="display: none;"><input type="hidden" id="poll_multiple_ans_2" name="poll_multiple_ans_2" value="3" /></p>
+		<p style="text-align: center;"><strong>Favourite distro</strong></p><div id="polls-2-ans" class="wp-polls-ans"><ul class="wp-polls-ul">
+		<li><input type="checkbox" id="poll-answer-6" name="poll_2" value="6" /> <label for="poll-answer-6">Debian, Ubuntu</label></li>
+		<li><input type="checkbox" id="poll-answer-7" name="poll_2" value="7" /> <label for="poll-answer-7">RedHat, Fedora, CentOS</label></li>
+		<li><input type="checkbox" id="poll-answer-8" name="poll_2" value="8" /> <label for="poll-answer-8">Gentoo, Sabayon</label></li>
+		<li><input type="checkbox" id="poll-answer-9" name="poll_2" value="9" /> <label for="poll-answer-9">Arch</label></li>
+		<li><input type="checkbox" id="poll-answer-10" name="poll_2" value="10" /> <label for="poll-answer-10">Slackware</label></li>
+		<li><input type="checkbox" id="poll-answer-11" name="poll_2" value="11" /> <label for="poll-answer-11">openSUSE</label></li>
+		<li><input type="checkbox" id="poll-answer-12" name="poll_2" value="12" /> <label for="poll-answer-12">Mandriva</label></li>
+		</ul><p style="text-align: center;"><input type="button" name="vote" value="   Vote   " class="Buttons" onclick="poll_vote(2);" onkeypress="poll_result(2);" /></p><p style="text-align: center;"><a href="index.html#ViewPollResults" onclick="poll_result(2); return false;" onkeypress="poll_result(2); return false;" title="View Results Of This Poll">View Results</a></p></div>
+	</form>
+</div>
+<div id="polls-2-loading" class="wp-polls-loading"><img src="../../../wp-content/plugins/wp-polls/images/loading.gif" width="16" height="16" alt="Loading ..." title="Loading ..." class="wp-polls-image" />&nbsp;Loading ...</div>
+</li><li class="widget wassup_widget"><h3>Visitors Online</h3><ul class='links'><li><strong style='padding:0 4px 0 4px;background:#ddd;color:#777'>03</strong> visitor(s) online</li><li style='font-size:6pt; color:#bbb;'>powered by <a style='color:#777;' href='http://www.wpwp.org' title='WassUp - Real Time Visitors Tracking'>WassUp</a></li></ul></li>		</ul>
+
+		<!-- showcase 2 -->
+		
+</div>
+<!-- sidebar END -->
+
+	<div class="fixed"></div>
+
+		<div id="bottom">
+			<div class="postnav">
+				<span class="alignleft">&laquo; <a href="../../../2011/12/openwrt-backfire-10-03-and-tl-wr1043nd/index.html" rel="prev">OpenWrt (Backfire 10.03) and TL-WR1043ND</a></span>
+				<span class="alignright"><a href="../../../2013/06/last-post/index.html" rel="next">Last post</a> &raquo;</span>
+				<div class="fixed"></div>
+			</div>
+
+			<div class="anchor">
+				<span><a href="index.html#" onclick="MGJS.goTop();return false;">TOP</a></span>
+			</div>
+			<div class="fixed"></div>
+			</div>
+		<div class="fixed"></div>
+	</div>
+</div>
+
+<!-- footer START -->
+<div id="footer">
+	<div class="inner">
+		<div class="content">
+			<p id="about">
+				Copyright &copy; 2009-2013 Petr&#8217;s blog about Linux | Powered by <a href="http://wordpress.org/">WordPress</a> | Theme by <a href="http://www.neoease.com/">NeoEase</a>			</p>
+
+			<ul id="admin">
+								<li><a href="../../../wp-login.php">Log in</a></li>
+			</ul>
+
+			<div class="fixed"></div>
+		</div>
+	</div>
+</div><!-- footer END -->
+<!--[if IE]>
+<script language=javascript>
+//<![CDATA[
+	if (screen_res=="") {
+		screen_res = screen.width + " x " + screen.height;
+	}
+	if (screen_res!=" x ") {
+		var cdate = new Date();
+		cdate.setTime(cdate.getTime()+(48*60*60*1000));
+		var cexpires = cdate.toGMTString();
+		//var the_cookie = "wassup_screen_res="+escape(screen_res)+"; expires="+cexpires;
+		document.cookie = "wassup_screen_res=" + escape(screen_res)+ "; path=/; domain=" + document.domain;
+
+	}
+//]]>
+</script>
+<![endif]--><!--
+<p class="small"> WassUp 1.8.3.1 timestamp: 2013-06-22 10:00:56AM UTC (11:00AM)<br />
+If above timestamp is not current time, this page is cached.</p> -->
+<script type='text/javascript' src='http://lite.piclens.com/current/piclens_optimized.js?ver=3.5.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var pollsL10n = {"ajax_url":"http:\/\/linux.xvx.cz\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"1","show_fading":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../wp-content/plugins/wp-polls/polls-js.js?ver=2.63'></script>
+<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201325.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'6295081',v:'ext',post:'1010'});
+var load_cmc = function(){linktracker_init(6295081,1010,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+
+</body>
+</html>
